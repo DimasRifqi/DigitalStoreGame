@@ -128,6 +128,7 @@
                         <input
                           type="text"
                           id="fullname"
+                          name = "fullname"
                           class="form-control form-control-lg"
                         />
                       </div>
@@ -141,6 +142,7 @@
                         <input
                           type="email"
                           id="email"
+                          name = "email"
                           class="form-control form-control-lg"
                         />
                       </div>
@@ -154,6 +156,7 @@
                         <input
                           type="text"
                           id="phone"
+                          name = "phone"
                           class="form-control form-control-lg"
                         />
                       </div>
@@ -167,6 +170,7 @@
                         <input
                           type="password"
                           id="password"
+                          name = "password"
                           class="form-control form-control-lg"
                         />
                       </div>
