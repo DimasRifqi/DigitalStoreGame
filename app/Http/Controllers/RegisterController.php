@@ -25,7 +25,6 @@ class RegisterController extends Controller
         ]);
         
 
-
         $user = User::create([
             'fullname' => $request->fullname,
             'phone'  => $request->phone,
@@ -33,7 +32,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/index')->with('success', 'Registration successful!');
+        return redirect('/dashboard')->with('success', 'Registration successful!');
 
 
     }
