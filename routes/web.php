@@ -45,7 +45,7 @@ Route::get('/datatablepaymenmobile', [Controller::class, 'paymentmblctrl'])->nam
 Route::get('/datatablepaymentpc', [Controller::class, 'paymentpcctrl'])->name('datatablepaymentpc');
 Route::get('/datatabletestimonial', [Controller::class, 'testictrl'])->name('datatabletestimonial');
 
-Route::get('/signup', [RegisterController::class, 'show'])->middleware('guest');
+Route::get('/signup', [RegisterController::class, 'show'])->name('signup');
 Route::post('/signup', [RegisterController::class, 'store'])->name('user.store');
 
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
