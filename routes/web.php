@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
@@ -48,13 +49,8 @@ Route::get('/signup', [RegisterController::class, 'show'])->middleware('guest');
 Route::post('/signup', [RegisterController::class, 'store'])->name('user.store');
 
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
-Route::post('/login', [Controller::class, 'loginctrl'])->name('login');
-// routes/web.php
+Route::post('/login', [LoginController::class, 'loginform'])->name('login.form');
 
-// Route::get('/register', 'Controller\RegisterController@showRegistrationForm')->name('register');
-
-
-// Route::get('/register', 'RegisterController@login');
 
 // Contoh route yang memerlukan otentikasi
 Route::middleware(['auth'])->group(function () {

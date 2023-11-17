@@ -100,8 +100,8 @@
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form>
-                      <form class="d-flex" role="button">
+                    <form method="POST" action="{{ route('login.form') }}">
+                      @csrf
                         <a href="{{ url('index') }}">
                           <button
                             class="btn btn-primary btn-outline-light text-capitalize"
@@ -133,6 +133,7 @@
                         <input
                           type="email"
                           id="email"
+                          name = "email"
                           class="form-control form-control-lg"
                         />
                       </div>
@@ -144,6 +145,7 @@
                         <input
                           type="password"
                           id="password"
+                          name = "password"
                           class="form-control form-control-lg"
                         />
                       </div>
@@ -151,7 +153,7 @@
                       <div class="pt-1 mb-4">
                         <button
                           class="btn btn-login btn-primary btn-lg btn-block text-capitalize"
-                          type="button"
+                          type="submit"
                         >
                           login
                         </button>
