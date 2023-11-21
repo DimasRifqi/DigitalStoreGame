@@ -119,71 +119,113 @@
                           ><u>register</u></span
                         >
                       </div>
-                      <div class="form-outline mb-1">
-                        <label
-                          class="form-label text-capitalize"
-                          for="fullname"
-                          >fullname</label
-                        >
-                        <input
-                          type="text"
-                          id="fullname"
-                          name = "fullname"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
 
-                      <div class="form-outline mb-1">
-                        <label
-                          class="form-label text-capitalize"
-                          for="email"
-                          >email address</label
-                        >
-                        <input
-                          type="email"
-                          id="email"
-                          name = "email"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
+                      <div class="form-floating mb-4 ">
+                          <input
+                            type="text"
+                            class="form-control @error('fullname')is-invalid  @enderror " value="{{ old('fullname') }}"
+                            id="fullname"
+                            name="fullname"
+                            placeholder="fullname"/>
 
-                      <div class="form-outline mb-1">
-                        <label
-                          class="form-label text-capitalize"
-                          for="phone"
-                          >phone number</label
-                        >
-                        <input
-                          type="text"
-                          id="phone"
-                          name = "phone"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
+                            @error('fullname')
+                            
+                              <div class="invalid-feedback">
+                                {{ $message }}  
+                              </div> 
 
-                      <div class="form-outline mb-1">
-                        <label
-                          class="form-label text-capitalize"
-                          for="password"
-                          >password</label
-                        >
-                        <input
-                          type="password"
-                          id="password"
-                          name = "password"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
+                            @enderror
+
+                          <label for="name">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-4 ">
+                          <input
+                            type="email"
+                            class="form-control @error('email')is-invalid  @enderror " value="{{ old('email') }}"
+                            id="email"
+                            name="email"
+                            placeholder="email"/>
+
+                            @error('email')
+                            
+                              <div class="invalid-feedback">
+                                {{ $message }}  
+                              </div> 
+
+                            @enderror
+
+                          <label for="name">Email Address </label>
+                        </div>
+
+                      <div class="form-floating mb-4 ">
+                          <input
+                            type="tel"
+                            class="form-control @error('phone')is-invalid  @enderror " value="{{ old('phone') }}"
+                            id="phone"
+                            name="phone"
+                            placeholder="phone"  required/>
+
+                            @error('phone')
+                            
+                              <div class="invalid-feedback">
+                                {{ $message }}  
+                              </div> 
+
+                            @enderror
+
+                          <label for="name">Phone Number</label>
+                        </div>
+
+                        <div class="form-floating mb-2 ">
+                          <input
+                            type="password"
+                            class="form-control @error('password')is-invalid  @enderror " value="{{ old('password') }}"
+                            id="password"
+                            name="password"
+                            placeholder="password"/>
+
+                            @error('password')
+                            
+                              <div class="invalid-feedback">
+                                {{ $message }}  
+                              </div> 
+
+                            @enderror
+
+                          <label for="name">Password</label>
+                        </div>
 
                       <div class="pt-1 mb-1">
                         <button
-                          class="btn btn-primary btn-lg btn-block text-capitalize"
-                          type="submit"
-                        >
+                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
                           register
                         </button>
 
                       </div>
+
+                      <script>
+                          function validatePhone() {
+                              var phoneInput = document.getElementById('phone');
+                              var phoneError = document.getElementById('phone');
+                              
+                              // Mengambil nilai panjang nomor telepon
+                              var phoneLength = phoneInput.value.length;
+
+                              // Menetapkan panjang minimal dan maksimal yang diinginkan
+                              var minLength = 11;
+                              var maxLength = 12;
+
+                              // Validasi panjang nomor telepon
+                              if (phoneLength < minLength || phoneLength > maxLength) {
+                                  phoneError.textContent = 'Panjang nomor telepon harus antara ' + minLength + ' dan ' + maxLength + ' digit.';
+                                  return false;
+                              } else {
+                                  phoneError.textContent = '';
+                                  return true;
+                              }
+                          }
+                      </script>
 
                       <p class="mt-4 mb-1 pb-lg-2 text-black">
                         Already have an account?

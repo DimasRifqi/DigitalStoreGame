@@ -119,22 +119,34 @@
           </div>
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
-          <a href="{{ url('contactlogged') }}" class="nav-item nav-link active"
-            >Contact</a
-          >
+          <a href="{{ url('contactlogged') }}" class="nav-item nav-link active">Contact</a>
+          
           <div class="btn-group px-1">
-            <button
-              type="button"
-              class="btn btn-primary dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              User Accounts
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
-              <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
-            </ul>
-          </div>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        User Accounts
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
+                        <li>
+                            <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+                <script>
+                    document.getElementById('logout-form').addEventListener('submit', function(event) {
+                        // Pastikan Anda mengkonfirmasi logout jika diperlukan
+                        var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+                        
+                        // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
+                        if (!confirmLogout) {
+                            event.preventDefault();
+                        }
+                    });
+                </script>
         </div>
       </div>
     </nav>

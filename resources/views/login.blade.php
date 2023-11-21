@@ -126,29 +126,34 @@
                         Sign into your account
                       </h5>
 
-                      <div class="form-outline mb-4">
-                        <label class="form-label text-capitalize" for="email"
-                          >email</label
-                        >
-                        <input
-                          type="email"
-                          id="email"
-                          name = "email"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
+                      <div class="form-floating mb-4">
+                          <input
+                            type="email"
+                            class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                            id="email"
+                            name="email"
+                            placeholder="Email"/>
 
-                      <div class="form-outline mb-4">
-                        <label class="form-label text-capitalize" for="password"
-                          >password</label
-                        >
-                        <input
-                          type="password"
-                          id="password"
-                          name = "password"
-                          class="form-control form-control-lg"
-                        />
-                      </div>
+                            @error('email')
+                            
+                              <div class="invalid-feedback">
+                                {{ $message }}  
+                              </div> 
+
+                            @enderror
+
+                          <label for="name">Email</label>
+                        </div>
+
+                        <div class="form-floating mb-2">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Password"/>
+                          <label for="name">Password</label>
+                        </div>
 
                       <div class="pt-1 mb-4">
                         <button
@@ -331,69 +336,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 
-    {{-- <script>
-      $(document).ready(function () {
-        $(".btn-login").click(function () {
-          var email = $("#email").val();
-          var password = $("#password").val();
-
-          if (email.length == "") {
-            Swal.fire({
-              type: "warning",
-              title: "Oops...",
-              text: "Email Wajib Diisi !",
-            });
-          } else if (password.length == "") {
-            Swal.fire({
-              type: "warning",
-              title: "Oops...",
-              text: "Password Wajib Diisi !",
-            });
-          } else {
-            $.ajax({
-              url: "cek-login.php",
-              type: "POST",
-              data: {
-                email: email,
-                password: password,
-              },
-
-              success: function (response) {
-                if (response == "success") {
-                  Swal.fire({
-                    type: "success",
-                    title: "Login Berhasil!",
-                    text: "Anda akan di arahkan dalam 3 Detik",
-                    timer: 3000,
-                    showCancelButton: false,
-                    showConfirmButton: false,
-                  }).then(function () {
-                    window.location.href = "{{ url('index') }}";
-                  });
-                } else {
-                  Swal.fire({
-                    type: "error",
-                    title: "Login Gagal!",
-                    text: "silahkan coba lagi!",
-                  });
-                }
-
-                console.log(response);
-              },
-
-              error: function (response) {
-                Swal.fire({
-                  type: "error",
-                  title: "Opps!",
-                  text: "server error!",
-                });
-
-                console.log(response);
-              },
-            });
-          }
-        });
-      });
-    </script> --}}
+    
   </body>
 </html>

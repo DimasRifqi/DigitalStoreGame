@@ -2,25 +2,6 @@
 <html lang="en">
 <head>
 
-    <script>
-        function showHint(str) {
-            if (str.length == 0) {
-                document.getElementById("txtHint").innerHTML = "";
-                return;
-            } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET", "gethint.php?q=" + str, true);
-                xmlhttp.send();
-            }
-        }
-    </script>
-
-
     <meta charset="utf-8">
     <title>Digital Store - Landing Page</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -91,31 +72,34 @@
                 <a href="{{ url('dashboard') }}" class="nav-item nav-link active">Dashboard</a>
                 <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
                 <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
-                <!-- <a href="{{ url('login') }}" class="nav-item btn btn-primary py-4 px-lg-5 d-lg-block">LOGIN</a> -->
-                <!-- <div class="dropdown mt-3 h-25">
-                    <button
-                      class="btn btn-primary dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Settings
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="#">Setting</a></li>
-                      <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
-                    </ul>
-                </div> -->
+               
                 <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                         User Accounts
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
-                      <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
+                        <li>
+                            <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
+
+                <script>
+                    document.getElementById('logout-form').addEventListener('submit', function(event) {
+                        // Pastikan Anda mengkonfirmasi logout jika diperlukan
+                        var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+                        
+                        // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
+                        if (!confirmLogout) {
+                            event.preventDefault();
+                        }
+                    });
+                </script>
+
             </div>
         </div>
     </nav>
@@ -275,21 +259,6 @@
       </section>
       <!-- Popular Game End -->
 
-    <!-- Carousel Start -->
-    <!-- <div class="container-fluid p-0 pb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/pamflet 1 1.png" alt="">
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/Pamflet 2 1.png" alt="">
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/Pamflet 3 1.png" alt="">
-            </div>
-        </div>
-    </div> -->
-    <!-- Carousel End -->
 
 
     <!-- Top Up Mobile Start -->
@@ -308,7 +277,7 @@
                             <h4 class="mb-3">Genshin Impact</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="{{ url('topuGI') }}">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -322,7 +291,7 @@
                             <h4 class="mb-3">Honkai Star Rail</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -336,7 +305,7 @@
                             <h4 class="mb-3">Mobile Legend</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -350,7 +319,7 @@
                             <h4 class="mb-3">Call Of Duty Mobile</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -364,7 +333,7 @@
                             <h4 class="mb-3">PUBGM</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -378,7 +347,7 @@
                             <h4 class="mb-3">Free Fire</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -392,7 +361,7 @@
                             <h4 class="mb-3">Arena of Valor</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -406,7 +375,7 @@
                             <h4 class="mb-3">Clash of Clans</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                             <!-- <a class="fw-medium" href="">TOP UP<i class="fa fa-arrow-right ms-2"></i></a> -->
                         </div>
@@ -434,7 +403,7 @@
                             <h4 class="mb-3">Genshin Impact</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -448,7 +417,7 @@
                             <h4 class="mb-3">Honkai Star Rail</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -462,7 +431,7 @@
                             <h4 class="mb-3">Mobile Legend</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -476,7 +445,7 @@
                             <h4 class="mb-3">Call Of Duty Mobile</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -490,7 +459,7 @@
                             <h4 class="mb-3">PUBGM</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                             <!-- <a class="fw-medium" href="">TOP UP<i class="fa fa-arrow-right ms-2"></i></a> -->
                         </div>
@@ -505,7 +474,7 @@
                             <h4 class="mb-3">Free Fire</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -519,7 +488,7 @@
                             <h4 class="mb-3">Arena of Valor</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -533,7 +502,7 @@
                             <h4 class="mb-3">Clash of Clans</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topuGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>

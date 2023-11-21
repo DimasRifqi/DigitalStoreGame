@@ -117,38 +117,36 @@
               </button>
             </div>
           </div>
-          <a href="dashboard.html" class="nav-item nav-link">Dashboard</a>
-          <a href="aboutlogged.html" class="nav-item nav-link active">About</a>
-          <a href="contactlogged.html" class="nav-item nav-link">Contact</a>
-          <!-- <a href="login.html" class="nav-item btn btn-primary py-4 px-lg-5 d-lg-block">LOGIN</a> -->
-          <!-- <div class="dropdown mt-3 h-25">
-                  <button
-                    class="btn btn-primary dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Settings
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Setting</a></li>
-                    <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
-                  </ul>
-              </div> -->
+          <a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
+          <a href="{{ url('aboutlogged') }}" class="nav-item nav-link active">About</a>
+          <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
+          
           <div class="btn-group px-1">
-            <button
-              type="button"
-              class="btn btn-primary dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              User Accounts
-            </button>
-            <ul class="dropdown-menu dropdown-menu-lg-0">
-              <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
-              <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
-            </ul>
-          </div>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        User Accounts
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
+                        <li>
+                            <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+                <script>
+                    document.getElementById('logout-form').addEventListener('submit', function(event) {
+                        // Pastikan Anda mengkonfirmasi logout jika diperlukan
+                        var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+                        
+                        // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
+                        if (!confirmLogout) {
+                            event.preventDefault();
+                        }
+                    });
+                </script>
         </div>
       </div>
     </nav>
@@ -185,7 +183,7 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item">
               <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/team-1.jpg" alt="" />
+                <img class="img-fluid" src="img/ryan.jpg" alt="" />
                 <div class="team-social">
                   <a class="btn btn-square" href=""
                     ><i class="fab fa-facebook-f"></i
@@ -209,7 +207,7 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="team-item">
               <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/team-2.jpg" alt="" />
+                <img class="img-fluid" src="img/ryan.jpg" alt="" />
                 <div class="team-social">
                   <a class="btn btn-square" href=""
                     ><i class="fab fa-facebook-f"></i
@@ -233,7 +231,7 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
             <div class="team-item">
               <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/team-3.jpg" alt="" />
+                <img class="img-fluid" src="img/ryan.jpg" alt="" />
                 <div class="team-social">
                   <a class="btn btn-square" href=""
                     ><i class="fab fa-facebook-f"></i

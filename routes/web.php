@@ -52,8 +52,4 @@ Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::post('/login', [LoginController::class, 'loginform'])->name('login.form');
 
 
-// Contoh route yang memerlukan otentikasi
-Route::middleware(['auth'])->group(function () {
-    // Rute-rute yang memerlukan otentikasi
-
-});
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

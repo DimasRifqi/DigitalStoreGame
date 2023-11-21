@@ -5,7 +5,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-
 class RegisterController extends Controller
 {
     public function show()
@@ -18,7 +17,7 @@ class RegisterController extends Controller
         
         $data = $request->validate([
             'fullname' => 'required|max:255',
-            'phone'  => ['required', 'min:3', 'max:20'],
+            'phone'  => ['required', 'regex:/^[0-9]{11,12}$/','unique:users'],
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max:255',
 
@@ -37,5 +36,6 @@ class RegisterController extends Controller
 
     }
 
+   
 
 }
