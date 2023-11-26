@@ -25,8 +25,6 @@ class LoginController extends Controller
             return back ()->with('error','Kamu gagal Login');
         }
 
-        
-
 
     }
 

@@ -183,7 +183,7 @@
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item">
               <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/ryan.jpg" alt="" />
+                <img class="img-fluid" src="img/dimas.jpg" alt="" />
                 <div class="team-social">
                   <a class="btn btn-square" href=""
                     ><i class="fab fa-facebook-f"></i
@@ -199,8 +199,8 @@
               <div
                 class="text-center border border-5 border-light border-top-0 p-4"
               >
-                <h5 class="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 class="mb-0">Dimas Rifqi Ramadhani</h5>
+                <small>Font-End & Back-End</small>
               </div>
             </div>
           </div>
@@ -223,15 +223,15 @@
               <div
                 class="text-center border border-5 border-light border-top-0 p-4"
               >
-                <h5 class="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 class="mb-0">Ryan Gading Abdullah</h5>
+                <small>Front-End</small>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
             <div class="team-item">
               <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/ryan.jpg" alt="" />
+                <img class="img-fluid" src="img/nanda1.jpg" alt="" />
                 <div class="team-social">
                   <a class="btn btn-square" href=""
                     ><i class="fab fa-facebook-f"></i
@@ -247,8 +247,8 @@
               <div
                 class="text-center border border-5 border-light border-top-0 p-4"
               >
-                <h5 class="mb-0">Full Name</h5>
-                <small>Designation</small>
+                <h5 class="mb-0">Handi Firstyanda Resi Wibowo</h5>
+                <small>Back-End</small>
               </div>
             </div>
           </div>

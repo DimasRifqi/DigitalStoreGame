@@ -277,7 +277,7 @@
                             <h4 class="mb-3">Genshin Impact</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="{{ url('topuGI') }}">TOP UP</a></button> -->
-                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ route('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -291,7 +291,7 @@
                             <h4 class="mb-3">Honkai Star Rail</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ route('topupHSR') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -305,7 +305,7 @@
                             <h4 class="mb-3">Mobile Legend</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ route('topupML') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -313,13 +313,13 @@
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/CODM.png" alt="">
+                            <img class="img-fluid" src="img/TOFTopUP/logoTOF.png" alt="">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Call Of Duty Mobile</h4>
+                            <h4 class="mb-3">Tower Of Fantasy</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
-                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
+                                <a href="{{ route('topupTOF') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>

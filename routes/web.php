@@ -27,7 +27,6 @@ Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
 Route::get('/contact', [Controller::class, 'contactctrl'])->name('contact');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::get('/index', [Controller::class, 'indexctrl'])->name('index');
-Route::get('/topupGI', [Controller::class, 'topupctrl'])->name('topupGI');
 Route::get('/aboutlogged', [Controller::class, 'aboutlogctrl'])->name('aboutlogged');
 Route::get('/contactlogged', [Controller::class, 'contactlogctrl'])->name('contactlogged');
 Route::get('/invoice2', [Controller::class, 'invoice2ctrl'])->name('invoice2');
@@ -45,11 +44,15 @@ Route::get('/datatablepaymenmobile', [Controller::class, 'paymentmblctrl'])->nam
 Route::get('/datatablepaymentpc', [Controller::class, 'paymentpcctrl'])->name('datatablepaymentpc');
 Route::get('/datatabletestimonial', [Controller::class, 'testictrl'])->name('datatabletestimonial');
 
+//register login logout
 Route::get('/signup', [RegisterController::class, 'show'])->name('signup');
 Route::post('/signup', [RegisterController::class, 'store'])->name('user.store');
-
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::post('/login', [LoginController::class, 'loginform'])->name('login.form');
-
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//TopUP
+Route::get('/topupGI', [Controller::class, 'topupGIctrl'])->name('topupGI');
+Route::get('/topupHSR', [Controller::class, 'topupHSRctrl'])->name('topupHSR');
+Route::get('/topupML', [Controller::class, 'topupMLctrl'])->name('topupML');
+Route::get('/topupTOF', [Controller::class, 'topupTOFctrl'])->name('topupTOF');
