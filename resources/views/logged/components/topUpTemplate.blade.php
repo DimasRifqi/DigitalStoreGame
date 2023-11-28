@@ -67,6 +67,7 @@
   </head>
 
   <body>
+
     <!-- Spinner Start -->
     <div
       id="spinner"
@@ -172,8 +173,10 @@
               </div>
               <div class="col-lg-7 text-start wow fadeInUp " data-wow-delay="0.1s">
                 <div class="text-start mb-3 pb-3">
-                  <form>
-                    <div class="row g-1">
+                    @yield('form')
+                    {{-- {{ $server }} --}}
+
+                    {{-- <div class="row g-1">
                       <div class="col-md-6">
                         <div class="form-floating">
                           <input
@@ -193,15 +196,15 @@
                             placeholder="Masukkan Server"/>
                           <label for="name">Masukkan Server</label>
                         </div>
-                        {{-- <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;">
+                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;">
                           <option selected>Choose Server:</option>
                           <option value="1">USA</option>
                           <option value="2">Europe</option>
                           <option value="3">Asia</option>
-                        </select> --}}
+                        </select>
                       </div>
-                    </div>
-                  </form>
+                    </div> --}}
+
                 </div>
               </div>
               <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">

@@ -1,6 +1,8 @@
-<div class="text-start mb-3 pb-3">
-    <form>
-      <div class="row g-1">
+@extends ('/logged.components.topUpTemplate')
+
+@section('form')
+<form action="">
+    <div class="row g-1">
         <div class="col-md-6">
           <div class="form-floating">
             <input
@@ -28,5 +30,7 @@
           </select> --}}
         </div>
       </div>
-    </form>
-  </div>
+</form>
+@endsection
+
+

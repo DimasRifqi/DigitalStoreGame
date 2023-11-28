@@ -32,11 +32,18 @@ class Controller extends BaseController
 
     public function topupGIctrl()
     {
-        //$topupGameData = @include ('topupgame') ;
 
-        return view('topupGI', [
+        // $serverOptions = [
+        //     'asia' => 'Asia',
+        //     'europe' => 'Eropa',
+        //     'america' => 'Amerika',
+        // ];
+
+
+        //$topupGameData = @yield('form') ;
+        return view('/logged/topUpGiPage', [
             "name" => "Genshin Impact",
-            //"server" => $topupGameData,
+            //"server" => $serverOptions,
             "logo" => "img/GITopUp/genshin.png",
             "welkin" => "Welkin",
             "genesis" => "Genesis",
@@ -86,7 +93,7 @@ class Controller extends BaseController
 
     public function topupHSRctrl()
     {
-        return view('topupGI', [
+        return view('/logged/topUpGiPage', [
             "name" => "Honkai Stair Rail",
             "logo" => "img/HSRTopUp/hsr.png",
             "welkin" => "Expess Suplly Pass",
@@ -139,7 +146,7 @@ class Controller extends BaseController
     public function topupMLctrl()
     {
 
-        return view('topupGI', [
+        return view('/logged/topUpGiPage', [
             "name" => "Mobile Legend",
             "logo" => "img/MLTopUp/ml.png",
             "welkin" => "Weekly Diamond Pass",
@@ -150,7 +157,7 @@ class Controller extends BaseController
             "foto3" => "img/MLTopUp/Rectangle 59.png",
             "foto4" => "img/MLTopUp/Rectangle 60.png",
             "foto5" => "img/MLTopUp/Rectangle 61.png",
-            "foto6" => "img/MLTopUp/Rectangle 63.png",
+            "foto6" => "img/MLTopUp/Rectangle 62.png",
             "foto7" => "img/MLTopUp/Rectangle 56.png",
             "foto8" => "img/MLTopUp/Rectangle 56.png",
             "foto9" => "img/MLTopUp/Rectangle 56.png",
@@ -163,7 +170,7 @@ class Controller extends BaseController
             "item6" => "5000+1000 Diamonds",
             "item7" => "1x Weekly Diamond Pass",
             "item8" => "2x Weekly Diamond Pass",
-            "item9" => "2x Weekly Diamond Pass",
+            "item9" => "3x Weekly Diamond Pass",
 
             "promo1" => "Rp.80.000",
             "promo2" => "Rp.155.000",
@@ -191,7 +198,7 @@ class Controller extends BaseController
     public function topupTOFctrl()
     {
 
-        return view('topupGI', [
+        return view('/logged/topUpGiPage', [
             "name" => "Tower Of Fantasy",
             "logo" => "img/TOFTopUp/logoTOF.png",
             "welkin" => "Monthly & Pack",
@@ -242,34 +249,34 @@ class Controller extends BaseController
 
     public function aboutlogctrl()
     {
-        return view('aboutlogged');
+        return view('/logged/aboutlogged');
     }
 
     public function contactlogctrl()
     {
-        return view('contactlogged');
+        return view('/logged/contactlogged');
     }
 
     public function invoice2ctrl()
     {
-        return view('invoice2');
+        return view('/logged/invoice2');
     }
 
     public function widgetctrl()
     {
-        return view('widget');
+        return view('/admin/widget');
     }
 
 
     public function testi_up_ctrl()
     {
-        return view('testimonialupdate');
+        return view('/admin/testimonialupdate');
     }
 
 
     public function testi_add_ctrl()
     {
-        return view('testimonialadd');
+        return view('/admin/testimonialadd');
     }
 
     // public function signupctrl()
@@ -279,51 +286,51 @@ class Controller extends BaseController
 
     public function signadmctrl()
     {
-        return view('signupadmin');
+        return view('/admin/signupadmin');
     }
 
     public function dashboardctrl()
     {
-        return view('dashboard');
+        return view('/logged/dashboard');
     }
 
     public function dashminctrl()
     {
-        return view('dashboardadmin');
+        return view('/admin/dashboardadmin');
     }
 
     public function settingctrl()
     {
-        return view('setting');
+        return view('/logged/setting');
     }
 
     public function signinadmctrl()
     {
-        return view('signinadmin');
+        return view('/admin/signinadmin');
     }
 
     public function datamembctrl()
     {
-        return view('datatablemember');
+        return view('/admin/datatablemember');
     }
 
     public function paymentallctrl()
     {
-        return view('datatablepaymentall');
+        return view('/admin/datatablepaymentall');
     }
 
     public function paymentmblctrl()
     {
-        return view('datatablepaymentmobile');
+        return view('/admin/datatablepaymentmobile');
     }
 
     public function paymentpcctrl()
     {
-        return view('datatablepaymentpc');
+        return view('/admin/datatablepaymentpc');
     }
 
     public function testictrl()
     {
-        return view('datatabletestimonial');
+        return view('/admin/datatabletestimonial');
     }
 }
