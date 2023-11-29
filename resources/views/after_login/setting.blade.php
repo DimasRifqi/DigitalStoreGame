@@ -135,27 +135,11 @@
               </button>
             </div>
           </div>
-          <a href="{{ url('dashboard') }}" class="nav-item nav-link active"
+          <a href="{{ url('dashboard') }}" class="nav-item nav-link"
             >Dashboard</a
           >
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
-          <!-- <a href="{{ url('login') }}" class="nav-item btn btn-primary py-4 px-lg-5 d-lg-block">LOGIN</a> -->
-          <!-- <div class="dropdown mt-3 h-25">
-                    <button
-                      class="btn btn-primary dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Settings
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="#">Setting</a></li>
-                      <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
-                    </ul>
-                </div> -->
           <div class="btn-group px-1">
             <button
               type="button"
@@ -165,7 +149,7 @@
               User Accounts
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
+              <li><a class="dropdown-item active" href="{{ url('setting') }}">Setting</a></li>
               <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
             </ul>
           </div>
@@ -174,11 +158,133 @@
     </nav>
     <!-- Navbar End -->
 
-    <section></section>
+    <section
+      class="vh-100"
+      style="background: url(img/bgGambar.png); background-size: cover"
+    >
+      <div class="container py-5 h-0">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-10">
+            <div class="card" style="border-radius: 1rem">
+              <div class="row g-0">
+                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                  <img
+                    src="img/logosetting.png"
+                    alt="update form"
+                    class="img-fluid"
+                    style="border-radius: 1rem 0 0 1rem; margin: 35% 5%"
+                  />
+                </div>
+                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body p-4 p-lg-5 text-black">
+                    <form method="POST" action="{{ route('user.store') }}">
+                        @csrf
+
+
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <img src="img/logo.png" class="fa-2x me-3" />
+                        <span class="h1 fw-bold mb-0 text-uppercase"
+                          ><u>Update</u></span
+                        >
+                      </div>
+
+                      <div class="form-floating mb-4 ">
+                          <input
+                            type="text"
+                            class="form-control @error('fullname')is-invalid  @enderror " value="{{ old('fullname') }}"
+                            id="fullname"
+                            name="fullname"
+                            placeholder="fullname"/>
+
+                            @error('fullname')
+
+                              <div class="invalid-feedback">
+                                {{ $message }}
+                              </div>
+
+                            @enderror
+
+                          <label for="name">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-4 ">
+                          <input
+                            type="email"
+                            class="form-control @error('email')is-invalid  @enderror " value="{{ old('email') }}"
+                            id="email"
+                            name="email"
+                            placeholder="email"/>
+
+                            @error('email')
+
+                              <div class="invalid-feedback">
+                                {{ $message }}
+                              </div>
+
+                            @enderror
+
+                          <label for="name">Email Address </label>
+                        </div>
+
+                      <div class="form-floating mb-4 ">
+                          <input
+                            type="tel"
+                            class="form-control @error('phone')is-invalid  @enderror " value="{{ old('phone') }}"
+                            id="phone"
+                            name="phone"
+                            placeholder="phone"  required/>
+
+                            @error('phone')
+
+                              <div class="invalid-feedback">
+                                {{ $message }}
+                              </div>
+
+                            @enderror
+
+                          <label for="name">Phone Number</label>
+                        </div>
+
+                        <div class="form-floating mb-2 ">
+                          <input
+                            type="password"
+                            class="form-control @error('password')is-invalid  @enderror " value="{{ old('password') }}"
+                            id="password"
+                            name="password"
+                            placeholder="password"/>
+
+                            @error('password')
+
+                              <div class="invalid-feedback">
+                                {{ $message }}
+                              </div>
+
+                            @enderror
+
+                          <label for="name">Password</label>
+                        </div>
+
+                      <div class="pt-1 mb-1">
+                        <button
+                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
+                          Update
+                        </button>
+
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer Start -->
     <div
-      class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn"
+      class="container-fluid bg-dark text-light footer wow fadeIn"
       data-wow-delay="0.1s"
     >
       <div class="container py-5">
@@ -279,8 +385,8 @@
           </div>
           <div class="col-lg-3 col-md-8">
             <h4 class="text-light mb-4">Quick Links</h4>
-            <a class="btn btn-link" href="">About Us</a>
-            <a class="btn btn-link" href="">Contact Us</a>
+            <a class="btn btn-link" href="{{ url('aboutlogged') }}">About Us</a>
+            <a class="btn btn-link" href="{{ url('contactlogged') }}">Contact Us</a>
           </div>
         </div>
       </div>

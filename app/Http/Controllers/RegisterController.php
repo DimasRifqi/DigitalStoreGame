@@ -9,12 +9,12 @@ class RegisterController extends Controller
 {
     public function show()
     {
-        return view('signup');
+        return view('/before_login/signup');
     }
 
     public function store(Request $request)
     {
-        
+
         $data = $request->validate([
             'fullname' => 'required|max:255',
             'phone'  => ['required', 'regex:/^[0-9]{11,12}$/','unique:users'],
@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
 
         ]);
-        
+
 
         $user = User::create([
             'fullname' => $request->fullname,
@@ -36,6 +36,6 @@ class RegisterController extends Controller
 
     }
 
-   
+
 
 }

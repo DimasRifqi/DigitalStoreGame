@@ -72,7 +72,7 @@
                 <a href="{{ url('dashboard') }}" class="nav-item nav-link active">Dashboard</a>
                 <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
                 <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
-               
+
                 <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                         User Accounts
@@ -92,7 +92,7 @@
                     document.getElementById('logout-form').addEventListener('submit', function(event) {
                         // Pastikan Anda mengkonfirmasi logout jika diperlukan
                         var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
-                        
+
                         // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
                         if (!confirmLogout) {
                             event.preventDefault();
@@ -249,6 +249,38 @@
                             <div class="border border-5 border-light border-top-0 p-4">
                                 <p class="text-primary fw-medium mb-2">Game PC</p>
                                 <h5 class="lh-base mb-0">Conter Strike 2</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/gipc.png" alt="">
+                                <div class="portfolio-overlay">
+                                    <a class="btn btn-square btn-outline-light mx-1" href="img/gipc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="border border-5 border-light border-top-0 p-4">
+                                <p class="text-primary fw-medium mb-2">Game PC</p>
+                                <h5 class="lh-base mb-0">Genshin Impact</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/hsrpc.png" alt="">
+                                <div class="portfolio-overlay">
+                                    <a class="btn btn-square btn-outline-light mx-1" href="img/hsrpc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="border border-5 border-light border-top-0 p-4">
+                                <p class="text-primary fw-medium mb-2">Game PC</p>
+                                <h5 class="lh-base mb-0">Honkai Stair Rail</a>
                             </div>
                         </div>
                     </div>

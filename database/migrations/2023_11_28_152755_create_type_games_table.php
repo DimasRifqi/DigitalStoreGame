@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('type_games', function (Blueprint $table) {
+            $table->id('idtypegame');
+            $table->string('tipegame');
+            $table->string('namagame');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('type_games');
     }
 };

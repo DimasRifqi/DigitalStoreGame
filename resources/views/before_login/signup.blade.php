@@ -102,7 +102,7 @@
                   <div class="card-body p-4 p-lg-5 text-black">
                     <form method="POST" action="{{ route('user.store') }}">
                         @csrf
-                     
+
                         <a href="{{ url('index') }}">
                           <button
                             class="btn btn-primary btn-outline-light text-capitalize"
@@ -129,10 +129,10 @@
                             placeholder="fullname"/>
 
                             @error('fullname')
-                            
+
                               <div class="invalid-feedback">
-                                {{ $message }}  
-                              </div> 
+                                {{ $message }}
+                              </div>
 
                             @enderror
 
@@ -148,10 +148,10 @@
                             placeholder="email"/>
 
                             @error('email')
-                            
+
                               <div class="invalid-feedback">
-                                {{ $message }}  
-                              </div> 
+                                {{ $message }}
+                              </div>
 
                             @enderror
 
@@ -167,10 +167,10 @@
                             placeholder="phone"  required/>
 
                             @error('phone')
-                            
+
                               <div class="invalid-feedback">
-                                {{ $message }}  
-                              </div> 
+                                {{ $message }}
+                              </div>
 
                             @enderror
 
@@ -186,10 +186,10 @@
                             placeholder="password"/>
 
                             @error('password')
-                            
+
                               <div class="invalid-feedback">
-                                {{ $message }}  
-                              </div> 
+                                {{ $message }}
+                              </div>
 
                             @enderror
 
@@ -203,29 +203,6 @@
                         </button>
 
                       </div>
-
-                      <script>
-                          function validatePhone() {
-                              var phoneInput = document.getElementById('phone');
-                              var phoneError = document.getElementById('phone');
-                              
-                              // Mengambil nilai panjang nomor telepon
-                              var phoneLength = phoneInput.value.length;
-
-                              // Menetapkan panjang minimal dan maksimal yang diinginkan
-                              var minLength = 11;
-                              var maxLength = 12;
-
-                              // Validasi panjang nomor telepon
-                              if (phoneLength < minLength || phoneLength > maxLength) {
-                                  phoneError.textContent = 'Panjang nomor telepon harus antara ' + minLength + ' dan ' + maxLength + ' digit.';
-                                  return false;
-                              } else {
-                                  phoneError.textContent = '';
-                                  return true;
-                              }
-                          }
-                      </script>
 
                       <p class="mt-4 mb-1 pb-lg-2 text-black">
                         Already have an account?

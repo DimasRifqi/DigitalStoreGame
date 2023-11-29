@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class typegame extends Model
+class topup_game extends Model
 {
     use HasFactory;
-    protected $table = 'typegame';
-    protected $fillable = [
-        'typegame',
-        'namagame',
-    ];
 }

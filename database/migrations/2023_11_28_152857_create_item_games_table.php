@@ -6,16 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('item', function (Blueprint $table) {
+        Schema::create('item_games', function (Blueprint $table) {
             $table->id('iditem');
-            $table->Integer('item');
+            $table->string('foto_item');
+            $table->string('item');
             $table->integer('harga');
             $table->integer('promo');
+            $table->timestamps();
 
             // Foreign key constraints
-            $table->foreignid('idtypegame')->references('idtypegame')->on('typegame')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignid('idtypegame')->references('idtypegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
 
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('item');
+        Schema::dropIfExists('item_games');
     }
 };

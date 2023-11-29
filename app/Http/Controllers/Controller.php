@@ -12,38 +12,29 @@ class Controller extends BaseController
 
     public function aboutctrl()
     {
-        return view('about');
+        return view('/before_login/about');
     }
 
     public function contactctrl()
     {
-        return view('contact');
+        return view('/before_login/contact');
     }
 
     public function loginctrl()
     {
-        return view('login');
+        return view('/before_login/login');
     }
 
     public function indexctrl()
     {
-        return view('index');
+        return view('/before_login/index');
     }
 
     public function topupGIctrl()
     {
 
-        // $serverOptions = [
-        //     'asia' => 'Asia',
-        //     'europe' => 'Eropa',
-        //     'america' => 'Amerika',
-        // ];
-
-
-        //$topupGameData = @yield('form') ;
-        return view('/logged/topUpGiPage', [
+        return view('/after_login/topUpOption', [
             "name" => "Genshin Impact",
-            //"server" => $serverOptions,
             "logo" => "img/GITopUp/genshin.png",
             "welkin" => "Welkin",
             "genesis" => "Genesis",
@@ -93,7 +84,7 @@ class Controller extends BaseController
 
     public function topupHSRctrl()
     {
-        return view('/logged/topUpGiPage', [
+        return view('/after_login/topUpOption', [
             "name" => "Honkai Stair Rail",
             "logo" => "img/HSRTopUp/hsr.png",
             "welkin" => "Expess Suplly Pass",
@@ -146,7 +137,7 @@ class Controller extends BaseController
     public function topupMLctrl()
     {
 
-        return view('/logged/topUpGiPage', [
+        return view('/after_login/topUpInput', [
             "name" => "Mobile Legend",
             "logo" => "img/MLTopUp/ml.png",
             "welkin" => "Weekly Diamond Pass",
@@ -198,7 +189,7 @@ class Controller extends BaseController
     public function topupTOFctrl()
     {
 
-        return view('/logged/topUpGiPage', [
+        return view('/after_login/topUpOption1', [
             "name" => "Tower Of Fantasy",
             "logo" => "img/TOFTopUp/logoTOF.png",
             "welkin" => "Monthly & Pack",
@@ -249,17 +240,17 @@ class Controller extends BaseController
 
     public function aboutlogctrl()
     {
-        return view('/logged/aboutlogged');
+        return view('/after_login/aboutlogged');
     }
 
     public function contactlogctrl()
     {
-        return view('/logged/contactlogged');
+        return view('/after_login/contactlogged');
     }
 
     public function invoice2ctrl()
     {
-        return view('/logged/invoice2');
+        return view('/after_login/invoice2');
     }
 
     public function widgetctrl()
@@ -291,7 +282,7 @@ class Controller extends BaseController
 
     public function dashboardctrl()
     {
-        return view('/logged/dashboard');
+        return view('/after_login/dashboard');
     }
 
     public function dashminctrl()
@@ -301,7 +292,7 @@ class Controller extends BaseController
 
     public function settingctrl()
     {
-        return view('/logged/setting');
+        return view('/after_login/setting');
     }
 
     public function signinadmctrl()

@@ -1,4 +1,4 @@
-@extends ('/logged.components.topUpTemplate')
+@extends ('/after_login.components.topUpTemplate')
 
 @section('form')
 <form action="">
@@ -15,19 +15,19 @@
         </div>
         <div class="col-md-6">
         <div class="form-floating">
-            <input
+            {{-- <input
               type="text"
               class="form-control"
               id="name"
               placeholder="Masukkan Server"/>
-            <label for="name">Masukkan Server</label>
+            <label for="name">Masukkan Server</label> --}}
           </div>
-          {{-- <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;">
-            <option selected>Choose Server:</option>
-            <option value="1">USA</option>
+          <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;">
+            <option selected>Pilih Server:</option>
+            <option value="1">America</option>
             <option value="2">Europe</option>
             <option value="3">Asia</option>
-          </select> --}}
+          </select>
         </div>
       </div>
 </form>
