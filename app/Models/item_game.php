@@ -9,6 +9,6 @@ class item_game extends Model
 {
     use HasFactory;
 
-    //protected $fillable = [ 'item', 'harga', 'promo'];
-    //protected $guarded = ['iditem'] ;
+    protected $table = 'item_games';
+    protected $guarded = ['id_item'] ;
 }

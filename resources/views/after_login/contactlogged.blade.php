@@ -120,10 +120,14 @@
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link active">Contact</a>
-          
+
           <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        User Accounts
+                        @auth
+                            {{ Auth::user()->fullname }}
+                        @else
+                            User Accounts
+                        @endauth
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
@@ -140,7 +144,7 @@
                     document.getElementById('logout-form').addEventListener('submit', function(event) {
                         // Pastikan Anda mengkonfirmasi logout jika diperlukan
                         var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
-                        
+
                         // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
                         if (!confirmLogout) {
                             event.preventDefault();
@@ -186,67 +190,104 @@
           >
             <div class="p-lg-5 ps-lg-0">
               <div class="text-start">
-                <h1 class="display-5 mb-4">Contact Us</h1>
+                <h1 class="display-5 mb-4">Form Kritik & Saran</h1>
               </div>
               <p class="mb-4">
-                <!-- The contact form is currently inactive. Get a functional and
-                working contact form with Ajax & PHP in a few minutes. Just copy
-                and paste the files, add a little code and you're done.
-                <a href="https://htmlcodex.com/contact-form">Download Now</a>. -->
+                Jika ada kritik dan saran bisa mengirim pesan melalui form di
+                bawah ini.
               </p>
-              <form>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Your Name"
-                      />
-                      <label for="name">Your Name</label>
+              <form method="POST" action="{{ route('contact_form') }}">
+                @csrf
+                    <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                        <input
+                            type="text"
+                            class="form-control @error('nama1') is-invalid @enderror" value="{{ old('nama1') }}"
+                            id="name1"
+                            name="nama1"
+                            placeholder="Your Name"/>
+
+                            @error('nama1')
+
+                              <div class="invalid-feedback">
+                               tolong isi nama anda
+                              </div>
+
+                            @enderror
+
+                        <label for="name">Nama</label>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Your Email"
-                      />
-                      <label for="email">Your Email</label>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                        <input
+                            type="email1"
+                            class="form-control  @error('email1') is-invalid @enderror" value="{{ old('email1') }}"
+                            id="email1"
+                            name="email1"
+                            placeholder="Your Email"/>
+
+                            @error('email1')
+
+                              <div class="invalid-feedback">
+                                tolong isi berupa email anda
+                              </div>
+
+                            @enderror
+
+
+                        <label for="email">Email</label>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="subject"
-                        placeholder="Subject"
-                      />
-                      <label for="subject">Subject</label>
+                    <div class="col-12">
+                        <div class="form-floating">
+                        <input
+                            type="text"
+                            class="form-control @error('subject1') is-invalid @enderror" value="{{ old('subject1') }}"
+                            id="subject1"
+                            name="subject1"
+                            placeholder="Subject"/>
+
+                            @error('subject1')
+
+                              <div class="invalid-feedback">
+                                tolong isi subject anda
+                              </div>
+
+                            @enderror
+
+                        <label for="subject">Subject</label>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="Leave a message here"
-                        id="message"
-                        style="height: 100px"
-                      ></textarea>
-                      <label for="message">Message</label>
+                    <div class="col-12">
+                        <div class="form-floating">
+                        <textarea
+                            class="form-control @error('message1') is-invalid @enderror" value="{{ old('message1') }}"
+                            placeholder="Leave a message here"
+                            id="message1"
+                            name="message1"
+                            style="height: 100px"
+                        ></textarea>
+
+                            @error('message1')
+
+                              <div class="invalid-feedback">
+                                tolong isi message anda
+                              </div>
+
+                            @enderror
+
+                        <label for="message">Message</label>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Send Message
-                    </button>
-                  </div>
-                </div>
-              </form>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3" type="submit">
+                        Send Message
+                        </button>
+                    </div>
+                    </div>
+                </form>
             </div>
           </div>
           <div class="col-lg-6 pe-lg-0" style="min-height: 400px">

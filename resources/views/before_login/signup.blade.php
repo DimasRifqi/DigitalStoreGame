@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form method="POST" action="{{ route('user.store') }}">
+                    <form method="POST" action="{{ route('user_login') }}">
                         @csrf
 
                         <a href="{{ url('index') }}">
@@ -198,7 +198,7 @@
 
                       <div class="pt-1 mb-1">
                         <button
-                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
+                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit">
                           register
                         </button>
 

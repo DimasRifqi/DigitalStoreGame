@@ -15,15 +15,6 @@ class Controller extends BaseController
         return view('/before_login/about');
     }
 
-    public function contactctrl()
-    {
-        return view('/before_login/contact');
-    }
-
-    public function loginctrl()
-    {
-        return view('/before_login/login');
-    }
 
     public function indexctrl()
     {
@@ -241,11 +232,6 @@ class Controller extends BaseController
     public function aboutlogctrl()
     {
         return view('/after_login/aboutlogged');
-    }
-
-    public function contactlogctrl()
-    {
-        return view('/after_login/contactlogged');
     }
 
     public function invoice2ctrl()

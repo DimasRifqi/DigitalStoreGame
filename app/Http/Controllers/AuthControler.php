@@ -13,11 +13,20 @@ class Req extends Auth
 
         if (Auth::attempt($credentials)) {
             // Jika berhasil login
+            $fullname = Auth::user()->fullname;
+            $email = Auth::user()->email;
+            $phone = Auth::user()->phone;
+            $password = Auth::user()->password;
+
             return redirect()->intended('/dashboard');
         }
 
         // Jika login gagal
-        return redirect()->back()->withInput()->withErrors(['email' => 'Email atau password salah']);
+        // return redirect()->back()->with('status', 'Email atau password anda salah.');
+        return redirect()->back()->withInput()->withErrors([
+            'email' => 'Email atau password salah'
+        ]);
+
     }
 
 }

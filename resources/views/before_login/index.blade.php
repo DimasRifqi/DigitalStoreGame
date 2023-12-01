@@ -229,7 +229,7 @@
 
       </section>
 
-    
+
 
 
     <!-- Service Start -->
@@ -268,7 +268,7 @@
                                     }
                                 </script>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -339,10 +339,10 @@
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/CODM.png" alt="">
+                            <img class="img-fluid" src="img/TOFTopUP/logoTOF.png" alt="">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Call Of Duty Mobile</h4>
+                            <h4 class="mb-3">Tower of Fantasy</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <button type="button" id="topUpButton4" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
                                 <script>
@@ -493,12 +493,12 @@
                                     }
                                 </script>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                
-                
+
+
 
 
             </div>
@@ -774,7 +774,7 @@
         </div>
     </div>
 
-    
+
 
     <!-- Service End -->
 

@@ -98,9 +98,21 @@
                     style="border-radius: 1rem 0 0 1rem; margin: 35% 5%"
                   />
                 </div>
+
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form method="POST" action="{{ route('login.form') }}">
+                    {{-- @if(session('status'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: '{{ session("status") }}',
+                            });
+                        </script>
+                    @endif --}}
+
+                    <form method="POST" action="{{ route('login_form') }}">
                       @csrf
                         <a href="{{ url('index') }}">
                           <button
@@ -111,7 +123,7 @@
                             back
                           </button>
                         </a>
-                      
+
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <img src="img/logo.png" class="fa-2x me-3" />
                         <span class="h1 fw-bold mb-0 text-uppercase"
@@ -135,10 +147,10 @@
                             placeholder="Email"/>
 
                             @error('email')
-                            
+
                               <div class="invalid-feedback">
-                                {{ $message }}  
-                              </div> 
+                                {{ $message }}
+                              </div>
 
                             @enderror
 
@@ -158,8 +170,7 @@
                       <div class="pt-1 mb-4">
                         <button
                           class="btn btn-login btn-primary btn-lg btn-block text-capitalize"
-                          type="submit"
-                        >
+                          type="submit">
                           login
                         </button>
                       </div>
@@ -336,6 +347,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 
-    
+
   </body>
 </html>

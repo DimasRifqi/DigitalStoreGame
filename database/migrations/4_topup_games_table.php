@@ -17,8 +17,10 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key constraints
-            $table->foreignid('idtypegame')->references('idtypegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
-            $table->foreignid('iditem')->references('iditem')->on('item_games')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignid('id_typegame')->references('id_typegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignid('id_item')->references('id_item')->on('item_games')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignid('id')->references('id')->on('users')->cascadeOnUpdate()->restrictOnDelete();
+
 
         });
     }

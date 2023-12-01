@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,16 +25,13 @@ use App\Http\Controllers\LoginController;
 
 
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
-Route::get('/contact', [Controller::class, 'contactctrl'])->name('contact');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::get('/index', [Controller::class, 'indexctrl'])->name('index');
 Route::get('/aboutlogged', [Controller::class, 'aboutlogctrl'])->name('aboutlogged');
-Route::get('/contactlogged', [Controller::class, 'contactlogctrl'])->name('contactlogged');
 Route::get('/invoice2', [Controller::class, 'invoice2ctrl'])->name('invoice2');
 Route::get('/widget', [Controller::class, 'widgetctrl'])->name('widget');
 Route::get('/testimonialupdate', [Controller::class, 'testi_up_ctrl'])->name('testimonialupdate');
 Route::get('/testimonialadd', [Controller::class, 'testi_add_ctrl'])->name('testimonialadd');
-
 Route::get('/signupadmin', [Controller::class, 'signadmctrl'])->name('signupadmin');
 Route::get('/dashboard', [Controller::class, 'dashboardctrl'])->name('dashboard');
 Route::get('/dashboardadmin', [Controller::class, 'dashminctrl'])->name('dashboardadmin');
@@ -44,11 +42,16 @@ Route::get('/datatablepaymenmobile', [Controller::class, 'paymentmblctrl'])->nam
 Route::get('/datatablepaymentpc', [Controller::class, 'paymentpcctrl'])->name('datatablepaymentpc');
 Route::get('/datatabletestimonial', [Controller::class, 'testictrl'])->name('datatabletestimonial');
 
-//register login logout
-Route::get('/signup', [RegisterController::class, 'show'])->name('signup');
-Route::post('/signup', [RegisterController::class, 'store'])->name('user.store');
-Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
-Route::post('/login', [LoginController::class, 'loginform'])->name('login.form');
+
+//register
+Route::get('/signup', [RegisterController::class, 'loginctrl'])->name('signup');
+Route::post('/signup', [RegisterController::class, 'loginform'])->name('user_login');
+
+//login
+Route::get('/login', [LoginController::class, 'loginctrl'])->name('login');
+Route::post('/login', [LoginController::class, 'loginform'])->name('login_form');
+
+//logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //TopUP
@@ -56,3 +59,10 @@ Route::get('/topupGI', [Controller::class, 'topupGIctrl'])->name('topupGI');
 Route::get('/topupHSR', [Controller::class, 'topupHSRctrl'])->name('topupHSR');
 Route::get('/topupML', [Controller::class, 'topupMLctrl'])->name('topupML');
 Route::get('/topupTOF', [Controller::class, 'topupTOFctrl'])->name('topupTOF');
+
+//contact
+Route::get('/contactlogged', [ContactController::class, 'contactlogctrl'])->name('contactlogged');
+//Route::get('/contactlogged', [ContactController::class, 'contactform'])->name('contact_form');
+
+Route::get('/contact', [ContactController::class, 'contactctrl'])->name('contact');
+Route::post('/contact', [ContactController::class, 'contactform'])->name('contact_form');

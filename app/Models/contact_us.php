@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class topup_game extends Model
+class contact_us extends Model
 {
     use HasFactory;
 
-    protected $table = 'topup_games';
-    protected $guarded = ['id_topup'] ;
+    protected $table = 'contact_uses';
+    protected $guarded = ['id_contact_us'] ;
 }

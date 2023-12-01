@@ -8,10 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-   
+    public function loginctrl()
+    {
+        return view('/before_login/login');
+    }
+
     public function loginform(Request $request)
     {
-        
+
         $credential =  $request->validate([
             'email' => ['required' , 'email:dns' ],
             'password' => ['required' , 'min:5' ],
@@ -33,5 +37,5 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/index');
     }
-   
+
 }

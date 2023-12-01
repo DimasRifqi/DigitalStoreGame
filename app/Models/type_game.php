@@ -10,12 +10,5 @@ class type_game extends Model
     use HasFactory;
 
     protected $table = 'type_games';
-    protected $primaryKey = 'idtypegame';
-    public $timestamps = true;
-
-    protected $fillable = [
-        'tipegame',
-        'namagame',
-    ];
-
+    protected $guarded = ['id_typegame'] ;
 }

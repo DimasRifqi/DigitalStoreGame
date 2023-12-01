@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('item_games', function (Blueprint $table) {
-            $table->id('iditem');
+            $table->id('id_item');
             $table->string('foto_item');
             $table->string('item');
             $table->integer('harga');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key constraints
-            $table->foreignid('idtypegame')->references('idtypegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignid('id_typegame')->references('id_typegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
 
         });
     }

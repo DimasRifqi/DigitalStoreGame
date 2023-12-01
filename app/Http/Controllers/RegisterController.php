@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function show()
+    public function loginctrl()
     {
         return view('/before_login/signup');
     }
 
-    public function store(Request $request)
+    public function loginform(Request $request)
     {
 
-        $data = $request->validate([
+        $request->validate([
             'fullname' => 'required|max:255',
             'phone'  => ['required', 'regex:/^[0-9]{11,12}$/','unique:users'],
             'email' => 'required|email|unique:users',
@@ -24,14 +24,16 @@ class RegisterController extends Controller
         ]);
 
 
-        $user = User::create([
+        $datauser = User::create([
             'fullname' => $request->fullname,
             'phone'  => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        
+        $datauser->save();
 
-        return redirect('/dashboard')->with('success', 'Registration successful!');
+        return redirect('/login')->with('success', 'Registration successful!');
 
 
     }

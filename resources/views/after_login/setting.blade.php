@@ -146,7 +146,12 @@
               class="btn btn-primary dropdown-toggle"
               data-bs-toggle="dropdown"
             >
-              User Accounts
+            @auth
+            {{ Auth::user()->fullname }}
+            @else
+                User Accounts
+            @endauth
+
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item active" href="{{ url('setting') }}">Setting</a></li>
@@ -204,7 +209,13 @@
 
                             @enderror
 
-                          <label for="name">Username</label>
+                          <label for="name">
+                            @auth
+                            {{ Auth::user()->fullname }}
+                            @else
+                                User Accounts
+                            @endauth
+                          </label>
                         </div>
 
                         <div class="form-floating mb-4 ">
@@ -223,7 +234,13 @@
 
                             @enderror
 
-                          <label for="name">Email Address </label>
+                          <label for="name">
+                            @auth
+                            {{ Auth::user()->email }}
+                            @else
+                                User Accounts
+                            @endauth
+                          </label>
                         </div>
 
                       <div class="form-floating mb-4 ">
@@ -242,7 +259,13 @@
 
                             @enderror
 
-                          <label for="name">Phone Number</label>
+                          <label for="name">
+                            @auth
+                            {{ Auth::user()->phone}}
+                            @else
+                                User Accounts
+                            @endauth
+                          </label>
                         </div>
 
                         <div class="form-floating mb-2 ">

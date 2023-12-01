@@ -75,7 +75,11 @@
 
                 <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        User Accounts
+                        @auth
+                            {{ Auth::user()->fullname }}
+                        @else
+                            User Accounts
+                        @endauth
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
