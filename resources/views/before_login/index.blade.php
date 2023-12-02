@@ -65,7 +65,7 @@
                     <input type="text"  class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
 
                     <div class="input-group-append mr-5">
-                      <button class="btn btn-outline-info btn-primary" type="button">Button</button>
+                      <button class="btn btn-outline-info btn-primary" type="button">Search</button>
                     </div>
                 </div>
                 <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>

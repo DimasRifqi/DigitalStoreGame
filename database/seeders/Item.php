@@ -161,7 +161,7 @@ class Item extends Seeder
             [
                 //7
                 'foto_item' => 'img/HSRTopUp/image 55.png',
-                'item' => '1x Oneiric Shard',
+                'item' => '1x Express Supply Pass',
                 'harga' => '81000',
                 'promo' => '65000',
                 'id_typegame' => 2
@@ -170,7 +170,7 @@ class Item extends Seeder
             [
                 //8
                 'foto_item' => 'img/HSRTopUp/image 55.png',
-                'item' => '2x Oneiric Shard',
+                'item' => '2x Express Supply Pass',
                 'harga' => '162000',
                 'promo' => '130000',
                 'id_typegame' => 2
@@ -179,7 +179,7 @@ class Item extends Seeder
             [
                 //9
                 'foto_item' => 'img/HSRTopUp/image 55.png',
-                'item' => '3x Oneiric Shard',
+                'item' => '3x Express Supply Pass',
                 'harga' => '243000',
                 'promo' => '190000',
                 'id_typegame' => 2

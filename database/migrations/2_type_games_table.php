@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('type_games', function (Blueprint $table) {
             $table->id('id_typegame');
+            $table->string('foto_game');
             $table->string('tipegame');
             $table->string('namagame');
             $table->timestamps();

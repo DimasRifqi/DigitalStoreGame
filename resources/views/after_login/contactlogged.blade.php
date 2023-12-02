@@ -196,7 +196,7 @@
                 Jika ada kritik dan saran bisa mengirim pesan melalui form di
                 bawah ini.
               </p>
-              <form method="POST" action="{{ route('contact_form') }}">
+              <form method="POST" action="{{ route('contactlogged_form') }}">
                 @csrf
                     <div class="row g-3">
                     <div class="col-md-6">
