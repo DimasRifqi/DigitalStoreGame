@@ -2,6 +2,9 @@
 
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -28,6 +31,7 @@ class Req extends Auth
         ]);
 
     }
+    
 
 }
 

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\item_game;
-use App\Models\type_game;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -21,77 +20,6 @@ class Controller extends BaseController
     public function indexctrl()
     {
         return view('/before_login/index');
-    }
-
-    public function topupGIctrl()
-    {
-         $topup_item = item_game::where('id_typegame', 1)->get();
-         $game = type_game::where('id_typegame', 1)->first();
-
-        return view('/after_login/topUpOption',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Welkin",
-            "genesis" => "Genesis",
-
-        ]);
-    }
-
-    public function topupHSRctrl()
-    {
-        $topup_item = item_game::where('id_typegame', 2)->get();
-         $game = type_game::where('id_typegame', 2)->first();
-
-        return view('/after_login/topUpOption',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Expess Supply Pass",
-            "genesis" => "Oneiric Shard",
-
-        ]);
-    }
-
-
-    public function topupMLctrl()
-    {
-
-        $topup_item = item_game::where('id_typegame', 3)->get();
-         $game = type_game::where('id_typegame', 3)->first();
-
-        return view('/after_login/topUpInput',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Weekly Diamond",
-            "genesis" => "Diamond",
-
-        ]);
-    }
-
-    public function topupTOFctrl()
-    {
-
-        $topup_item = item_game::where('id_typegame', 4)->get();
-         $game = type_game::where('id_typegame', 4)->first();
-
-        return view('/after_login/topUpOption',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Monthly & Pack",
-            "genesis" => "Tanium",
-
-        ]);
     }
 
     public function aboutlogctrl()
@@ -121,10 +49,6 @@ class Controller extends BaseController
         return view('/admin/testimonialadd');
     }
 
-    // public function signupctrl()
-    // {
-    //     return view('signup');
-    // }
 
     public function signadmctrl()
     {

@@ -75,21 +75,6 @@ class ContactController extends Controller
 
         return redirect('/contactlogged')->with('success', 'Kritik & Saran Berhasil Terkirim !');
 
-        // try {
-        //     // Simpan data ke dalam database
-        //     $kritikSaran = new contact_us ([
-        //         'nama' => $request->nama1,
-        //         'email' => $request->email1,
-        //         'subject' => $request->subject1,
-        //         'message' => $request->message1,
-        //     ]);
-
-        //     $kritikSaran->save();
-
-        //     return redirect()->route('contact')->with('success', 'Kritik & Saran Anda berhasil terkirim!');
-        // } catch (\Exception $e) {
-        //     return redirect()->route('contact')->with('error', 'Terjadi kesalahan. Silakan coba lagi.');
-        // }
 
     }
 

@@ -109,7 +109,11 @@
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
           <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        User Accounts
+                        @auth
+                            {{ Auth::user()->fullname }}
+                        @else
+                            User Accounts
+                        @endauth
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
@@ -173,6 +177,8 @@
             </div>
             <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                 <div class="text-start mb-3 pb-3">
+                    <form id="topupForm" method="POST" action="{{ route('topup_form') }}">
+                        @csrf
                     @yield('form')
                 </div>
             </div>
@@ -194,7 +200,56 @@
         <div class="tab-content">
             <div id="tab-1" class="tab-pane fade show p-0 active">
                 <div class="row g-4">
-                    @foreach ($topup_item as $item)
+
+
+                        @foreach ($topup_item as $item)
+                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="product-item">
+                                    <div class="position-relative bg-light overflow-hidden">
+                                        <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                    </div>
+                                    <div class="text-center p-4">
+                                        <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                        <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                        <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                    </div>
+                                    <div class="d-grid gap-2 col-12 mx-auto">
+                                        <button type="button" class="btn btn-primary fw-medium" onclick="buyItem('{{ $item['item'] }}', {{ $item['promo'] }})">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden fields for each item's details -->
+                            <input type="hidden" name="selected_items[]" id="item_{{ $loop->index }}_name" value="{{ $item['item'] }}">
+                            <input type="hidden" name="selected_items[]" id="item_{{ $loop->index }}_promo" value="{{ $item['promo'] }}">
+                        @endforeach
+                    </form>
+
+                    <script>
+                        function buyItem() {
+                            // Get the selected item details
+                            var itemName = 'selected item name'; // Replace with the actual value
+                            var itemPromo = 'selected item promo'; // Replace with the actual value
+
+                            // Get the user input data
+                            var userId = document.getElementById('game_id1').value;
+                            var selectedServer = document.getElementById('selectedServer').value;
+
+                            // Update the hidden input fields with the selected item details
+                            document.getElementById('selected_item_name').value = itemName;
+                            document.getElementById('selected_item_promo').value = itemPromo;
+
+                            // Append user input data to the form data
+                            document.getElementById('user_id').value = userId;
+                            document.getElementById('selected_server').value = selectedServer;
+
+                            // Submit the form
+                            document.getElementById('topupForm').submit();
+                        }
+                    </script>
+
+
+                    {{-- @foreach ($topup_item as $item)
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
@@ -210,7 +265,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach --}}
                 </div>
             </div>
 

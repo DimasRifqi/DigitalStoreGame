@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('topup_games', function (Blueprint $table) {
             $table->id('idtopup');
+            $table->integer('game_id');
             $table->string('server');
             $table->timestamps();
 

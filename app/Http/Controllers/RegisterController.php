@@ -30,13 +30,15 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
+
         $datauser->save();
 
         return redirect('/login')->with('success', 'Registration successful!');
 
 
     }
+
+
 
 
 

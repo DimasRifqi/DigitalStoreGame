@@ -23,7 +23,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchGameController;
-
+use App\Http\Controllers\Topup_Controller;
+use App\Http\Controllers\Auth_Controller;
+use App\Http\Controllers\User_Controller;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
@@ -36,7 +40,6 @@ Route::get('/testimonialadd', [Controller::class, 'testi_add_ctrl'])->name('test
 Route::get('/signupadmin', [Controller::class, 'signadmctrl'])->name('signupadmin');
 Route::get('/dashboard', [Controller::class, 'dashboardctrl'])->name('dashboard');
 Route::get('/dashboardadmin', [Controller::class, 'dashminctrl'])->name('dashboardadmin');
-Route::get('/setting', [Controller::class, 'settingctrl'])->name('setting');
 Route::get('/datatablemember', [Controller::class, 'datamembctrl'])->name('datatablemember');
 Route::get('/datatablepaymentall', [Controller::class, 'paymentallctrl'])->name('datatablepaymentall');
 Route::get('/datatablepaymenmobile', [Controller::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
@@ -52,14 +55,21 @@ Route::post('/signup', [RegisterController::class, 'loginform'])->name('user_log
 Route::get('/login', [LoginController::class, 'loginctrl'])->name('login');
 Route::post('/login', [LoginController::class, 'loginform'])->name('login_form');
 
+// Setting update
+Route::get('/setting', [Controller::class, 'settingctrl'])->name('setting');
+Route::post('/setting', [UserController::class, 'update'])->name('user.update');
+
+
 //logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //TopUP
-Route::get('/topupGI', [Controller::class, 'topupGIctrl'])->name('topupGI');
-Route::get('/topupHSR', [Controller::class, 'topupHSRctrl'])->name('topupHSR');
-Route::get('/topupML', [Controller::class, 'topupMLctrl'])->name('topupML');
-Route::get('/topupTOF', [Controller::class, 'topupTOFctrl'])->name('topupTOF');
+Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->name('topupGI');
+Route::post('/signup', [Topup_Controller::class, 'topupform'])->name('topup_form');
+
+Route::get('/topupHSR', [Topup_Controller::class, 'topupHSRctrl'])->name('topupHSR');
+Route::get('/topupML', [Topup_Controller::class, 'topupMLctrl'])->name('topupML');
+Route::get('/topupTOF', [Topup_Controller::class, 'topupTOFctrl'])->name('topupTOF');
 
 //contact
 Route::get('/contactlogged', [ContactController::class, 'contactlogctrl'])->name('contactlogged');
@@ -70,5 +80,5 @@ Route::get('/contact', [ContactController::class, 'contactctrl'])->name('contact
 Route::post('/contact', [ContactController::class, 'contactform'])->name('contact_form');
 
 //Serching Game
-Route::get('/search/game', [SearchGameController::class, 'search'])->name('search.game');
-Route::get('/games/{id_typegame}', [SearchGameController::class, 'show'])->name('game.show');
+// Route::get('/search/game', [SearchGameController::class, 'search'])->name('search.game');
+// Route::get('/games/{id_typegame}', [SearchGameController::class, 'show'])->name('game.show');
