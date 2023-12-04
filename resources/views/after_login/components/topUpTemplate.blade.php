@@ -64,6 +64,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+
+
   </head>
 
   <body>
@@ -166,159 +168,138 @@
 
 
   <!-- Product Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-0 gx-5 align-items-end">
-            <div class="col-lg-6">
-                <div class="section-header text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 400px;">
-                    <h2 class="mb-3" style="font-size: 40px;">{{ $game['namagame'] }}</h2>
-                    <img class="img-fluid w-100" src="{{ asset($game['foto_game']) }}">
+  <form id="topupForm_{{ $topup_item }}" method="POST" action="{{ route('topup_form') }}">
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 400px;">
+                            <h2 class="mb-3" style="font-size: 40px;">{{ $game['namagame'] }}</h2>
+                            <input type="hidden" name="namagame" id="namagame" value="{{ $game['namagame'] }}" />
+                            <img class="img-fluid w-100" src="{{ asset($game['foto_game']) }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="text-start mb-3 pb-3">
+
+                            @yield('form')
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-secondary border-2 active" data-bs-toggle="pill" href="#tab-1">ALL</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-secondary border-2" data-bs-toggle="pill" href="#tab-2"><?= $genesis?></a>
+                            </li>
+                            <li class="nav-item me-0">
+                                <a class="btn btn-outline-secondary border-2" data-bs-toggle="pill" href="#tab-3"><?= $welkin ?></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
-                <div class="text-start mb-3 pb-3">
-                    <form id="topupForm" method="POST" action="{{ route('topup_form') }}">
-                        @csrf
-                    @yield('form')
-                </div>
-            </div>
-            <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
-                    <li class="nav-item me-2">
-                        <a class="btn btn-outline-secondary border-2 active" data-bs-toggle="pill" href="#tab-1">ALL</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="btn btn-outline-secondary border-2" data-bs-toggle="pill" href="#tab-2"><?= $genesis?></a>
-                    </li>
-                    <li class="nav-item me-0">
-                        <a class="btn btn-outline-secondary border-2" data-bs-toggle="pill" href="#tab-3"><?= $welkin ?></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="tab-content">
-            <div id="tab-1" class="tab-pane fade show p-0 active">
-                <div class="row g-4">
 
 
-                        @foreach ($topup_item as $item)
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="product-item">
-                                    <div class="position-relative bg-light overflow-hidden">
-                                        <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                @foreach ($topup_item as $index => $item)
+                                    @csrf
+                                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="product-item">
+                                            <div class="position-relative bg-light overflow-hidden">
+                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                            </div>
+                                            <div class="text-center p-4">
+                                                <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
+                                                <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
+                                                <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                            </div>
+                                            <div class="d-grid gap-2 col-12 mx-auto">
+                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text-center p-4">
-                                        <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                        <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                        <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+
+                            @endforeach
+
+                                {{-- @foreach ($topup_item as $item)
+                                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="product-item">
+                                            <div class="position-relative bg-light overflow-hidden">
+                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                            </div>
+                                            <div class="text-center p-4">
+                                                <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                            </div>
+                                            <div class="d-grid gap-2 col-12 mx-auto">
+                                                <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="d-grid gap-2 col-12 mx-auto">
-                                        <button type="button" class="btn btn-primary fw-medium" onclick="buyItem('{{ $item['item'] }}', {{ $item['promo'] }})">Beli</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Hidden fields for each item's details -->
-                            <input type="hidden" name="selected_items[]" id="item_{{ $loop->index }}_name" value="{{ $item['item'] }}">
-                            <input type="hidden" name="selected_items[]" id="item_{{ $loop->index }}_promo" value="{{ $item['promo'] }}">
-                        @endforeach
-                    </form>
-
-                    <script>
-                        function buyItem() {
-                            // Get the selected item details
-                            var itemName = 'selected item name'; // Replace with the actual value
-                            var itemPromo = 'selected item promo'; // Replace with the actual value
-
-                            // Get the user input data
-                            var userId = document.getElementById('game_id1').value;
-                            var selectedServer = document.getElementById('selectedServer').value;
-
-                            // Update the hidden input fields with the selected item details
-                            document.getElementById('selected_item_name').value = itemName;
-                            document.getElementById('selected_item_promo').value = itemPromo;
-
-                            // Append user input data to the form data
-                            document.getElementById('user_id').value = userId;
-                            document.getElementById('selected_server').value = selectedServer;
-
-                            // Submit the form
-                            document.getElementById('topupForm').submit();
-                        }
-                    </script>
-
-
-                    {{-- @foreach ($topup_item as $item)
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                </div>
-                                <div class="text-center p-4">
-                                    <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                    <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                    <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                </div>
-                                <div class="d-grid gap-2 col-12 mx-auto">
-                                    <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
-                                </div>
+                                @endforeach --}}
                             </div>
                         </div>
-                    @endforeach --}}
-                </div>
-            </div>
 
-            <div id="tab-2" class="tab-pane fade show p-0">
-                <div class="row g-4">
-                    @foreach ($topup_item as $item)
-                        @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="product-item">
-                                    <div class="position-relative bg-light overflow-hidden">
-                                        <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                    </div>
-                                    <div class="text-center p-4">
-                                        <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                        <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                        <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                    </div>
-                                    <div class="d-grid gap-2 col-12 mx-auto">
-                                        <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
-                                    </div>
-                                </div>
+                        {{-- <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                @foreach ($topup_item as $item)
+                                    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
+                                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="product-item">
+                                                <div class="position-relative bg-light overflow-hidden">
+                                                    <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                                </div>
+                                                <div class="text-center p-4">
+                                                    <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                    <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                    <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                                </div>
+                                                <div class="d-grid gap-2 col-12 mx-auto">
+                                                    <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
+                        </div>
 
-            <div id="tab-3" class="tab-pane fade show p-0">
-                <div class="row g-4">
-                    @foreach ($topup_item as $item)
-                        @if (Str::contains($item['item'], ['Welkin', 'Weekly', 'Pass']))
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="product-item">
-                                    <div class="position-relative bg-light overflow-hidden">
-                                        <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                    </div>
-                                    <div class="text-center p-4">
-                                        <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                        <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                        <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                    </div>
-                                    <div class="d-grid gap-2 col-12 mx-auto">
-                                        <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
-                                    </div>
-                                </div>
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                @foreach ($topup_item as $item)
+                                    @if (Str::contains($item['item'], ['Welkin', 'Weekly', 'Pass']))
+                                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="product-item">
+                                                <div class="position-relative bg-light overflow-hidden">
+                                                    <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                                </div>
+                                                <div class="text-center p-4">
+                                                    <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                    <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                    <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                                </div>
+                                                <div class="d-grid gap-2 col-12 mx-auto">
+                                                    <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
-                        @endif
-                    @endforeach
-                </div>
+                        </div> --}}
+                    </div>
+
+
             </div>
         </div>
-    </div>
-</div>
+    </form>
 <!-- Product End -->
 
 
@@ -454,8 +435,51 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
   </body>
+
+  {{-- <script>
+        function beliButtonClicked(gameId, server, item, gameName, promo) {
+            // Do something with the captured values, such as displaying in a modal
+            alert(
+                'Game ID: ' + gameId +
+                '\nServer: ' + server +
+                '\nItem: ' + item +
+                '\nGame Name: ' + gameName +
+                '\nPromo: Rp.' + promo
+            );
+            // You can customize this alert or replace it with code to open a modal
+        }
+    </script> --}}
+
+    <script>
+        function beliButtonClicked() {
+            // Get values from form inputs
+            var gameId = document.getElementById('game_id1').value;
+            var server = document.getElementById('SERVER').value;
+
+            console.log('Game ID:', gameId);
+            console.log('Server:', server);
+
+            // Additional values from Blade variables
+            var item = '{{ $item['item'] }}';
+            var gameName = '{{ $game['namagame'] }}';
+            var promo = '{{ $item['promo'] }}';
+
+            // Do something with the captured values, such as displaying in a modal
+            alert(
+                'Game ID: ' + gameId +
+                '\nServer: ' + server +
+                '\nItem: ' + item +
+                '\nGame Name: ' + gameName +
+                '\nPromo: Rp.' + promo
+            );
+            // You can customize this alert or replace it with code to open a modal
+        }
+    </script>
+
 </html>

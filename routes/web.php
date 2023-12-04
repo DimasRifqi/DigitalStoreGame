@@ -65,7 +65,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //TopUP
 Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->name('topupGI');
-Route::post('/signup', [Topup_Controller::class, 'topupform'])->name('topup_form');
+Route::post('/topuppp', [Topup_Controller::class, 'topupform'])->name('topup_form');
 
 Route::get('/topupHSR', [Topup_Controller::class, 'topupHSRctrl'])->name('topupHSR');
 Route::get('/topupML', [Topup_Controller::class, 'topupMLctrl'])->name('topupML');

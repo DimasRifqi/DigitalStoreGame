@@ -103,27 +103,7 @@
                       1.262.500
                     </td>
                   </tr>
-                  <!-- <tr>
-                                    <td class="text-right">
-                                    <p>
-                                        <strong>Total Amount: </strong>
-                                    </p>
-                                    <p>
-                                        <strong>Discount: </strong>
-                                    </p>
-                                    <p>
-                                        <strong>Payable Amount: </strong>
-                                    </p>
-                                    </td>
-                                    <td>
-                                    <p>
-                                        <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 3,000 </strong>
-                                    </p>
-                                    <p>
-                                        <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 79,900</strong>
-                                    </p>
-                                    </td>
-                                </tr> -->
+
                   <tr>
                     <td class="text-right">
                       <h5><strong>Total:</strong></h5>

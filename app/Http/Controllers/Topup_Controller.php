@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\invoice_game;
 use Illuminate\Http\Request;
 use App\Models\item_game;
-use App\Models\topup_game;
 use App\Models\type_game;
+use Illuminate\Support\Facades\Auth;
+use Faker\Factory as Faker;
 
 class Topup_Controller extends Controller
 {
@@ -28,24 +30,88 @@ class Topup_Controller extends Controller
 
     public function topupform(Request $request)
     {
-        $request->validate([
-            'selected_item_name' => 'required',
-            'selected_item_promo' => 'required',
-            'user_id' => 'required',
-            'selected_server' => 'required',
-        ]);
+        //dd($request->all());
+        $index = $request->input('submit_topup');
 
-        $topup = new topup_game ([
-            //'id' => $request->message1,
-            'server' => $request->input('selected_server'),
-            'game_id' => $request->input('user_id'),
-            'id_typegame' => $request->input('selected_item_name'),
-            'id_item' => $request->input('selected_item_promo'),
+        $server = $request->input('SERVER');
+        $gameid = $request->input('game_id1');
+        $namagame = $request->input('namagame');
+        $item = $request->input("item.{$index}");
+        $promo = $request->input("promo.{$index}");
+
+        $server_text = '';
+
+        if ($server == 1) {
+            $server_text = 'America';
+        } elseif ($server == 2) {
+
+            $server_text = 'Europe';
+        } elseif ($server == 3) {
+
+            $server_text = 'Asia';
+        }
+
+        $user = Auth::user();
+
+        $faker = Faker::create();
+
+         $topup = new invoice_game ([
+            'nama_pembeli' => $user->fullname,
+            'kodepembayaran_invoice' => $faker->unique()->randomNumber(8),
+            'game_id' => $gameid ,
+            'server_game' => $server_text,
+            'nama_game' => $namagame,
+            'item_game' => $item,
+            'hargaitem_game' => $promo,
+
         ]);
 
         $topup->save();
 
-        return redirect('/topUpOption')->with('success', 'Data Berhasil Terkirim !');
+        return redirect()->back()->with('success', 'Data inserted successfully!');
+
+        // $namaGame = $request->input('namagame');
+        // $items = $request->input('item');
+        // $promos = $request->input('promo');
+        // $kodePembayaran = $request->input('');
+
+        // foreach ($items as $index => $item) {
+
+
+        //     invoice_game::create([
+        //         //'kodepembayaran_invoice' => 3,
+        //         //'nama_game' => $namaGame,
+        //         'item_game' => $item,
+        //         'hargaitem_game' => $promos[$index],
+        //     ]);
+        // }
+
+        // return redirect('/topUpOption')->with('success', 'Data Berhasil Terkirim !');
+
+
+
+        // $index = $request->input('submit_topup');
+
+        // $request->validate([
+        //     'SERVER' => 'required',
+        //     'game_id1' => 'required',
+        //     "item.{$index}" => 'required',
+        //     "promo.{$index}" => 'required',
+        // ]);
+
+
+        // $topup = new invoice_game ([
+        //     'server_game' => $request->input('SERVER'),
+        //     'game_id' => $request->input('game_id1'),
+        //     'item_game' => $request->input("item.{$index}"),
+        //     'hargaitem_game' => $request->input("promo.{$index}"),
+        // ]);
+
+
+
+        // $topup->save();
+
+
 
     }
 

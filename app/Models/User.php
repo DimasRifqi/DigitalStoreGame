@@ -21,6 +21,11 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $guarded =['id'];
+
+    public function invoices()
+    {
+        return $this->hasMany(invoice_game::class);
+    }
     // protected $fillable = [
     //     'fullname',
     //     'email',

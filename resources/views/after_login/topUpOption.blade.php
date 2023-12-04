@@ -1,6 +1,7 @@
 @extends ('/after_login.components.topUpTemplate')
 
 @section('form')
+
         <div class="row g-1">
             <div class="col-md-6">
             <div class="form-floating">
@@ -14,7 +15,7 @@
             </div>
             </div>
             <div class="col-md-6">
-            <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;">
+            <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;" id="SERVER" name="SERVER">
                 <option selected>Pilih Server:</option>
                 <option value="1">America</option>
                 <option value="2">Europe</option>
@@ -22,11 +23,6 @@
             </select>
             </div>
         </div>
-
-        <!-- Add these hidden input fields to store user input data -->
-        <input type="hidden" name="user_id" id="user_id" value="">
-        <input type="hidden" name="selected_server" id="selected_server" value="">
-
 
 @endsection
 
