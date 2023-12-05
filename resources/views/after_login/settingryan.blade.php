@@ -318,9 +318,9 @@
                             </label>
                           </div>
                           <div class="p-1 flex-shrink-5 bd-highlight">
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button id="phone-form" type="submit" class="btn btn-primary">Edit</button>
                             <script>
-                              document.getElementById('logout-form').addEventListener('submit', function(event) {
+                              document.getElementById('phone-form').addEventListener('submit', function(event) {
                                   // Pastikan Anda mengkonfirmasi logout jika diperlukan
                                   var updatePhone = confirm('Apakah Anda yakin ingin Update Nomor Telepon?');
 

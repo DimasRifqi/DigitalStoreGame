@@ -13,6 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_games', function (Blueprint $table) {
+            
             $table->id('id_invoice');
             $table->string('nama_pembeli');
             $table->string('kodepembayaran_invoice')->unique;

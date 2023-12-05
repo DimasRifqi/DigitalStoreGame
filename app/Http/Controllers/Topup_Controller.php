@@ -57,8 +57,8 @@ class Topup_Controller extends Controller
 
          $topup = new invoice_game ([
             'nama_pembeli' => $user->fullname,
-            'kodepembayaran_invoice' => $faker->unique()->randomNumber(8),
-            'game_id' => $gameid ,
+            'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
+            'game_id' => $gameid,
             'server_game' => $server_text,
             'nama_game' => $namagame,
             'item_game' => $item,

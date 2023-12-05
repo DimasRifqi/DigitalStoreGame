@@ -247,9 +247,9 @@
                             </div>
                         </div>
 
-                        {{-- <div id="tab-2" class="tab-pane fade show p-0">
+                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
-                                @foreach ($topup_item as $item)
+                                @foreach ($topup_item as $index => $item)
                                     @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
                                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                             <div class="product-item">
@@ -258,11 +258,13 @@
                                                 </div>
                                                 <div class="text-center p-4">
                                                     <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                    <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
                                                     <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                    <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
                                                     <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                                 </div>
                                                 <div class="d-grid gap-2 col-12 mx-auto">
-                                                    <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
+                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,18 +284,20 @@
                                                 </div>
                                                 <div class="text-center p-4">
                                                     <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                    <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
                                                     <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                    <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
                                                     <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                                 </div>
                                                 <div class="d-grid gap-2 col-12 mx-auto">
-                                                    <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
+                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
                                 @endforeach
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
 
 
