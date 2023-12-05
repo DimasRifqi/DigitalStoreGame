@@ -28,7 +28,7 @@ class Topup_Controller extends Controller
         ]);
     }
 
-    public function topupform(Request $request)
+    public function topupformGI(Request $request)
     {
         //dd($request->all());
         $index = $request->input('submit_topup');
@@ -56,6 +56,8 @@ class Topup_Controller extends Controller
         $faker = Faker::create();
 
          $topup = new invoice_game ([
+
+            'id_user' => $user->id,
             'nama_pembeli' => $user->fullname,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
@@ -132,6 +134,53 @@ class Topup_Controller extends Controller
         ]);
     }
 
+    public function topupformHSR(Request $request)
+    {
+        //dd($request->all());
+        $index = $request->input('submit_topup');
+
+        $server = $request->input('SERVER');
+        $gameid = $request->input('game_id1');
+        $namagame = $request->input('namagame');
+        $item = $request->input("item.{$index}");
+        $promo = $request->input("promo.{$index}");
+
+        $server_text = '';
+
+        if ($server == 1) {
+            $server_text = 'America';
+        } elseif ($server == 2) {
+
+            $server_text = 'Europe';
+        } elseif ($server == 3) {
+
+            $server_text = 'Asia';
+        }
+
+        $user = Auth::user();
+
+        $faker = Faker::create();
+
+         $topup = new invoice_game ([
+
+            'id_user' => $user->id,
+            'nama_pembeli' => $user->fullname,
+            'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
+            'game_id' => $gameid,
+            'server_game' => $server_text,
+            'nama_game' => $namagame,
+            'item_game' => $item,
+            'hargaitem_game' => $promo,
+
+        ]);
+
+        $topup->save();
+
+        return redirect()->back()->with('success', 'Data inserted successfully!');
+
+
+    }
+
 
     public function topupMLctrl()
     {
@@ -151,13 +200,48 @@ class Topup_Controller extends Controller
         ]);
     }
 
+    public function topupformML(Request $request)
+    {
+        //dd($request);
+
+        $index = $request->input('submit_topup');
+        $gameid = $request->input('game_id1');
+        $namagame = $request->input('namagame');
+        $item = $request->input("item.{$index}");
+        $promo = $request->input("promo.{$index}");
+
+
+        $user = Auth::user();
+
+        $faker = Faker::create();
+
+         $topup = new invoice_game ([
+
+            'id_user' => $user->id,
+            'nama_pembeli' => $user->fullname,
+            'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
+            'game_id' => $gameid,
+            'nama_game' => $namagame,
+            'item_game' => $item,
+            'hargaitem_game' => $promo,
+
+        ]);
+
+        $topup->save();
+
+        return redirect()->back()->with('success', 'Data inserted successfully!');
+
+
+    }
+
+
     public function topupTOFctrl()
     {
 
         $topup_item = item_game::where('id_typegame', 4)->get();
          $game = type_game::where('id_typegame', 4)->first();
 
-        return view('/after_login/topUpOption',
+        return view('/after_login/topUpOption1',
 
             compact('topup_item','game'),
 
@@ -168,4 +252,60 @@ class Topup_Controller extends Controller
 
         ]);
     }
+
+    public function topupformTOF(Request $request)
+    {
+        //dd($request->all());
+        $index = $request->input('submit_topup');
+
+        $server = $request->input('SERVER');
+        $gameid = $request->input('game_id1');
+        $namagame = $request->input('namagame');
+        $item = $request->input("item.{$index}");
+        $promo = $request->input("promo.{$index}");
+
+        $server_text = '';
+
+        if ($server == 1) {
+            $server_text = 'Asia Pacific';
+        } elseif ($server == 2) {
+
+            $server_text = 'Eureope';
+        } elseif ($server == 3) {
+
+            $server_text = 'North America';
+        }
+        elseif ($server == 4) {
+
+            $server_text = 'South America';
+        }
+        elseif ($server == 5) {
+
+            $server_text = 'Southeash Asia';
+        }
+
+        $user = Auth::user();
+
+        $faker = Faker::create();
+
+         $topup = new invoice_game ([
+
+            'id_user' => $user->id,
+            'nama_pembeli' => $user->fullname,
+            'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
+            'game_id' => $gameid,
+            'server_game' => $server_text,
+            'nama_game' => $namagame,
+            'item_game' => $item,
+            'hargaitem_game' => $promo,
+
+        ]);
+
+        $topup->save();
+
+        return redirect()->back()->with('success', 'Data inserted successfully!');
+
+
+    }
+
 }

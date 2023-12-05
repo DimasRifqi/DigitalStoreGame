@@ -196,18 +196,10 @@
                       <div class="form-floating mb-4 ">
                           <input
                             type="text"
-                            class="form-control @error('fullname')is-invalid  @enderror " value="{{ old('fullname') }}"
+                            class="form-control"
                             id="fullname"
                             name="fullname"
                             placeholder="fullname"/>
-
-                            @error('fullname')
-
-                              <div class="invalid-feedback">
-                                {{ $message }}
-                              </div>
-
-                            @enderror
 
                           <label for="name">
                             @auth
@@ -221,18 +213,10 @@
                         <div class="form-floating mb-4 ">
                           <input
                             type="email"
-                            class="form-control @error('email')is-invalid  @enderror " value="{{ old('email') }}"
+                            class="form-control"
                             id="email"
                             name="email"
                             placeholder="email"/>
-
-                            @error('email')
-
-                              <div class="invalid-feedback">
-                                {{ $message }}
-                              </div>
-
-                            @enderror
 
                           <label for="name">
                             @auth
@@ -246,18 +230,10 @@
                       <div class="form-floating mb-4 ">
                           <input
                             type="tel"
-                            class="form-control @error('phone')is-invalid  @enderror " value="{{ old('phone') }}"
+                            class="form-control"
                             id="phone"
                             name="phone"
-                            placeholder="phone"  required/>
-
-                            @error('phone')
-
-                              <div class="invalid-feedback">
-                                {{ $message }}
-                              </div>
-
-                            @enderror
+                            placeholder="phone"/>
 
                           <label for="name">
                             @auth
@@ -271,18 +247,10 @@
                         <div class="form-floating mb-2 ">
                           <input
                             type="password"
-                            class="form-control @error('password')is-invalid  @enderror " value="{{ old('password') }}"
+                            class="form-control"
                             id="password"
                             name="password"
                             placeholder="password"/>
-
-                            @error('password')
-
-                              <div class="invalid-feedback">
-                                {{ $message }}
-                              </div>
-
-                            @enderror
 
                           <label for="name">Password</label>
                         </div>

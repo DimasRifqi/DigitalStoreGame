@@ -13,6 +13,13 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        // $request->validate([
+        //     'fullname' => 'required|string|max:255',
+        // ]);
+
+        // $update_user = Auth::user();
+        // $update_user->fullname = $request->input('fullname');
+        // $update_user->save();
 
         $request->validate([
             'fullname' => 'required|string|max:255',

@@ -63,13 +63,21 @@ Route::post('/setting', [UserController::class, 'update'])->name('user.update');
 //logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-//TopUP
+//top up gi
 Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->name('topupGI');
-Route::post('/topuppp', [Topup_Controller::class, 'topupform'])->name('topup_form');
+Route::post('/topuppp', [Topup_Controller::class, 'topupformGI'])->name('topup_form');
 
+//topup hsr
 Route::get('/topupHSR', [Topup_Controller::class, 'topupHSRctrl'])->name('topupHSR');
+Route::post('/topuppp', [Topup_Controller::class, 'topupformHSR'])->name('topup_form');
+
+//top up ml
 Route::get('/topupML', [Topup_Controller::class, 'topupMLctrl'])->name('topupML');
+Route::post('/topuppp', [Topup_Controller::class, 'topupformML'])->name('topup_form');
+
+//top up tof
 Route::get('/topupTOF', [Topup_Controller::class, 'topupTOFctrl'])->name('topupTOF');
+Route::post('/topuppp', [Topup_Controller::class, 'topupformTOF'])->name('topup_form');
 
 //contact
 Route::get('/contactlogged', [ContactController::class, 'contactlogctrl'])->name('contactlogged');

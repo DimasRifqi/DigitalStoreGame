@@ -17,10 +17,8 @@ return new class extends Migration
             $table->string('item');
             $table->integer('harga');
             $table->integer('promo');
-            $table->timestamps();
-
-            // Foreign key constraints
             $table->foreignid('id_typegame')->references('id_typegame')->on('type_games')->cascadeOnUpdate()->restrictOnDelete();
+            $table->timestamps();
 
         });
     }

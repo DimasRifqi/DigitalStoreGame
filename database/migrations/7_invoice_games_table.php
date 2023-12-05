@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_games', function (Blueprint $table) {
-            
+
             $table->id('id_invoice');
             $table->string('nama_pembeli');
             $table->string('kodepembayaran_invoice')->unique;
@@ -23,9 +23,8 @@ return new class extends Migration
             $table->string('item_game');
             $table->string('hargaitem_game');
             $table->string('lunas')->default(false);
+            $table->foreignid('id_user')->references('id')->on('users')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
-
-            //$table->foreignid('id_user')->references('id')->on('users')->cascadeOnUpdate()->restrictOnDelete();
 
         });
     }

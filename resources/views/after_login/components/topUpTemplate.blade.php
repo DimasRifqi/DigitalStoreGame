@@ -181,7 +181,7 @@
                     </div>
                     <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                         <div class="text-start mb-3 pb-3">
-
+                            
                             @yield('form')
 
                         </div>
