@@ -20,7 +20,7 @@
     </script>
 
     <meta charset="utf-8" />
-    <title>Digital Store - Landing Page</title>
+    <title>Digital Store - Setting</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -146,30 +146,45 @@
               class="btn btn-primary dropdown-toggle"
               data-bs-toggle="dropdown"
             >
-            @auth
-            {{ Auth::user()->fullname }}
-            @else
-                User Accounts
-            @endauth
-
+              @auth
+              {{ Auth::user()->fullname }}
+              @else
+                  User Accounts
+              @endauth
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item active" href="{{ url('setting') }}">Setting</a></li>
-              <li><a class="dropdown-item" href="{{ url('index') }}">Logout</a></li>
+              <li>
+                <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+              </li>
             </ul>
           </div>
+            <script>
+              document.getElementById('logout-form').addEventListener('submit', function(event) {
+                  // Pastikan Anda mengkonfirmasi update jika diperlukan
+                  var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+
+                  // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
+                  if (!confirmLogout) {
+                      event.preventDefault();
+                  }
+              });
+            </script>
         </div>
       </div>
     </nav>
     <!-- Navbar End -->
 
     <section
-      class="vh-100"
+      class="vh-95"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
       <div class="container py-5 h-0">
         <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-xl-10">
+          <div class="col col-xl-8">
             <div class="card" style="border-radius: 1rem">
               <div class="row g-0">
                 <div class="col-md-6 col-lg-5 d-none d-md-block">
@@ -182,88 +197,209 @@
                 </div>
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
-                    <form method="POST" action="{{ route('user.update') }}">
-                        @csrf
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <img src="img/logo.png" class="fa-2x me-3" />
+                      <span class="h1 fw-bold mb-0 text-uppercase"
+                        ><u>Update</u></span
+                      >
+                    </div>
 
+                    <form id="fullname-form" method="POST" action="{{ route('user.update') }}">
+                      @csrf
+                      <div class="mb-2">
+                        <!-- <div class="label mb-2">
+                          <h5 class="fw-bold">Username</h5>
+                        </div> -->
+                        <div class="d-flex bd-highlight">
+                          <div class="form-floating w-100 bd-highlight">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="fullname"
+                              name="fullname"
+                              placeholder="fullname"/>
 
-                      <div class="d-flex align-items-center mb-3 pb-1">
-                        <img src="img/logo.png" class="fa-2x me-3" />
-                        <span class="h1 fw-bold mb-0 text-uppercase"
-                          ><u>Update</u></span
-                        >
+                            @error('fullname')
+
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+
+                            @enderror
+
+                            <label for="name">
+                              @auth
+                              {{ Auth::user()->fullname }}
+                              @else
+                                  User Accounts
+                              @endauth
+                            </label>
+                          </div>
+                          <div class="p-1 flex-shrink-5 bd-highlight">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <script>
+                              document.getElementById('fullname-form').addEventListener('submit', function(event) {
+                                  // Pastikan Anda mengkonfirmasi update fullname jika diperlukan
+                                  var updateName = confirm('Apakah Anda yakin ingin Update Nama?');
+
+                                  // Jika pengguna memilih untuk melanjutkan update fullname, lanjutkan dengan mengirim formulir
+                                  if (!updateName) {
+                                      event.preventDefault();
+                                  }
+                              });
+                            </script>
+                          </div>
+                        </div>
                       </div>
-
-                      <div class="form-floating mb-4 ">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="fullname"
-                            name="fullname"
-                            placeholder="fullname"/>
-
-                          <label for="name">
-                            @auth
-                            {{ Auth::user()->fullname }}
-                            @else
-                                User Accounts
-                            @endauth
-                          </label>
-                        </div>
-
-                        <div class="form-floating mb-4 ">
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            placeholder="email"/>
-
-                          <label for="name">
-                            @auth
-                            {{ Auth::user()->email }}
-                            @else
-                                User Accounts
-                            @endauth
-                          </label>
-                        </div>
-
-                      <div class="form-floating mb-4 ">
-                          <input
-                            type="tel"
-                            class="form-control"
-                            id="phone"
-                            name="phone"
-                            placeholder="phone"/>
-
-                          <label for="name">
-                            @auth
-                            {{ Auth::user()->phone}}
-                            @else
-                                User Accounts
-                            @endauth
-                          </label>
-                        </div>
-
-                        <div class="form-floating mb-2 ">
-                          <input
-                            type="password"
-                            class="form-control"
-                            id="password"
-                            name="password"
-                            placeholder="password"/>
-
-                          <label for="name">Password</label>
-                        </div>
-
-                      <div class="pt-1 mb-1">
-                        <button
-                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
-                          Update
-                        </button>
-
-                      </div>
-
                     </form>
+
+                    <form id="email-form" method="POST" action="{{ route('user.update') }}">
+                      @csrf
+                      <div class="mb-2">
+                        <!-- <div class="label mb-2">
+                          <h5 class="fw-bold">Email Address</h5>
+                        </div> -->
+                        <div class="d-flex bd-highlight">
+                          <div class="form-floating w-100 bd-highlight">
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="email"
+                              name="email"
+                              placeholder="email"/>
+                            
+                            @error('email')
+
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+
+                            @enderror
+
+                            <label for="name">
+                              @auth
+                              {{ Auth::user()->email }}
+                              @else
+                                  User Accounts
+                              @endauth
+                            </label>
+                          </div>
+                          <div class="p-1 flex-shrink-5 bd-highlight">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <script>
+                              document.getElementById('email-form').addEventListener('submit', function(event) {
+                                  // Pastikan Anda mengkonfirmasi update email jika diperlukan
+                                  var updateEmail = confirm('Apakah Anda yakin ingin Update Alamat Email?');
+
+                                  // Jika pengguna memilih untuk melanjutkan update email, lanjutkan dengan mengirim formulir
+                                  if (!updateEmail) {
+                                      event.preventDefault();
+                                  }
+                              });
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+                    <form id="phone-form" method="POST" action="{{ route('user.update') }}">
+                      @csrf
+                      <div class="form-floating mb-2">
+                        <!-- <div class="label mb-2">
+                          <label class="fw-bold">Phone Numbers</label>
+                        </div> -->
+                        <div class="d-flex bd-highlight">
+                          <div class="form-floating w-100 bd-highlight">
+                            <input
+                              type="tel"
+                              class="form-control"
+                              id="phone"
+                              name="phone"
+                              placeholder="phone"/>
+
+                            @error('phone')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+
+                            @enderror
+                            <label for="name">
+                              @auth
+                              {{ Auth::user()->phone}}
+                              @else
+                                  User Accounts
+                              @endauth
+                            </label>
+                          </div>
+                          <div class="p-1 flex-shrink-5 bd-highlight">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <script>
+                              document.getElementById('phone-form').addEventListener('submit', function(event) {
+                                  // Pastikan Anda mengkonfirmasi update telepon jika diperlukan
+                                  var updatePhone = confirm('Apakah Anda yakin ingin Update Nomor Telepon?');
+
+                                  // Jika pengguna memilih untuk melanjutkan update telepon, lanjutkan dengan mengirim formulir
+                                  if (!updatePhone) {
+                                      event.preventDefault();
+                                  }
+                              });
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+                    <form id="password-form" method="POST" action="{{ route('user.update') }}">
+                      @csrf
+                      <div class="form-floating mb-2">
+                        <!-- <div class="label mb-2">
+                          <label for="name" class="fw-bold">Password</label>
+                        </div> -->
+                        <div class="d-flex bd-highlight">
+                          <div class="form-floating w-100 bd-highlight">
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="password"
+                              name="password"
+                              placeholder="password"/>
+
+                            @error('password')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+
+                            @enderror
+                            
+                            <label for="name">Password</label>
+
+                          </div>
+                          <div class="p-1 flex-shrink-5 bd-highlight">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <script>
+                              document.getElementById('password-form').addEventListener('submit', function(event) {
+                                  // Pastikan Anda mengkonfirmasi update password jika diperlukan
+                                  var updatePass = confirm('Apakah Anda yakin ingin Update password?');
+
+                                  // Jika pengguna memilih untuk melanjutkan update password, lanjutkan dengan mengirim formulir
+                                  if (!updatePass) {
+                                      event.preventDefault();
+                                  }
+                              });
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+
+
+                    <!-- <div class="pt-1 mb-1">
+                      <button
+                        class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
+                        Update
+                      </button>
+
+                    </div> -->
                   </div>
                 </div>
               </div>
