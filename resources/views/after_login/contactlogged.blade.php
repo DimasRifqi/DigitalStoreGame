@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>contact</title>
+    <title>Digital Store - contact</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -89,7 +89,7 @@
         href="{{ url('dashboard') }}"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <img src="../public/img/logo.png" class="pl-1" />
+        <img src="/img/logo.png" class="pl-1" />
         <h2 class="m-2 text-primary">Digital Store</h2>
       </a>
       <button

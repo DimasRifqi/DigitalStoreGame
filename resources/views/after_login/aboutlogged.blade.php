@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>About</title>
+    <title>Digital Store - About</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
     <!-- Favicon -->
     <!-- <link href="img/favicon.ico" rel="icon" /> -->
-    <link rel="icon" type="image/x-icon" href="/img/login.png" />
+    <link rel="icon" type="image/x-icon" href="/img/logo.png" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -89,7 +89,7 @@
         href="dashboard.html"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <img src="img/logo.png" class="pl-1" />
+        <img src="/img/logo.png" class="pl-1" />
         <h2 class="m-2 text-primary">Digital Store</h2>
       </a>
       <button
