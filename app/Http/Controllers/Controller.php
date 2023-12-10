@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\invoice_game;
+use App\Models\testimoni;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+
 
 class Controller extends BaseController
 {
@@ -19,7 +21,14 @@ class Controller extends BaseController
 
     public function indexctrl()
     {
-        return view('/before_login/index');
+        $testimonials = testimoni::all();
+        return view('/before_login/index', compact('testimonials'));
+    }
+
+    public function dashboardctrl()
+    {
+        $testimonials = testimoni::all();
+        return view('/after_login/dashboard', compact('testimonials'));
     }
 
     public function aboutlogctrl()
@@ -27,10 +36,18 @@ class Controller extends BaseController
         return view('/after_login/aboutlogged');
     }
 
-    public function invoice2ctrl()
-    {
-        return view('/after_login/invoice2');
-    }
+    // public function invoice2ctrl()
+    // {
+
+    //     $userId = auth()->user()->id;
+
+    //     $invoiceGame = invoice_game::where('lunas', 0)
+    //         ->where('id_user', $userId)
+    //         ->orderBy('id_invoice', 'desc')
+    //         ->first();
+
+    //     return view('/after_login/invoice2', compact('invoiceGame'));
+    // }
 
     public function widgetctrl()
     {
@@ -53,11 +70,6 @@ class Controller extends BaseController
     public function signadmctrl()
     {
         return view('/admin/signupadmin');
-    }
-
-    public function dashboardctrl()
-    {
-        return view('/after_login/dashboard');
     }
 
     public function dashminctrl()

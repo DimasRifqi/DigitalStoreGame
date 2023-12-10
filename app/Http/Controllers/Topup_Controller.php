@@ -8,6 +8,7 @@ use App\Models\item_game;
 use App\Models\type_game;
 use Illuminate\Support\Facades\Auth;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\View;
 
 class Topup_Controller extends Controller
 {
@@ -39,20 +40,7 @@ class Topup_Controller extends Controller
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
-        $server_text = '';
-
-        if ($server == 1) {
-            $server_text = 'America';
-        } elseif ($server == 2) {
-
-            $server_text = 'Europe';
-        } elseif ($server == 3) {
-
-            $server_text = 'Asia';
-        }
-
         $user = Auth::user();
-
         $faker = Faker::create();
 
          $topup = new invoice_game ([
@@ -61,7 +49,7 @@ class Topup_Controller extends Controller
             'nama_pembeli' => $user->fullname,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
-            'server_game' => $server_text,
+            'server_game' => $server,
             'nama_game' => $namagame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
@@ -70,51 +58,10 @@ class Topup_Controller extends Controller
 
         $topup->save();
 
-        return redirect()->back()->with('success', 'Data inserted successfully!');
 
-        // $namaGame = $request->input('namagame');
-        // $items = $request->input('item');
-        // $promos = $request->input('promo');
-        // $kodePembayaran = $request->input('');
-
-        // foreach ($items as $index => $item) {
-
-
-        //     invoice_game::create([
-        //         //'kodepembayaran_invoice' => 3,
-        //         //'nama_game' => $namaGame,
-        //         'item_game' => $item,
-        //         'hargaitem_game' => $promos[$index],
-        //     ]);
-        // }
-
-        // return redirect('/topUpOption')->with('success', 'Data Berhasil Terkirim !');
-
-
-
-        // $index = $request->input('submit_topup');
-
-        // $request->validate([
-        //     'SERVER' => 'required',
-        //     'game_id1' => 'required',
-        //     "item.{$index}" => 'required',
-        //     "promo.{$index}" => 'required',
-        // ]);
-
-
-        // $topup = new invoice_game ([
-        //     'server_game' => $request->input('SERVER'),
-        //     'game_id' => $request->input('game_id1'),
-        //     'item_game' => $request->input("item.{$index}"),
-        //     'hargaitem_game' => $request->input("promo.{$index}"),
-        // ]);
-
-
-
-        // $topup->save();
-
-
-
+        return redirect()->route('invoice')->with('success', 'Top-up successful!');
+        //return redirect()->back()->with('success', 'Data inserted successfully!');
+        //return redirect()->route('invoice2ctrl', ['id' => $topup->id_invoice])->with('success', 'Data inserted successfully!');
     }
 
     public function topupHSRctrl()
@@ -145,18 +92,6 @@ class Topup_Controller extends Controller
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
-        $server_text = '';
-
-        if ($server == 1) {
-            $server_text = 'America';
-        } elseif ($server == 2) {
-
-            $server_text = 'Europe';
-        } elseif ($server == 3) {
-
-            $server_text = 'Asia';
-        }
-
         $user = Auth::user();
 
         $faker = Faker::create();
@@ -167,7 +102,7 @@ class Topup_Controller extends Controller
             'nama_pembeli' => $user->fullname,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
-            'server_game' => $server_text,
+            'server_game' => $server,
             'nama_game' => $namagame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
@@ -177,7 +112,6 @@ class Topup_Controller extends Controller
         $topup->save();
 
         return redirect()->back()->with('success', 'Data inserted successfully!');
-
 
     }
 
@@ -264,25 +198,6 @@ class Topup_Controller extends Controller
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
-        $server_text = '';
-
-        if ($server == 1) {
-            $server_text = 'Asia Pacific';
-        } elseif ($server == 2) {
-
-            $server_text = 'Eureope';
-        } elseif ($server == 3) {
-
-            $server_text = 'North America';
-        }
-        elseif ($server == 4) {
-
-            $server_text = 'South America';
-        }
-        elseif ($server == 5) {
-
-            $server_text = 'Southeash Asia';
-        }
 
         $user = Auth::user();
 
@@ -294,7 +209,7 @@ class Topup_Controller extends Controller
             'nama_pembeli' => $user->fullname,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
-            'server_game' => $server_text,
+            'server_game' => $server,
             'nama_game' => $namagame,
             'item_game' => $item,
             'hargaitem_game' => $promo,

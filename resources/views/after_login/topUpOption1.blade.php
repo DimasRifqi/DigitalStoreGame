@@ -17,11 +17,11 @@
                 <div class="col-md-6">
                 <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;" id="SERVER" name="SERVER">
                         <option selected>Pilih Server :</option>
-                        <option value="1">Asia Pacific</option>
-                        <option value="2">Eureope</option>
-                        <option value="3">North America</option>
-                        <option value="4">South America</option>
-                        <option value="5">Southeash Asia</option>
+                        <option value="Asia Pacific">Asia Pacific</option>
+                        <option value="Eureope">Eureope</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Southeash Asia">Southeash Asia</option>
                 </select>
                 </div>
             </div>

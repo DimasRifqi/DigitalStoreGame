@@ -10,8 +10,8 @@
                         class="form-control"
                         id="game_id1"
                         name="game_id1"
-                        placeholder="Masukkan User ID (Server)"/>
-                        <label for="game_id1">Masukkan User ID (Server)</label>
+                        placeholder="Masukkan User ID"/>
+                        <label for="game_id1">Masukkan User ID</label>
                     </div>
                 </div>
             </div>

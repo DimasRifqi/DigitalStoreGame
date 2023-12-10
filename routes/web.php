@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\invoiceController;
+use App\Models\testimoni;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/before_login/index');
+    $testimonials = testimoni::all();
+    return view('/before_login/index', compact('testimonials'));
 });
 
 
@@ -33,7 +36,7 @@ Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::get('/index', [Controller::class, 'indexctrl'])->name('index');
 Route::get('/aboutlogged', [Controller::class, 'aboutlogctrl'])->name('aboutlogged');
-Route::get('/invoice2', [Controller::class, 'invoice2ctrl'])->name('invoice2');
+
 Route::get('/widget', [Controller::class, 'widgetctrl'])->name('widget');
 Route::get('/testimonialupdate', [Controller::class, 'testi_up_ctrl'])->name('testimonialupdate');
 Route::get('/testimonialadd', [Controller::class, 'testi_add_ctrl'])->name('testimonialadd');
@@ -87,6 +90,8 @@ Route::post('/contactlogged', [ContactController::class, 'contact_loggedform'])-
 Route::get('/contact', [ContactController::class, 'contactctrl'])->name('contact');
 Route::post('/contact', [ContactController::class, 'contactform'])->name('contact_form');
 
+//invoice
+Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice');
 //Serching Game
 // Route::get('/search/game', [SearchGameController::class, 'search'])->name('search.game');
 // Route::get('/games/{id_typegame}', [SearchGameController::class, 'show'])->name('game.show');

@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('kodepembayaran_invoice')->unique;
             $table->string('nama_game');
             $table->string('game_id');
-            $table->string('server_game');
+            $table->string('server_game')->nullable();
             $table->string('item_game');
             $table->string('hargaitem_game');
-            $table->string('lunas')->default(false);
+            //$table->string('lunas')->default(false);
+            $table->enum('status',['Belum Lunas','Lunas'])->default('Belum Lunas');
             $table->foreignid('id_user')->references('id')->on('users')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
 

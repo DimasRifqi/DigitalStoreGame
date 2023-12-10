@@ -17,9 +17,9 @@
             <div class="col-md-6">
                 <select class="form-select form-select-lg mb-3" aria-label="form-select-lg example" style="height: 57.5px;" id="SERVER" name="SERVER">
                     <option selected>Pilih Server:</option>
-                    <option value="1">America</option>
-                    <option value="2">Europe</option>
-                    <option value="3">Asia</option>
+                    <option value="America">America</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
                 </select>
             </div>
         </div>

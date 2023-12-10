@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script>
-      function showHint(str) {
-        if (str.length == 0) {
-          document.getElementById("txtHint").innerHTML = "";
-          return;
-        } else {
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-          };
-          xmlhttp.open("GET", "gethint.php?q=" + str, true);
-          xmlhttp.send();
-        }
-      }
-    </script>
-
     <meta charset="utf-8" />
     <title>Digital Store - Landing Page</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />

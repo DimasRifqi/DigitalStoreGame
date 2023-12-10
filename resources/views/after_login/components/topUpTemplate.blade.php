@@ -105,10 +105,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{ url('invoice') }}" class="nav-item nav-link">
+                <i class="fa fa-shopping-bag" aria-hidden="true"> Bayar</i>
+              </a>
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Home</a>
           <a href="{{ url('topup') }}" class="nav-item nav-link active">TOP UP</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
+
           <div class="btn-group px-1">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                         @auth
@@ -181,7 +185,7 @@
                     </div>
                     <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                         <div class="text-start mb-3 pb-3">
-                            
+
                             @yield('form')
 
                         </div>
@@ -220,30 +224,13 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}" >Beli</button>
                                             </div>
                                         </div>
                                     </div>
 
                             @endforeach
 
-                                {{-- @foreach ($topup_item as $item)
-                                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="product-item">
-                                            <div class="position-relative bg-light overflow-hidden">
-                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                            </div>
-                                            <div class="text-center p-4">
-                                                <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                                <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                                <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                            </div>
-                                            <div class="d-grid gap-2 col-12 mx-auto">
-                                                <a href="topuppayment.html" class="btn btn-primary fw-medium" role="button">Beli</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach --}}
                             </div>
                         </div>
 
