@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,8 +24,8 @@
             $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -96,6 +96,72 @@
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
-    
+
 })(jQuery);
 
+
+//searching
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', async () => {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    try {
+        const response = await fetch('/api/items');
+        const data = await response.json();
+
+        const filteredData = data.filter(item => item.namagame.toLowerCase().includes(searchTerm));
+        displayResults(filteredData);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+function displayResults(results) {
+    searchResults.innerHTML = '';
+
+    if (results.length > 0) {
+        results.forEach(item => {
+            const resultItem = document.createElement('div');
+            resultItem.textContent = item.namagame;
+            searchResults.appendChild(resultItem);
+        });
+
+        // Tampilkan popup
+        searchResults.style.display = 'block';
+    } else {
+        searchResults.style.display = 'none';
+    }
+}
+
+// Sembunyikan popup saat mengklik di luar elemen pencarian
+document.addEventListener('click', (event) => {
+    if (!event.target.matches('#searchInput')) {
+        searchResults.style.display = 'none';
+    }
+});
+
+//end searching
+
+
+//midtrans
+window.snap.pay('{{$snapToken } }}', {
+    onSuccess: function(result){
+      /* You may add your own implementation here */
+      alert("payment success!"); console.log(result);
+    },
+    onPending: function(result){
+      /* You may add your own implementation here */
+      alert("wating your payment!"); console.log(result);
+    },
+    onError: function(result){
+      /* You may add your own implementation here */
+      alert("payment failed!"); console.log(result);
+    },
+    onClose: function(){
+      /* You may add your own implementation here */
+      alert('you closed the popup without finishing the payment');
+    }
+  })
+  //end midtrans

@@ -63,53 +63,11 @@
             <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
                 <div class="input-group mb-3 h-25 mt-3 mx-5">
                     <input type="text" id="searchInput" class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
-                    <div id="searchResults" class="search-results"></div>
-
-                    <script>
-                        const searchInput = document.getElementById('searchInput');
-                        const searchResults = document.getElementById('searchResults');
-
-                        searchInput.addEventListener('input', async () => {
-                            const searchTerm = searchInput.value.toLowerCase();
-
-                            try {
-                                const response = await fetch('/api/items');
-                                const data = await response.json();
-
-                                const filteredData = data.filter(item => item.namagame.toLowerCase().includes(searchTerm));
-                                displayResults(filteredData);
-                            } catch (error) {
-                                console.error('Error:', error);
-                            }
-                        });
-
-                        function displayResults(results) {
-                            searchResults.innerHTML = '';
-
-                            if (results.length > 0) {
-                                results.forEach(item => {
-                                    const resultItem = document.createElement('div');
-                                    resultItem.textContent = item.namagame;
-                                    searchResults.appendChild(resultItem);
-                                });
-
-                                // Tampilkan popup
-                                searchResults.style.display = 'block';
-                            } else {
-                                searchResults.style.display = 'none';
-                            }
-                        }
-
-                        // Sembunyikan popup saat mengklik di luar elemen pencarian
-                        document.addEventListener('click', (event) => {
-                            if (!event.target.matches('#searchInput')) {
-                                searchResults.style.display = 'none';
-                            }
-                        });
-                    </script>
+                    {{-- <div id="searchResults" class="search-results"></div> --}}
                     <div class="input-group-append mr-5">
                       <button class="btn btn-outline-info btn-primary" type="button">Search</button>
                     </div>
+                    <div id="searchResults" class="search-results mt-5 flex-column align-items-center position-absolute"></div>
                 </div>
                 <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link">About</a>

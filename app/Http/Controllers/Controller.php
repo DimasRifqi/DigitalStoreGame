@@ -79,7 +79,7 @@ class Controller extends BaseController
 
     public function settingctrl()
     {
-        return view('/after_login/setting');
+        return view('/after_login/settingori');
     }
 
     public function signinadmctrl()

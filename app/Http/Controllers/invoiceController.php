@@ -40,8 +40,6 @@ class invoiceController extends Controller
 
         $snapToken = Snap::getSnapToken($params);
 
-
-
         return view('/after_login/invoice', compact('invoiceGame','snapToken'));
     }
 }
