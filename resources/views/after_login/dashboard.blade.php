@@ -63,11 +63,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
                 <div class="input-group mb-3 h-25 mt-3 mx-5">
-                    <input type="text"  class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
-
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
+                    {{-- <div id="searchResults" class="search-results"></div> --}}
                     <div class="input-group-append mr-5">
                       <button class="btn btn-outline-info btn-primary" type="button">Search</button>
                     </div>
+                    <div id="searchResults" class="search-results mt-5 flex-column align-items-center position-absolute"></div>
                 </div>
                 <a href="{{ url('dashboard') }}" class="nav-item nav-link active">Dashboard</a>
                 <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
