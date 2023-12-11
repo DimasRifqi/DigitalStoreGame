@@ -94,6 +94,9 @@ Route::post('/contact', [ContactController::class, 'contactform'])->name('contac
 
 //invoice
 Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice');
+
+
+
 //Serching Game
 // Route::get('/search/game', [SearchGameController::class, 'search'])->name('search.game');
 // Route::get('/games/{id_typegame}', [SearchGameController::class, 'show'])->name('game.show');
