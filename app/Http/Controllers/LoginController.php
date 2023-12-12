@@ -15,21 +15,23 @@ class LoginController extends Controller
 
     public function loginform(Request $request)
     {
-
-        $credential =  $request->validate([
-            'email' => ['required' , 'email:dns' ],
-            'password' => ['required' , 'min:5' ],
+        $credentials = $request->validate([
+            'email' => ['required', 'email:dns'],
+            'password' => ['required', 'min:5'],
         ]);
 
-        if(Auth::attempt($credential)){
-            $request ->session()->regenerate();
-            return redirect('/dashboard');
-        }
-        else{
-            return back ()->with('error','Kamu gagal Login');
-        }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                return redirect('/dashboardadmin');
+            } else {
+                return redirect('/dashboard');
+            }
+        } else {
+            return back()->with('error', 'Kamu gagal Login');
+        }
     }
 
     public function logout()

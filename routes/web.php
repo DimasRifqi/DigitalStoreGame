@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\invoiceController;
 use App\Models\testimoni;
@@ -38,19 +39,20 @@ Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::get('/index', [Controller::class, 'indexctrl'])->name('index');
 Route::get('/aboutlogged', [Controller::class, 'aboutlogctrl'])->name('aboutlogged');
-
-Route::get('/widget', [Controller::class, 'widgetctrl'])->name('widget');
-Route::get('/testimonialupdate', [Controller::class, 'testi_up_ctrl'])->name('testimonialupdate');
-Route::get('/testimonialadd', [Controller::class, 'testi_add_ctrl'])->name('testimonialadd');
-Route::get('/signupadmin', [Controller::class, 'signadmctrl'])->name('signupadmin');
 Route::get('/dashboard', [Controller::class, 'dashboardctrl'])->name('dashboard');
-Route::get('/dashboardadmin', [Controller::class, 'dashminctrl'])->name('dashboardadmin');
-Route::get('/datatablemember', [Controller::class, 'datamembctrl'])->name('datatablemember');
-Route::get('/datatablepaymentall', [Controller::class, 'paymentallctrl'])->name('datatablepaymentall');
-Route::get('/datatablepaymenmobile', [Controller::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
-Route::get('/datatablepaymentpc', [Controller::class, 'paymentpcctrl'])->name('datatablepaymentpc');
-Route::get('/datatabletestimonial', [Controller::class, 'testictrl'])->name('datatabletestimonial');
 
+
+//admin page
+Route::get('/widget', [AdminController::class, 'widgetctrl'])->name('widget');
+Route::get('/testimonialupdate', [AdminController::class, 'testi_up_ctrl'])->name('testimonialupdate');
+Route::get('/testimonialadd', [AdminController::class, 'testi_add_ctrl'])->name('testimonialadd');
+Route::get('/signupadmin', [AdminController::class, 'signadmctrl'])->name('signupadmin');
+Route::get('/dashboardadmin', [AdminController::class, 'dashminctrl'])->name('dashboardadmin');
+Route::get('/datatablemember', [AdminController::class, 'datamembctrl'])->name('datatablemember');
+Route::get('/datatablepaymentall', [AdminController::class, 'paymentallctrl'])->name('datatablepaymentall');
+Route::get('/datatablepaymenmobile', [AdminController::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
+Route::get('/datatablepaymentpc', [AdminController::class, 'paymentpcctrl'])->name('datatablepaymentpc');
+Route::get('/datatabletestimonial', [AdminController::class, 'testictrl'])->name('datatabletestimonial');
 
 //register
 Route::get('/signup', [RegisterController::class, 'loginctrl'])->name('signup');
@@ -61,7 +63,7 @@ Route::get('/login', [LoginController::class, 'loginctrl'])->name('login');
 Route::post('/login', [LoginController::class, 'loginform'])->name('login_form');
 
 // Setting update
-Route::get('/setting', [Controller::class, 'settingctrl'])->name('setting');
+Route::get('/setting', [UserController::class, 'settingctrl'])->name('setting');
 Route::post('/setting', [UserController::class, 'update'])->name('user.update');
 
 

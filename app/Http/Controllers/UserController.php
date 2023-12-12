@@ -43,4 +43,9 @@ class UserController extends Controller
 
         return redirect('/setting')->with('success', 'Update successful!');
     }
+
+    public function settingctrl()
+    {
+        return view('/after_login/settingori');
+    }
 }

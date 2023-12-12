@@ -20,7 +20,7 @@ class pengguna extends Seeder
                 'email' => 'admin@gmail.com',
                 'phone' => '432567865432',
                 'password' =>  bcrypt('123456'),
-                'is_admin' => 1
+                'role' => 'admin'
             ],
 
             [
@@ -29,7 +29,7 @@ class pengguna extends Seeder
                 'email' => 'ryan@gmail.com',
                 'phone' => '432567865412',
                 'password' =>  bcrypt('123456'),
-                'is_admin' => 1
+                'role' => 'user'
             ],
 
             [
@@ -38,7 +38,7 @@ class pengguna extends Seeder
                 'email' => 'nanda@gmail.com',
                 'phone' => '85567865432',
                 'password' =>  bcrypt('123456'),
-                'is_admin' => 1
+                'role' => 'user'
             ],
 
             [
@@ -47,7 +47,7 @@ class pengguna extends Seeder
                 'email' => 'dimas@gmail.com',
                 'phone' => '142567865432',
                 'password' =>  bcrypt('123456'),
-                'is_admin' => 1
+                'role' => 'user'
             ],
 
         ];
