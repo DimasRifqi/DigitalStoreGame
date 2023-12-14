@@ -9,11 +9,11 @@ class AdminController extends Controller
 
     public function dashminctrl()
     {
-        // Check if the user is logged in and has the role of 'admin'
+
         if (Auth::check() && Auth::user()->role == 'admin') {
             return view('/admin/dashboardadmin');
         } else {
-         
+
             return redirect('/login')->with('error', 'Unauthorized access');
         }
     }

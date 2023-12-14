@@ -101,21 +101,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
-          <div class="input-group mb-3 h-25 mt-3 mx-5">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search Game"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-
-            <div class="input-group-append mr-5">
-              <button class="btn btn-outline-info btn-primary" type="button">
-                Search
-              </button>
-            </div>
-          </div>
           <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>
           <a href="{{ url('about') }}" class="nav-item nav-link active">About</a>
           <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>

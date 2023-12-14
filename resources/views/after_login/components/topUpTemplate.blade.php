@@ -105,10 +105,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{{ url('invoice') }}" class="nav-item nav-link">
+            {{-- <a href="{{ url('invoice') }}" class="nav-item nav-link">
                 <i class="fa fa-shopping-bag" aria-hidden="true"> Bayar</i>
-              </a>
+              </a> --}}
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Home</a>
+          <a href="{{ url('invoice') }}" class="nav-item nav-link">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+          </a>
           <a href="{{ url('topup') }}" class="nav-item nav-link active">TOP UP</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
@@ -251,7 +254,7 @@
                                                     <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                                 </div>
                                                 <div class="d-grid gap-2 col-12 mx-auto">
-                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -433,44 +436,5 @@
     <script src="js/main.js"></script>
   </body>
 
-  {{-- <script>
-        function beliButtonClicked(gameId, server, item, gameName, promo) {
-            // Do something with the captured values, such as displaying in a modal
-            alert(
-                'Game ID: ' + gameId +
-                '\nServer: ' + server +
-                '\nItem: ' + item +
-                '\nGame Name: ' + gameName +
-                '\nPromo: Rp.' + promo
-            );
-            // You can customize this alert or replace it with code to open a modal
-        }
-    </script> --}}
-
-    <script>
-        function beliButtonClicked() {
-            // Get values from form inputs
-            var gameId = document.getElementById('game_id1').value;
-            var server = document.getElementById('SERVER').value;
-
-            console.log('Game ID:', gameId);
-            console.log('Server:', server);
-
-            // Additional values from Blade variables
-            var item = '{{ $item['item'] }}';
-            var gameName = '{{ $game['namagame'] }}';
-            var promo = '{{ $item['promo'] }}';
-
-            // Do something with the captured values, such as displaying in a modal
-            alert(
-                'Game ID: ' + gameId +
-                '\nServer: ' + server +
-                '\nItem: ' + item +
-                '\nGame Name: ' + gameName +
-                '\nPromo: Rp.' + promo
-            );
-            // You can customize this alert or replace it with code to open a modal
-        }
-    </script>
 
 </html>

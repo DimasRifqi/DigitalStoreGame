@@ -9,6 +9,7 @@ use App\Models\type_game;
 use Illuminate\Support\Facades\Auth;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\invoiceController;
 
 class Topup_Controller extends Controller
 {
@@ -55,13 +56,13 @@ class Topup_Controller extends Controller
             'hargaitem_game' => $promo,
 
         ]);
-
         $topup->save();
 
 
-        return redirect()->route('invoice')->with('success', 'Top-up successful!');
-        //return redirect()->back()->with('success', 'Data inserted successfully!');
-        //return redirect()->route('invoice2ctrl', ['id' => $topup->id_invoice])->with('success', 'Data inserted successfully!');
+        return redirect()->route('invoice');
+        //return redirect()->action([invoiceController::class, 'invoicectrl'])->name('invoice')->with('success', 'Top-up successful!');
+        //return redirect()->action(['\App\Http\Controllers\invoiceController', 'invoicectrl'])->with('success', 'Top-up successful!');
+
     }
 
     public function topupHSRctrl()
@@ -93,7 +94,6 @@ class Topup_Controller extends Controller
         $promo = $request->input("promo.{$index}");
 
         $user = Auth::user();
-
         $faker = Faker::create();
 
          $topup = new invoice_game ([
@@ -146,7 +146,6 @@ class Topup_Controller extends Controller
 
 
         $user = Auth::user();
-
         $faker = Faker::create();
 
          $topup = new invoice_game ([
@@ -200,7 +199,6 @@ class Topup_Controller extends Controller
 
 
         $user = Auth::user();
-
         $faker = Faker::create();
 
          $topup = new invoice_game ([

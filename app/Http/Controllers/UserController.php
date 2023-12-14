@@ -41,7 +41,7 @@ class UserController extends Controller
 
         $update_user->save();
 
-        return redirect('/setting')->with('success', 'Update successful!');
+        return redirect('/settingori')->with('success', 'Update successful!');
     }
 
     public function settingctrl()
