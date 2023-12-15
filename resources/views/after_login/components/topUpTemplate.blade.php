@@ -65,6 +65,12 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
 
+    <style>
+        .tipegame {
+            display: none;
+        }
+    </style>
+
 
   </head>
 
@@ -183,6 +189,10 @@
                         <div class="section-header text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 400px;">
                             <h2 class="mb-3" style="font-size: 40px;">{{ $game['namagame'] }}</h2>
                             <input type="hidden" name="namagame" id="namagame" value="{{ $game['namagame'] }}" />
+
+                            <h2 class="mb-3 tipegame" style="font-size: 40px; display: none;">{{ $game['tipegame'] }}</h2>
+                            <input type="hidden" name="tipegame" id="tipegame" value="{{ $game['tipegame'] }}" />
+
                             <img class="img-fluid w-100" src="{{ asset($game['foto_game']) }}">
                         </div>
                     </div>

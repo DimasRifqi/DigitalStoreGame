@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>Dashboard Admin - Digital Store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -64,7 +64,7 @@
         <nav class="navbar bg-light navbar-light">
           <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">
-              <i class="fa fa-hashtag me-2"></i>DASHMIN
+              <i class="fa fa-hashtag me-2"></i>Admin
             </h3>
           </a>
           <div class="d-flex align-items-center ms-4 mb-4">
@@ -89,8 +89,8 @@
             <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link"
               ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a
             >
-            <a href="{{ url('widget') }}" class="nav-item nav-link"
-              ><i class="fa fa-th me-2"></i>Widgets</a
+            <a href="{{ url('widget') }}" class="nav-item nav-link active"
+              ><i class="fa fa-th me-2"></i>Add Testimoni</a
             >
             <div class="nav-item dropdown">
               <a

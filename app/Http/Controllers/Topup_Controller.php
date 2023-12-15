@@ -38,25 +38,31 @@ class Topup_Controller extends Controller
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
+        $tipGame = $request->input('tipegame');
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
         $user = Auth::user();
         $faker = Faker::create();
 
-         $topup = new invoice_game ([
+        $topup = new invoice_game ([
 
             'id_user' => $user->id,
             'nama_pembeli' => $user->fullname,
+            'email_pembeli' => $user->email,
+            'number_pembeli' => $user->phone,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
             'server_game' => $server,
             'nama_game' => $namagame,
+            'tipe_game' => $tipGame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
+            'tanggal_pembelian' => now(),
 
         ]);
         $topup->save();
+
 
 
         return redirect()->route('invoice');
@@ -90,25 +96,29 @@ class Topup_Controller extends Controller
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
+        $tipGame = $request->input('tipegame');
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
         $user = Auth::user();
         $faker = Faker::create();
 
-         $topup = new invoice_game ([
+        $topup = new invoice_game ([
 
             'id_user' => $user->id,
             'nama_pembeli' => $user->fullname,
+            'email_pembeli' => $user->email,
+            'number_pembeli' => $user->phone,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
             'server_game' => $server,
             'nama_game' => $namagame,
+            'tipe_game' => $tipGame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
+            'tanggal_pembelian' => now(),
 
         ]);
-
         $topup->save();
 
         return redirect()->back()->with('success', 'Data inserted successfully!');
@@ -141,6 +151,7 @@ class Topup_Controller extends Controller
         $index = $request->input('submit_topup');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
+        $tipeGame = $request->input('tipegame');
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
 
@@ -148,18 +159,21 @@ class Topup_Controller extends Controller
         $user = Auth::user();
         $faker = Faker::create();
 
-         $topup = new invoice_game ([
+        $topup = new invoice_game ([
 
             'id_user' => $user->id,
             'nama_pembeli' => $user->fullname,
+            'email_pembeli' => $user->email,
+            'number_pembeli' => $user->phone,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
             'nama_game' => $namagame,
+            'tipe_game' => $tipeGame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
+            'tanggal_pembelian' => now(),
 
         ]);
-
         $topup->save();
 
         return redirect()->back()->with('success', 'Data inserted successfully!');
@@ -194,26 +208,29 @@ class Topup_Controller extends Controller
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
+        $tipGame = $request->input('tipegame');
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
-
 
         $user = Auth::user();
         $faker = Faker::create();
 
-         $topup = new invoice_game ([
+        $topup = new invoice_game ([
 
             'id_user' => $user->id,
             'nama_pembeli' => $user->fullname,
+            'email_pembeli' => $user->email,
+            'number_pembeli' => $user->phone,
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
             'server_game' => $server,
             'nama_game' => $namagame,
+            'tipe_game' => $tipGame,
             'item_game' => $item,
             'hargaitem_game' => $promo,
+            'tanggal_pembelian' => now(),
 
         ]);
-
         $topup->save();
 
         return redirect()->back()->with('success', 'Data inserted successfully!');

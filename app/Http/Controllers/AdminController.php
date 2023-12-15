@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use App\Models\invoice_game;
 class AdminController extends Controller
 {
 
@@ -11,12 +11,30 @@ class AdminController extends Controller
     {
 
         if (Auth::check() && Auth::user()->role == 'admin') {
-            return view('/admin/dashboardadmin');
+            $invoice = invoice_game::all();
+            $totalPerolehan = 0;
+            $totalSale = -1;
+            return view('/admin/dashboardadmin',compact('invoice','totalPerolehan','totalSale'));
+        } else {
+
+            return redirect('/login')->with('error', 'Unauthorized access');
+        }
+
+    }
+
+    public function paymentallctrl()
+    {
+        if (Auth::check() && Auth::user()->role == 'admin') {
+            $invoice = invoice_game::all();
+            $totalPerolehan = 0;
+            $totalSale = -1;
+            return view('/admin/datatablepaymentall',compact('invoice','totalPerolehan','totalSale'));
         } else {
 
             return redirect('/login')->with('error', 'Unauthorized access');
         }
     }
+
 
     public function signinadmctrl()
     {
@@ -28,10 +46,7 @@ class AdminController extends Controller
         return view('/admin/datatablemember');
     }
 
-    public function paymentallctrl()
-    {
-        return view('/admin/datatablepaymentall');
-    }
+
 
     public function paymentmblctrl()
     {

@@ -135,6 +135,8 @@
             <table>
             <thead>
                 <th>Nama Pembeli</th>
+                {{-- <th>Email</th>
+                <th>Phone</th> --}}
                 <th>Nama Game</th>
                 <th>ID Game</th>
                 <th>Server Game</th>
@@ -146,6 +148,8 @@
                     @if($invoiceGame)
                         <tr class="single-row">
                             <td><input type="hidden" placeholder="nama_pembeli">{{ $invoiceGame->nama_pembeli}}</td>
+                            {{-- <td><input type="hidden" placeholder="email_pembeli">{{ $invoiceGame->email_pembeli}}</td>
+                            <td><input type="hidden" placeholder="phone_pembeli">{{ $invoiceGame->phone_pembeli}}</td> --}}
                             <td><input type="hidden" placeholder="nama_game">{{ $invoiceGame->nama_game}}</td>
                             <td><input type="hidden" placeholder="game_id">{{ $invoiceGame->game_id}}</td>
                             <td><input type="hidden" placeholder="server_game">{{ $invoiceGame->server_game}}</td>

@@ -64,7 +64,7 @@
         <nav class="navbar bg-light navbar-light">
           <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">
-              <i class="fa fa-hashtag me-2"></i>DASHMIN
+              <i class="fa fa-hashtag me-2"></i>Admin
             </h3>
           </a>
           <div class="d-flex align-items-center ms-4 mb-4">
@@ -86,22 +86,36 @@
             </div>
           </div>
           <div class="navbar-nav w-100">
-            <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link"
-              ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a
-            >
+            <div class="nav-item dropdown">
+                <a
+                  href="{{ url('dashboardadmin') }}"
+                  class="nav-link dropdown-toggle active"
+                  data-bs-toggle="dropdown"
+                  ><i class="fa fa-table me-2"></i>Data Payment</a
+                >
+
+                <div class="dropdown-menu bg-transparent border-0">
+                  <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
+                  <a href="{{ url('datatablepaymentall') }}" class="dropdown-item active">All Payment</a>
+
+              </div>
+
+            {{-- <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link active"
+              ><i class="fa fa-tachometer-alt me-2"></i>Data Payment</a
+            > --}}
             <a href="{{ url('widget') }}" class="nav-item nav-link"
-              ><i class="fa fa-th me-2"></i>Widgets</a
+              ><i class="fa fa-th me-2"></i>Data Testimoni</a
             >
             <div class="nav-item dropdown">
               <a
                 href="#"
-                class="nav-link dropdown-toggle active"
+                class="nav-link dropdown-toggle"
                 data-bs-toggle="dropdown"
                 ><i class="fa fa-table me-2"></i>Tables</a
               >
               <div class="dropdown-menu bg-transparent border-0">
                 <a href="{{ url('datatablemember') }}" class="dropdown-item">Member</a>
-                <a href="{{ url('datatablepaymentall') }}" class="dropdown-item active"
+                <a href="{{ url('datatablepaymentall') }}" class="dropdown-item"
                   >All Payment</a
                 >
                 <a href="{{ url('datatablepaymentmobile') }}" class="dropdown-item"
@@ -220,38 +234,27 @@
                         <th scope="col">Type</th>
                         <th scope="col">Game</th>
                         <th scope="col">Amount</th>
-                        <th scope="col">Details</th>
+                        {{-- <th scope="col">Details</th> --}}
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Mark Otto</td>
-                        <td>mark@email.com</td>
-                        <td>+918573456789</td>
-                        <td>Mobile</td>
-                        <td>Counter Strike 2</td>
-                        <td>$123</td>
-                        <td>
-                          <a class="btn btn-sm btn-primary" href="">Detail</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Mark Otto</td>
-                        <td>mark@email.com</td>
-                        <td>+918573456789</td>
-                        <td>PC</td>
-                        <td>Counter Strike 2</td>
-                        <td>$123</td>
-                        <td>
-                          <a class="btn btn-sm btn-primary" href="">Detail</a>
-                        </td>
-                      </tr>
+                        @foreach ($invoice as $invoiceGame)
+                            <tr>
+                                <th scope="row">{{ $invoiceGame->id_invoice }}</th>
+                                <td>{{ $invoiceGame->tanggal_pembelian }}</td>
+                                <td>{{ $invoiceGame->kodepembayaran_invoice }}</td>
+                                <td>{{ $invoiceGame->nama_pembeli }}</td>
+                                <td>{{ $invoiceGame->email_pembeli }}</td>
+                                <td>{{ $invoiceGame->number_pembeli }}</td>
+                                <td>{{ $invoiceGame->tipe_game }}</td>
+                                <td>{{ $invoiceGame->nama_game }}</td>
+                                <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
+                                {{-- <td>
+                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
+                                </td> --}}
+                            </tr>
+
+                        @endforeach
                     </tbody>
                   </table>
                 </div>
