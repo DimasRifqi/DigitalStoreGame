@@ -297,30 +297,29 @@
                 </div>
             </div>
         </div>
+        <script>
+          document.querySelector(".submit").addEventListener("click", function(event) {
+            var confirmBeli = Swal.fire({
+            title: "Confirmation",
+            text: "Are you sure with Your Choice?",
+            imageUrl: "{{ asset($item['foto_item']) }}",
+            imageWidth: 500,
+            imageHeight: 250,
+            // imageAlt: "",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
+            confirmButtonColor: "#00ff55",
+            cancelButtonColor: "#999999",
+            reverseButtons: true,
+          });
+          
+            if (!confirmBeli) {
+                event.preventDefault();
+            }
+          });
+        </script>
     </form>
-
-    <script>
-      document.querySelector(".submit").addEventListener("click", function() {
-        var confirmBeli = Swal.fire({
-        title: "Confirmation",
-        text: "Are you sure with Your Choice?",
-        imageUrl: "{{ asset($item['foto_item']) }}",
-        imageWidth: 500,
-        imageHeight: 250,
-        // imageAlt: "",
-        showCancelButton: true,
-        confirmButtonText: "Yes",
-        cancelButtonText: "No",
-        confirmButtonColor: "#00ff55",
-        cancelButtonColor: "#999999",
-        reverseButtons: true,
-      });
-      
-      if (!confirmBeli) {
-          event.preventDefault();
-      }
-    });
-    </script>
 <!-- Product End -->
 
   <!-- Footer Start -->
