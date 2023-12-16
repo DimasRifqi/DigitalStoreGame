@@ -53,7 +53,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <!-- <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
 
 
     <!-- Libraries Stylesheet -->
@@ -235,10 +236,63 @@
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}" >Beli</button>
-                                        </div>
+                                            <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <script>
+                                              document.querySelector(".enter").addEventListener('submit', function(event) {
+                                                Swal({
+                                                title: "Confirmation",
+                                                text: "Are you sure with Your Choice?",
+                                                imageUrl: "{{ asset($item['foto_item']) }}",
+                                                imageWidth: 500,
+                                                imageHeight: 250,
+                                                // imageAlt: "",
+                                                showConfirmButton: true,
+                                                showDenyButton: true,
+                                                confirmButtonText: "Yes",
+                                                denyButtonText: `No`,
+                                                confirmButtonColor: "#00ff55",
+                                                cancelButtonColor: "#999999",
+                                                reverseButtons: true
+                                              }).then((event) => {
+                                                if (!result.isConfirmed) {
+                                                  Swal.fire("Canceled", "", "info");
+                                                }
+                                              })
+                                              
+                                                // if (!confirmBeli) {
+                                                //     event.preventDefault();
+                                                // }
+                                              });
+                                            </script>
+                                          </div>
                                     </div>
                                 </div>
+                                <!-- <script>
+                                      document.querySelector(".submit").addEventListener("click", function() {
+                                        Swal.fire({
+                                        title: "Confirmation",
+                                        text: "Are you sure with Your Choice?",
+                                        imageUrl: "{{ asset($item['foto_item']) }}",
+                                        imageWidth: 500,
+                                        imageHeight: 250,
+                                        // imageAlt: "",
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        cancelButtonText: "No",
+                                        confirmButtonColor: "#00ff55",
+                                        cancelButtonColor: "#999999",
+                                        reverseButtons: true,
+                                      }).then((result) => {
+                                        if (!result.isConfirmed) {
+                                          Swal.fire("Canceled", "", "info");
+                                        }
+                                      })
+                                      
+                                        // if (!confirmBeli) {
+                                        //     event.preventDefault();
+                                        // }
+                                      });
+                                    </script> -->
                         @endforeach
                         </div>
                     </div>
@@ -260,10 +314,63 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
-                                            </div>
+                                                <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
+                                                <script>
+                                                  document.querySelector(".enter").addEventListener('submit', function(event) {
+                                                    Swal({
+                                                    title: "Confirmation",
+                                                    text: "Are you sure with Your Choice?",
+                                                    imageUrl: "{{ asset($item['foto_item']) }}",
+                                                    imageWidth: 500,
+                                                    imageHeight: 250,
+                                                    // imageAlt: "",
+                                                    showConfirmButton: true,
+                                                    showDenyButton: true,
+                                                    confirmButtonText: "Yes",
+                                                    denyButtonText: `No`,
+                                                    confirmButtonColor: "#00ff55",
+                                                    cancelButtonColor: "#999999",
+                                                    reverseButtons: true
+                                                  }).then((event) => {
+                                                    if (!result.isConfirmed) {
+                                                      Swal.fire("Canceled", "", "info");
+                                                    }
+                                                  })
+                                                  
+                                                    // if (!confirmBeli) {
+                                                    //     event.preventDefault();
+                                                    // }
+                                                  });
+                                                </script>
+                                              </div>
                                         </div>
                                     </div>
+                                    <!-- <script>
+                                      document.querySelector(".submit").addEventListener('click', function() {
+                                        Swal.fire({
+                                        title: "Confirmation",
+                                        text: "Are you sure with Your Choice?",
+                                        imageUrl: "{{ asset($item['foto_item']) }}",
+                                        imageWidth: 500,
+                                        imageHeight: 250,
+                                        // imageAlt: "",
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        cancelButtonText: "No",
+                                        confirmButtonColor: "#00ff55",
+                                        cancelButtonColor: "#999999",
+                                        reverseButtons: true,
+                                      }).then((result) => {
+                                        if (!result.isConfirmed) {
+                                          Swal.fire("Canceled", "", "info");
+                                        }
+                                      })
+                                      
+                                        // if (!confirmBeli) {
+                                        //     event.preventDefault();
+                                        // }
+                                      });
+                                    </script> -->
                                 @endif
                             @endforeach
                         </div>
@@ -286,10 +393,63 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
-                                            </div>
+                                                <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                <script>
+                                                  document.querySelector(".enter").addEventListener('submit', function(event) {
+                                                    Swal.fire({
+                                                    title: "Confirmation",
+                                                    text: "Are you sure with Your Choice?",
+                                                    imageUrl: "{{ asset($item['foto_item']) }}",
+                                                    imageWidth: 500,
+                                                    imageHeight: 250,
+                                                    // imageAlt: "",
+                                                    showConfirmButton: true,
+                                                    showDenyButton: true,
+                                                    confirmButtonText: "Yes",
+                                                    denyButtonText: `No`,
+                                                    confirmButtonColor: "#00ff55",
+                                                    cancelButtonColor: "#999999",
+                                                    reverseButtons: true
+                                                  }).then((event) => {
+                                                    if (!result.isConfirmed) {
+                                                      Swal.fire("Canceled", "", "info");
+                                                    }
+                                                  })
+                                                  
+                                                    // if (!confirmBeli) {
+                                                    //     event.preventDefault();
+                                                    // }
+                                                  });
+                                                </script>
+                                              </div>
                                         </div>
                                     </div>
+                                    <!-- <script>
+                                      document.querySelector(".submit").addEventListener("click", function() {
+                                        Swal.fire({
+                                        title: "Confirmation",
+                                        text: "Are you sure with Your Choice?",
+                                        imageUrl: "{{ asset($item['foto_item']) }}",
+                                        imageWidth: 500,
+                                        imageHeight: 250,
+                                        // imageAlt: "",
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        cancelButtonText: "No",
+                                        confirmButtonColor: "#00ff55",
+                                        cancelButtonColor: "#999999",
+                                        reverseButtons: true,
+                                      }).then((result) => {
+                                        if (!result.isConfirmed) {
+                                          Swal.fire("Canceled", "", "info");
+                                        }
+                                      })
+                                      
+                                        // if (!confirmBeli) {
+                                        //     event.preventDefault();
+                                        // }
+                                      });
+                                    </script> -->
                                 @endif
                             @endforeach
                         </div>
@@ -297,28 +457,33 @@
                 </div>
             </div>
         </div>
-        <script>
-          document.querySelector(".submit").addEventListener("click", function(event) {
-            var confirmBeli = Swal.fire({
-            title: "Confirmation",
-            text: "Are you sure with Your Choice?",
-            imageUrl: "{{ asset($item['foto_item']) }}",
-            imageWidth: 500,
-            imageHeight: 250,
-            // imageAlt: "",
-            showCancelButton: true,
-            confirmButtonText: "Yes",
-            cancelButtonText: "No",
-            confirmButtonColor: "#00ff55",
-            cancelButtonColor: "#999999",
-            reverseButtons: true,
-          });
-          
-            if (!confirmBeli) {
-                event.preventDefault();
-            }
-          });
-        </script>
+      <!-- <script>
+        document.querySelector(".enter").addEventListener('click', function(event) {
+          Swal({
+          title: "Confirmation",
+          text: "Are you sure with Your Choice?",
+          imageUrl: "{{ asset($item['foto_item']) }}",
+          imageWidth: 500,
+          imageHeight: 250,
+          // imageAlt: "",
+          showConfirmButton: true,
+          showDenyButton: true,
+          confirmButtonText: "Yes",
+          denyButtonText: `No`,
+          confirmButtonColor: "#00ff55",
+          cancelButtonColor: "#999999",
+          reverseButtons: true
+        }).then((event) => {
+          if (!result.isConfirmed) {
+            Swal.fire("Canceled", "", "info");
+          }
+        })
+        
+          // if (!confirmBeli) {
+          //     event.preventDefault();
+          // }
+        });
+      </script> -->
     </form>
 <!-- Product End -->
 
@@ -454,7 +619,8 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> -->
 
 
     <!-- Template Javascript -->
