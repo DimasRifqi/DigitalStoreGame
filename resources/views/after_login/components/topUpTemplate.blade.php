@@ -144,17 +144,41 @@
                     </ul>
                 </div>
 
-                <script>
-                    document.getElementById('logout-form').addEventListener('submit', function(event) {
-                        // Pastikan Anda mengkonfirmasi logout jika diperlukan
-                        var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+              <script>
+                document.getElementById('logout-form').addEventListener('submit', function(event) {
+                  // Swal.fire({
+                  //   title: "Are you sure you Want Log Out?",
+                  //   icon: "warning",
+                  //   showCancelButton: true,
+                  //   confirmButtonColor: "#3085d6",
+                  //   cancelButtonColor: "#d33",
+                  //   confirmButtonText: "Yes"
+                  // }).then((result) => {
+                  //   if (!result.isConfirmed) {
+                  //     result.preventDefault();
+                  //   } else {
+                  //     swalWithBootstrapButtons.fire({
+                  //       title: "Logged Out!",
+                  //       text: "See You Soon",
+                  //       icon: "success"
+                  //     });
+                  //     Swal.fire({
+                  //       title: "Logged Out!",
+                  //       text: "See You Soon",
+                  //       icon: "success"
+                  //     });
+                  //   }
+                  // });
 
-                        // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
-                        if (!confirmLogout) {
-                            event.preventDefault();
-                        }
-                    });
-                </script>
+                  // Pastikan Anda mengkonfirmasi logout jika diperlukan
+                  var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+
+                  // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
+                  if (!confirmLogout) {
+                  event.preventDefault();
+                  }
+                });
+              </script>
         </div>
 
       </div>
@@ -238,8 +262,8 @@
                                         <div class="d-grid gap-2 col-12 mx-auto">
                                             <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}" >Beli</button>
                                             <script>
-                                              document.querySelector(".enter").addEventListener('submit', function(event) {
-                                                Swal({
+                                              document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
+                                                Swal.fire({
                                                 title: "Confirmation",
                                                 text: "Are you sure with Your Choice?",
                                                 imageUrl: "{{ asset($item['foto_item']) }}",
@@ -286,7 +310,7 @@
                                         if (!result.isConfirmed) {
                                           Swal.fire("Canceled", "", "info");
                                         }
-                                      })
+                                      });
                                       
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
@@ -315,9 +339,9 @@
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
                                                 <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
-                                                <script>
-                                                  document.querySelector(".enter").addEventListener('submit', function(event) {
-                                                    Swal({
+                                                <!-- <script>
+                                                  document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
+                                                    Swal.fire({
                                                     title: "Confirmation",
                                                     text: "Are you sure with Your Choice?",
                                                     imageUrl: "{{ asset($item['foto_item']) }}",
@@ -335,13 +359,13 @@
                                                     if (!result.isConfirmed) {
                                                       Swal.fire("Canceled", "", "info");
                                                     }
-                                                  })
+                                                  });
                                                   
                                                     // if (!confirmBeli) {
                                                     //     event.preventDefault();
                                                     // }
                                                   });
-                                                </script>
+                                                </script> -->
                                               </div>
                                         </div>
                                     </div>
@@ -364,7 +388,7 @@
                                         if (!result.isConfirmed) {
                                           Swal.fire("Canceled", "", "info");
                                         }
-                                      })
+                                      });
                                       
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
@@ -394,8 +418,8 @@
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
                                                 <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}">Beli</button>
-                                                <script>
-                                                  document.querySelector(".enter").addEventListener('submit', function(event) {
+                                                <!-- <script>
+                                                  document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
                                                     title: "Confirmation",
                                                     text: "Are you sure with Your Choice?",
@@ -414,13 +438,13 @@
                                                     if (!result.isConfirmed) {
                                                       Swal.fire("Canceled", "", "info");
                                                     }
-                                                  })
+                                                  });
                                                   
                                                     // if (!confirmBeli) {
                                                     //     event.preventDefault();
                                                     // }
                                                   });
-                                                </script>
+                                                </script> -->
                                               </div>
                                         </div>
                                     </div>
@@ -443,7 +467,7 @@
                                         if (!result.isConfirmed) {
                                           Swal.fire("Canceled", "", "info");
                                         }
-                                      })
+                                      });
                                       
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
@@ -467,7 +491,7 @@
           imageHeight: 250,
           // imageAlt: "",
           showConfirmButton: true,
-          showDenyButton: true,
+          showCancelButton: true,
           confirmButtonText: "Yes",
           denyButtonText: `No`,
           confirmButtonColor: "#00ff55",
@@ -477,13 +501,40 @@
           if (!result.isConfirmed) {
             Swal.fire("Canceled", "", "info");
           }
-        })
+        });
         
           // if (!confirmBeli) {
           //     event.preventDefault();
           // }
         });
       </script> -->
+      <script>
+        document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
+          Swal({
+          title: "Confirmation",
+          text: "Are you sure with Your Choice?",
+          imageUrl: "{{ asset($item['foto_item']) }}",
+          imageWidth: 500,
+          imageHeight: 250,
+          // imageAlt: "",
+          showConfirmButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          CancelButtonText: "No",
+          confirmButtonColor: "#00ff55",
+          cancelButtonColor: "#999999",
+          reverseButtons: true
+        }).then((event) => {
+          if (!result.isConfirmed) {
+            Swal.fire("Canceled", "", "info");
+          }
+        });
+        
+          // if (!confirmBeli) {
+          //     event.preventDefault();
+          // }
+        });
+      </script>
     </form>
 <!-- Product End -->
 
