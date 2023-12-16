@@ -40,6 +40,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+
   </head>
 
   <body>
@@ -60,62 +62,60 @@
       <!-- Spinner End -->
 
       <!-- Sidebar Start -->
-      <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-          <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary">
-              <i class="fa fa-hashtag me-2"></i>Admin
-            </h3>
-          </a>
-          <div class="d-flex align-items-center ms-4 mb-4">
-            <div class="position-relative">
-              <img
-                class="rounded-circle"
-                src="img/user.jpg"
-                alt=""
-                style="width: 40px; height: 40px"
-              />
-              <div
-                class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
-              ></div>
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+            <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary">
+                <i class="fa fa-hashtag me-2"></i>Admin
+                </h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                </div>
+                <div class="ms-3">
+                <h6 class="mb-0">Admin</h6>
+                </div>
             </div>
-            <div class="ms-3">
-              <!-- <h6 class="mb-0">Jhon Doe</h6> -->
-              <h6 class="mb-0">Admin</h6>
-              <!-- <span>Admin</span> -->
+            <div class="navbar-nav w-100">
+                <div class="nav-item dropdown">
+                    <a href="{{ url('dashboardadmin') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        {{-- <i class="fa-solid fa-file-invoice"></i> --}}
+                        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>Data Payment
+                    </a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
+                        <a href="{{ url('datatablepaymentall') }}" class="dropdown-item">All Payment</a>
+                    </div>
+
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="{{ url('widget') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-pager " aria-hidden="true"></i>Data Testimoni
+                    </a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{{ url('widget') }}" class="dropdown-item active">Data Testimoni</a>
+                        <a href="{{ url('testimonialadd')}}" class="dropdown-item">Cread Testimoni</a>
+                        <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
+
+                    </div>
+
+                </div>
+
+                <div class="nav-item">
+                    <a href="{{ url('contactform') }}" class="nav-link">
+                        <i class="fa-regular fa-envelope"></i> Contact Form
+                    </a>
+
+                </div>
+
             </div>
-          </div>
-          <div class="navbar-nav w-100">
-            <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link"
-              ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a
-            >
-            <a href="{{ url('widget') }}" class="nav-item nav-link active"
-              ><i class="fa fa-th me-2"></i>Testimoni</a
-            >
-            <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                ><i class="fa fa-table me-2"></i>Tables</a
-              >
-              <div class="dropdown-menu bg-transparent border-0">
-                <a href="{{ url('datatablemember') }}" class="dropdown-item">Member</a>
-                <a href="{{ url('datatablepaymentmobile') }}" class="dropdown-item"
-                  >Mobile Game Payment</a
-                >
-                <a href="{{ url('datatablepaymentpc') }}" class="dropdown-item"
-                  >PC Game Payment</a
-                >
-                <a href="{{ url('datatabletestimonial') }}" class="dropdown-item"
-                  >Testimonial</a
-                >
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <!-- Sidebar End -->
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
 
       <!-- Content Start -->
       <div class="content">
@@ -202,25 +202,13 @@
         <div class="container-fluid pt-4 px-4">
           <div class="row g-4">
             <div class="col-xl-3"></div>
-            <!-- <div class="col-sm-12 col-md-6 col-xl-6">
-              <div class="h-100 bg-light rounded p-4">
-                <div
-                  class="d-flex align-items-center justify-content-between mb-4"
-                >
-                  <h6 class="mb-0">Calender</h6>
-                   <a href="">Show All</a>
-                </div>
-                <div id="calender"></div>
-              </div>
-            </div> -->
-            <div class="col-xl-2"></div>
             <div class="col-sm-12 col-xl-12">
               <div class="bg-light rounded h-100 p-4">
                 <div
                   class="d-flex align-items-center justify-content-between mb-4"
                 >
-                  <h6>Table Testimonial</h6>
-                  <a href="{{ url('datatabletestimonial') }}">Show All</a>
+                  <h6>Testimoni All</h6>
+                  {{-- <a href="{{ url('datatabletestimonial') }}">Show All</a> --}}
                   <a href="{{ url('testimonialadd') }}">Add Testimonial</a>
                 </div>
                 <table class="table table-hover table-bordered">
@@ -230,224 +218,57 @@
                       <th scope="col">Picture</th>
                       <th scope="col">Name</th>
                       <th scope="col">Profession</th>
-                      <th scope="col">Testimonial</th>
+                      <th scope="col">Testimoni</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>
-                        <img
-                          src="img/testimonial-1.jpg"
-                          class="img-fluid"
-                          style="width: 150px; height: 100px"
-                        />
-                      </td>
-                      <td>John Doe</td>
-                      <td>Web Designer</td>
-                      <td>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Adipisci consectetur nam soluta.
-                      </td>
-                      <td>
-                        <a
-                          href="{{ url('testimonialupdate') }}"
-                          role="button"
-                          class="btn btn-primary btn-sm"
-                          >Update</a
-                        >
-                        ||
-                        <a href="" role="button" class="btn btn-primary btn-sm"
-                          >Delete</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>
-                        <img
-                          src="img/testimonial-2.jpg"
-                          class="img-fluid"
-                          style="width: 150px; height: 100px"
-                        />
-                      </td>
-                      <td>Mark Otto</td>
-                      <td>UI/UX Designer</td>
-                      <td>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Magni, dolorum temporibus! Corrupti dolore sit
-                        tempora quod unde obcaecati iste minima maiores ipsa
-                        nobis.
-                      </td>
-                      <td>
-                        <a
-                          href="{{ url('testimonialupdate') }}"
-                          role="button"
-                          class="btn btn-primary btn-sm"
-                          >Update</a
-                        >
-                        ||
-                        <a href="" role="button" class="btn btn-primary btn-sm"
-                          >Delete</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>
-                        <img
-                          src="img/testimonial-2.jpg"
-                          class="img-fluid"
-                          style="width: 150px; height: 100px"
-                        />
-                      </td>
-                      <td>Mark Otto</td>
-                      <td>Back-End Developer</td>
-                      <td>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Magni, dolorum temporibus! Corrupti dolore sit
-                        tempora quod unde obcaecati iste minima maiores ipsa
-                        nobis.
-                      </td>
-                      <td>
-                        <a
-                          href="{{ url('testimonialupdate') }}"
-                          role="button"
-                          class="btn btn-primary btn-sm"
-                          >Update</a
-                        >
-                        ||
-                        <a href="" role="button" class="btn btn-primary btn-sm"
-                          >Delete</a
-                        >
-                      </td>
-                    </tr>
+                    @foreach ($Testimoni as $testimonial)
+                        <tr>
+                            <td>{{ $testimonial->id_testimoni }}</td>
+                            <td>
+                                <img src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" alt="{{ $testimonial->nama_testimoni }}" class="img-fluid" style="width: 150px; height: 100px" />
+
+                            </td>
+                            <td>{{ $testimonial->nama_testimoni }}</td>
+                            <td>{{ $testimonial->pekerjaan_testimoni }}</td>
+                            <td>{{ $testimonial->komentar_testimoni }}</td>
+                            <td>
+
+
+                                {{-- <a href="{{ url('testimonialupdate', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-primary btn-sm">Update</a> --}}
+                                <a href="{{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-danger btn-sm">Delete</a>
+
+                            </td>
+                        </tr>
+                    @endforeach
+
                   </tbody>
                 </table>
               </div>
             </div>
-            <div class="col-sm-13 col-xl-6">
-              <div
-                class="bg-light rounded h-100 py-4 wow"
-                data-wow-delay="0.1s"
-              >
-                <div class="container">
-                  <h6 class="mb-4">Testimonial</h6>
-                  <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item text-center">
-                      <img
-                        class="img-fluid rounded-circle mx-auto mb-4"
-                        src="img/ryan.jpg"
-                        style="width: 90px; height: 90px"
-                      />
-                      <div class="testimonial-text text-center">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p>Profession</p>
-                        <!-- <span class="fst-italic">Profession</span> -->
-                        <p>
-                          Clita clita tempor justo dolor ipsum amet kasd amet
-                          duo justo duo duo labore sed sed. Magna ut diam sit et
-                          amet stet eos sed clita erat magna elitr erat sit sit
-                          erat at rebum justo sea clita.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="testimonial-item text-center">
-                      <img
-                        class="img-fluid rounded-circle mx-auto mb-4"
-                        src="img/esa.jpg"
-                        style="width: 90px; height: 90px"
-                      />
-                      <div class="testimonial-text text-center">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p>Profession</p>
-                        <p>
-                          Clita clita tempor justo dolor ipsum amet kasd amet
-                          duo justo duo duo labore sed sed. Magna ut diam sit et
-                          amet stet eos sed clita erat magna elitr erat sit sit
-                          erat at rebum justo sea clita.
-                        </p>
-                        <!-- <span class="fst-italic">Profession</span> -->
-                      </div>
-                    </div>
-                    <div class="testimonial-item text-center">
-                      <img
-                        class="img-fluid rounded-circle mx-auto mb-4"
-                        src="img/havid.jpg"
-                        style="width: 90px; height: 90px"
-                      />
-                      <div class="testimonial-text text-center">
-                        <h5 class="mb-1">Client Name</h5>
-                        <p>Profession</p>
-                        <!-- <span class="fst-italic">Profession</span> -->
-                        <p>
-                          Clita clita tempor justo dolor ipsum amet kasd amet
-                          duo justo duo duo labore sed sed. Magna ut diam sit et
-                          amet stet eos sed clita erat magna elitr erat sit sit
-                          erat at rebum justo sea clita.
-                        </p>
-                      </div>
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-light rounded h-100 py-4 wow" data-wow-delay="0.1s">
+                  <div class="container">
+                    <h6 class="mb-4">Testimonial</h6>
+                    <div class="owl-carousel testimonial-carousel">
+                        @foreach ($Testimoni as $testimonial)
+                            <div class="testimonial-item text-center">
+                                <img class="img-fluid rounded-circle mx-auto mb-4" src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" alt="{{ $testimonial->nama_testimoni }}" style="width: 90px; height: 90px" />
+                                <div class="testimonial-text text-center">
+                                    <h5 class="mb-1">{{ $testimonial->nama_testimoni }}</h5>
+                                    <p>{{ $testimonial->pekerjaan_testimoni }}</p>
+                                    <p>{{ $testimonial->komentar_testimoni }}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Testimonial</h6>
-                <div class="owl-carousel testimonial-carousel">
-                  <div class="testimonial-item text-center">
-                    <img
-                      class="img-fluid rounded-circle mx-auto mb-4"
-                      src="img/testimonial-1.jpg"
-                      style="width: 100px; height: 100px"
-                    />
-                    <h5 class="mb-1">Client Name</h5>
-                    <p>Profession</p>
-                    <p class="mb-0">
-                      Dolor et eos labore, stet justo sed est sed. Diam sed sed
-                      dolor stet amet eirmod eos labore diam
-                    </p>
-                  </div>
-                  <div class="testimonial-item text-center">
-                    <img
-                      class="img-fluid rounded-circle mx-auto mb-4"
-                      src="img/testimonial-2.jpg"
-                      style="width: 100px; height: 100px"
-                    />
-                    <h5 class="mb-1">Client Name</h5>
-                    <p>Profession</p>
-                    <p class="mb-0">
-                      Dolor et eos labore, stet justo sed est sed. Diam sed sed
-                      dolor stet amet eirmod eos labore diam
-                    </p>
-                  </div>
-                  <div class="testimonial-item text-center">
-                    <img
-                      class="img-fluid rounded-circle mx-auto mb-4"
-                      src="img/testimonial-1.jpg"
-                      style="width: 100px; height: 100px"
-                    />
-                    <h5 class="mb-1">Client Name</h5>
-                    <p>Profession</p>
-                    <p class="mb-0">
-                      Dolor et eos labore, stet justo sed est sed. Diam sed sed
-                      dolor stet amet eirmod eos labore diam
-                    </p>
-                  </div>
-                </div>
-              </div> -->
             </div>
+
             <div class="col-sm-12 col-xl-6">
               <div class="bg-light rounded h-100 p-4">
-                <!-- <iframe
-                  class="position-relative rounded w-100 h-100"
-                  src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=itats&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  frameborder="0"
-                  style="border: 0"
-                  allowfullscreen=""
-                  aria-hidden="false"
-                  tabindex="0"
-                ></iframe> -->
                 <div
                   class="d-flex align-items-center justify-content-between mb-4"
                 >
@@ -468,12 +289,6 @@
               <div class="col-12 col-sm-6 text-center text-sm-start">
                 &copy; <a href="#">PT. Digital Store</a>, All Right Reserved.
               </div>
-              <!-- <div class="col-12 col-sm-6 text-center text-sm-end">
-                      /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
-                      Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                  </br>
-                  Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                  </div> -->
             </div>
           </div>
         </div>

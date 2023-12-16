@@ -33,6 +33,7 @@ use App\Http\Controllers\User_Controller;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\testimoniController;
 
 Route::get('/api/items', [ItemController::class, 'index']);
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
@@ -42,10 +43,19 @@ Route::get('/aboutlogged', [Controller::class, 'aboutlogctrl'])->name('aboutlogg
 Route::get('/dashboard', [Controller::class, 'dashboardctrl'])->name('dashboard');
 
 
-//admin page
+//testimoni page admin
 Route::get('/widget', [AdminController::class, 'widgetctrl'])->name('widget');
 Route::get('/testimonialupdate', [AdminController::class, 'testi_up_ctrl'])->name('testimonialupdate');
 Route::get('/testimonialadd', [AdminController::class, 'testi_add_ctrl'])->name('testimonialadd');
+Route::post('/testimonialadd', [testimoniController::class, 'create'])->name('testimonial_create');
+Route::post('/testimonial/update/{id}', [testimoniController::class, 'update'])->name('testimonial_update');
+Route::get('/testimonial/delete/{id}', [testimoniController::class, 'delete'])->name('testimonial_delete');
+
+//contact page admin
+Route::get('/contactform', [AdminController::class, 'contactformctrl'])->name('contactform');
+Route::get('/contacts/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
+
+//admin page
 Route::get('/signupadmin', [AdminController::class, 'signadmctrl'])->name('signupadmin');
 Route::get('/dashboardadmin', [AdminController::class, 'dashminctrl'])->name('dashboardadmin');
 Route::get('/datatablemember', [AdminController::class, 'datamembctrl'])->name('datatablemember');
@@ -53,6 +63,9 @@ Route::get('/datatablepaymentall', [AdminController::class, 'paymentallctrl'])->
 Route::get('/datatablepaymenmobile', [AdminController::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
 Route::get('/datatablepaymentpc', [AdminController::class, 'paymentpcctrl'])->name('datatablepaymentpc');
 Route::get('/datatabletestimonial', [AdminController::class, 'testictrl'])->name('datatabletestimonial');
+
+
+
 
 //register
 Route::get('/signup', [RegisterController::class, 'loginctrl'])->name('signup');

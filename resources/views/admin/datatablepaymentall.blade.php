@@ -40,6 +40,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
   </head>
 
   <body>
@@ -60,79 +61,59 @@
       <!-- Spinner End -->
 
       <!-- Sidebar Start -->
-      <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-          <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary">
-              <i class="fa fa-hashtag me-2"></i>Admin
-            </h3>
-          </a>
-          <div class="d-flex align-items-center ms-4 mb-4">
-            <div class="position-relative">
-              <img
-                class="rounded-circle"
-                src="img/user.jpg"
-                alt=""
-                style="width: 40px; height: 40px"
-              />
-              <div
-                class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
-              ></div>
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+            <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary">
+                <i class="fa fa-hashtag me-2"></i>Admin
+                </h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                </div>
+                <div class="ms-3">
+                <h6 class="mb-0">Admin</h6>
+                </div>
             </div>
-            <div class="ms-3">
-              <!-- <h6 class="mb-0">Jhon Doe</h6> -->
-              <h6 class="mb-0">Admin</h6>
-              <!-- <span>Admin</span> -->
+            <div class="navbar-nav w-100">
+                <div class="nav-item dropdown">
+                    <a href="{{ url('dashboardadmin') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                        {{-- <i class="fa-solid fa-file-invoice"></i> --}}
+                        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>Data Payment
+                    </a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
+                        <a href="{{ url('datatablepaymentall') }}" class="dropdown-item active">All Payment</a>
+                    </div>
+
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="{{ url('widget') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-pager " aria-hidden="true"></i>Data Testimoni
+                    </a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
+                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Cread Testimoni</a>
+                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Update Testimoni</a>
+
+                    </div>
+
+                </div>
+
+                <div class="nav-item">
+                    <a href="{{ url('contactform') }}" class="nav-link">
+                        <i class="fa-regular fa-envelope"></i> Contact Form
+                    </a>
+
+                </div>
+
             </div>
-          </div>
-          <div class="navbar-nav w-100">
-            <div class="nav-item dropdown">
-                <a
-                  href="{{ url('dashboardadmin') }}"
-                  class="nav-link dropdown-toggle active"
-                  data-bs-toggle="dropdown"
-                  ><i class="fa fa-table me-2"></i>Data Payment</a
-                >
-
-                <div class="dropdown-menu bg-transparent border-0">
-                  <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
-                  <a href="{{ url('datatablepaymentall') }}" class="dropdown-item active">All Payment</a>
-
-              </div>
-
-            {{-- <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link active"
-              ><i class="fa fa-tachometer-alt me-2"></i>Data Payment</a
-            > --}}
-            <a href="{{ url('widget') }}" class="nav-item nav-link"
-              ><i class="fa fa-th me-2"></i>Data Testimoni</a
-            >
-            <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                ><i class="fa fa-table me-2"></i>Tables</a
-              >
-              <div class="dropdown-menu bg-transparent border-0">
-                <a href="{{ url('datatablemember') }}" class="dropdown-item">Member</a>
-                <a href="{{ url('datatablepaymentall') }}" class="dropdown-item"
-                  >All Payment</a
-                >
-                <a href="{{ url('datatablepaymentmobile') }}" class="dropdown-item"
-                  >Mobile Game Payment</a
-                >
-                <a href="{{ url('datatablepaymentpc') }}" class="dropdown-item"
-                  >PC Game Payment</a
-                >
-                <a href="{{ url('datatabletestimonial') }}" class="dropdown-item"
-                  >Testimonial</a
-                >
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <!-- Sidebar End -->
+            </nav>
+        </div>
+        <!-- Sidebar End -->
 
       <!-- Content Start -->
       <div class="content">
@@ -215,54 +196,55 @@
         </nav>
         <!-- Navbar End -->
 
-        <!-- Table Start -->
+        <!-- Recent Sales Start -->
         <div class="container-fluid pt-4 px-4">
-          <div class="row g-4">
-            <div class="col-12">
-              <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Data Payment All</h6>
-                <div class="table-responsive">
-                  <table class="table table-hover table-bordered">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Invoice</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Game</th>
-                        <th scope="col">Amount</th>
-                        {{-- <th scope="col">Details</th> --}}
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($invoice as $invoiceGame)
-                            <tr>
-                                <th scope="row">{{ $invoiceGame->id_invoice }}</th>
-                                <td>{{ $invoiceGame->tanggal_pembelian }}</td>
-                                <td>{{ $invoiceGame->kodepembayaran_invoice }}</td>
-                                <td>{{ $invoiceGame->nama_pembeli }}</td>
-                                <td>{{ $invoiceGame->email_pembeli }}</td>
-                                <td>{{ $invoiceGame->number_pembeli }}</td>
-                                <td>{{ $invoiceGame->tipe_game }}</td>
-                                <td>{{ $invoiceGame->nama_game }}</td>
-                                <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
-                                {{-- <td>
-                                    <a class="btn btn-sm btn-primary" href="">Detail</a>
-                                </td> --}}
-                            </tr>
+            <div class="bg-light text-center rounded p-4">
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Data Payment All</h6>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Invoice</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Game</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Status </th>
+                      {{-- <th scope="col">Details</th> --}}
+                    </tr>
+                  </thead>
+                  <tbody>
 
-                        @endforeach
-                    </tbody>
-                  </table>
-                </div>
+                      @foreach ($invoice as $invoiceGame)
+                          <tr>
+                              <th scope="row">{{ $invoiceGame->id_invoice }}</th>
+                              <td>{{ $invoiceGame->tanggal_pembelian }}</td>
+                              <td>{{ $invoiceGame->kodepembayaran_invoice }}</td>
+                              <td>{{ $invoiceGame->nama_pembeli }}</td>
+                              <td>{{ $invoiceGame->email_pembeli }}</td>
+                              <td>{{ $invoiceGame->number_pembeli }}</td>
+                              <td>{{ $invoiceGame->tipe_game }}</td>
+                              <td>{{ $invoiceGame->nama_game }}</td>
+                              <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
+                              <td>{{ $invoiceGame->status }}</td>
+                              {{-- <td>
+                                  <a class="btn btn-sm btn-primary" href="">Detail</a>
+                              </td> --}}
+                          </tr>
+                      @endforeach
+
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Table End -->
+          <!-- Recent Sales End -->
 
         <!-- Footer Start -->
         <div class="container-fluid pt-4 px-4">

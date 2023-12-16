@@ -41,6 +41,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style1.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+
   </head>
 
   <body>
@@ -79,12 +80,12 @@
             </div>
             <div class="navbar-nav w-100">
                 <div class="nav-item dropdown">
-                    <a href="{{ url('dashboardadmin') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                    <a href="{{ url('dashboardadmin') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         {{-- <i class="fa-solid fa-file-invoice"></i> --}}
-                        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>Data Payment
+                        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Data Payment
                     </a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item active">Payment</a>
+                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
                         <a href="{{ url('datatablepaymentall') }}" class="dropdown-item">All Payment</a>
                     </div>
 
@@ -92,28 +93,28 @@
 
                 <div class="nav-item dropdown">
                     <a href="{{ url('widget') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa-solid fa-pager " aria-hidden="true"></i>Data Testimoni
+                        <i class="fa-solid fa-pager " aria-hidden="true"></i> Data Testimoni
                     </a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
-                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Cread Testimoni</a>
-                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Update Testimoni</a>
+                        <a href="{{ url('testimonialadd')}}" class="dropdown-item">Cread Testimoni</a>
+                        <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
 
                     </div>
 
                 </div>
 
                 <div class="nav-item">
-                    <a href="{{ url('contactform') }}" class="nav-link">
+                    <a href="{{ url('contactform') }}" class="nav-link active">
                         <i class="fa-regular fa-envelope"></i> Contact Form
                     </a>
 
                 </div>
-
             </div>
             </nav>
         </div>
         <!-- Sidebar End -->
+
 
       <!-- Content Start -->
       <div class="content">
@@ -196,129 +197,81 @@
         </nav>
         <!-- Navbar End -->
 
-
-
-        <!-- Recent Sales Start -->
-        <div class="container-fluid pt-4 px-4">
-          <div class="bg-light text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-              <h6 class="mb-0">Data Payment</h6>
-              <a href="{{ url('datatablepaymentall') }}">Show All</a>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-hover table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Game</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status </th>
-                    {{-- <th scope="col">Details</th> --}}
-                  </tr>
-                </thead>
-                <tbody>
-                    @foreach ($invoice as $invoiceGame)
-                        <tr>
-                            <td>{{ $invoiceGame->id_invoice }}</td>
-                            <td>{{ $invoiceGame->tanggal_pembelian }}</td>
-                            <td>{{ $invoiceGame->nama_pembeli }}</td>
-                            <td>{{ $invoiceGame->nama_game }}</td>
-                            <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
-                            <td>{{ $invoiceGame->status }}</td>
-                            {{-- <td>
-                                <a class="btn btn-sm btn-primary" href="">Detail</a>
-                            </td> --}}
-                        </tr>
-                        @php
-                            $totalPerolehan += $invoiceGame->hargaitem_game;
-                            $totalSale += $invoiceGame->id_invoice;
-                        @endphp
-
-                    @endforeach
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <!-- Recent Sales End -->
-
-        <!-- Sale & Revenue Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                {{-- <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Today Sale</p>
-                        <h6 class="mb-0">{{ number_format($totalSale) }}</h6>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">Total Sale</p>
-                        <h6 class="mb-0">{{ number_format($totalSale) }}</h6>
-                    </div>
-                    </div>
-                </div> --}}
-                <div class="col-sm-6 col-xl-6">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
-                        <i class="fas fa-dollar-sign fa-3x text-primary" aria-hidden="true"></i>
-                        <div class="ms-3 text-center">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">Rp.{{ number_format($totalPerolehan) }}</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-6">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
-                        <i class="fa fa-wallet fa-3x text-primary"></i>
-                        <div class="ms-3 text-center">
-                            <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">Rp.{{ number_format($totalPerolehan) }}</h6>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- Sale & Revenue End -->
-
-
-        <!-- Widgets Start -->
+        <!-- Widget Start -->
         <div class="container-fluid pt-4 px-4">
           <div class="row g-4">
-            <!-- <div class="col-xl-3"></div> -->
-            <div class="col-xl-6">
-              <div class="h-100 bg-light rounded p-4">
-                <div
-                  class="d-flex align-items-center justify-content-between mb-4"
-                >
-                  <h6 class="mb-0">Calender</h6>
+            <div class="col-xl-3"></div>
+            <div class="col-sm-12 col-xl-12">
+              <div class="bg-light rounded h-100 p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <h6>Contact Form All</h6>
                 </div>
-                <div id="calender"></div>
+                <table class="table table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Message</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($formContact as $contact)
+                        <tr>
+                            <td>{{ $contact->id_contact_us }}</td>
+                            <td>{{ $contact->nama }}</td>
+                            <td>{{ $contact->email }}</td>
+                            <td>{{ $contact->subject }}</td>
+                            <td>{{ $contact->message }}</td>
+                            <td>
+                                
+                                <a href="{{ route('contact_delete', ['id' => $contact->id_contact_us]) }}" role="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</a>
+                            </td>
+
+
+                        </tr>
+                    @endforeach
+
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="col-xl-6">
-              <iframe
-                class="position-relative rounded w-100 h-100"
-                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=itats&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                frameborder="0"
-                style="border: 0"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              >
-              </iframe>
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-light rounded h-100 p-4">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-4"
+                  >
+                    <h6 class="mb-2">Calender</h6>
+                  </div>
+                  <div id="calender"></div>
+                </div>
+              </div>
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-light rounded h-100 py-4 wow" data-wow-delay="0.1s">
+                  <div class="container">
+                    <h6 class="mb-5">Contact Form</h6>
+                    <div class="owl-carousel testimonial-carousel">
+                        @foreach ($formContact as $contact)
+                            <div class="testimonial-item text-center">
+                                <div class="testimonial-text text-center">
+                                    <h5 class="mb-1">{{ $contact->nama}}</h5>
+                                    <p>{{ $contact->email }}</p>
+                                    <p>{{ $contact->subject }}</p>
+                                    <p>{{ $contact->message }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                  </div>
+                </div>
             </div>
+
+
           </div>
         </div>
-        <!-- Widgets End -->
+        <!-- Widget End -->
 
         <!-- Footer Start -->
         <div class="container-fluid pt-4 px-4">
@@ -327,12 +280,6 @@
               <div class="col-12 col-sm-6 text-center text-sm-start">
                 &copy; <a href="#">PT. Digital Store</a>, All Right Reserved.
               </div>
-              <!-- <div class="col-12 col-sm-6 text-center text-sm-end">
-                            /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </div> -->
             </div>
           </div>
         </div>

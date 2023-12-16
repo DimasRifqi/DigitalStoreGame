@@ -40,6 +40,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
   </head>
 
   <body>
@@ -62,63 +63,57 @@
       <!-- Sidebar Start -->
       <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
-          <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
+        <a href="{{ url('dashboardadmin') }}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">
-              <i class="fa fa-hashtag me-2"></i>Admin
+            <i class="fa fa-hashtag me-2"></i>Admin
             </h3>
-          </a>
-          <div class="d-flex align-items-center ms-4 mb-4">
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
-              <img
-                class="rounded-circle"
-                src="img/user.jpg"
-                alt=""
-                style="width: 40px; height: 40px"
-              />
-              <div
-                class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
-              ></div>
+            <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px" />
+            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
             </div>
             <div class="ms-3">
-              <!-- <h6 class="mb-0">Jhon Doe</h6> -->
-              <h6 class="mb-0">Admin</h6>
-              <!-- <span>Admin</span> -->
+            <h6 class="mb-0">Admin</h6>
             </div>
-          </div>
-          <div class="navbar-nav w-100">
-            <a href="{{ url('dashboardadmin') }}" class="nav-item nav-link"
-              ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a
-            >
-            <a href="{{ url('widget') }}" class="nav-item nav-link active"
-              ><i class="fa fa-th me-2"></i>Add Testimoni</a
-            >
+        </div>
+        <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                ><i class="fa fa-table me-2"></i>Tables</a
-              >
-              <div class="dropdown-menu bg-transparent border-0">
-                <a href="{{ url('datatablemember') }}" class="dropdown-item">Member</a>
-                <a href="{{ url('datatablepaymentall') }}" class="dropdown-item"
-                  >All Payment</a
-                >
-                <a href="{{ url('datatablepaymentmobile') }}" class="dropdown-item"
-                  >Mobile Game Payment</a
-                >
-                <a href="{{ url('datatablepaymentpc') }}" class="dropdown-item"
-                  >PC Game Payment</a
-                >
-                <a href="{{ url('datatabletestimonial') }}" class="dropdown-item"
-                  >Testimonial</a
-                >
-              </div>
+                <a href="{{ url('dashboardadmin') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    {{-- <i class="fa-solid fa-file-invoice"></i> --}}
+                    <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>Data Payment
+                </a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Payment</a>
+                    <a href="{{ url('datatablepaymentall') }}" class="dropdown-item">All Payment</a>
+                </div>
+
             </div>
-          </div>
+
+            <div class="nav-item dropdown">
+                <a href="{{ url('widget') }}" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-pager " aria-hidden="true"></i>Data Testimoni
+                </a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
+                    <a href="{{ url('testimonialadd')}}" class="dropdown-item active">Cread Testimoni</a>
+                    <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
+
+                </div>
+
+            </div>
+
+            <div class="nav-item">
+                <a href="{{ url('contactform') }}" class="nav-link">
+                    <i class="fa-regular fa-envelope"></i> Contact Form
+                </a>
+
+            </div>
+
+        </div>
         </nav>
-      </div>
-      <!-- Sidebar End -->
+    </div>
+    <!-- Sidebar End -->
 
       <!-- Content Start -->
       <div class="content">
@@ -215,73 +210,34 @@
                   <h6>Add Testimonial</h6>
                   <a href="{{ url('widget') }}">Back</a>
                 </div>
-                <form>
-                  <div class="mb-3">
-                    <!-- <div class="custom-file">
-                              <label class="custom-file-label mb-1" for="choosingpic"
-                                >Picture</label
-                              >
-                              <input
-                                type="file"
-                                class="custom-file-input"
-                                id="choosingpic"
-                                required
-                              />
-                            </div> -->
-                    <div class="custom-file mb-3">
-                      <label class="custom-file-label mb-1" for="choosingpic"
-                        >Picture</label
-                      >
-                      <input
-                        type="file"
-                        class="form-control"
-                        id="inputPicture"
-                        style="background-color: #fff; cursor: pointer"
-                        required
-                      />
-                      <!-- <label class="input-group-text" for="inputPicture"
-                                >Upload</label
-                              > -->
+                <form action="{{ route('testimonial_create') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="mb-3">
+                        <div class="custom-file mb-3">
+                            <label class="custom-file-label mb-1" for="choosingpic">Picture</label>
+                            <input type="file" class="form-control" id="inputPicture" name="foto_testimoni" style="background-color: #fff; cursor: pointer" required />
+                        </div>
                     </div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="textName" class="form-label">Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="textName"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="textProfession" class="form-label"
-                      >Profession</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="textProfession"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="textAreaTestimonial" class="form-label"
-                      >Testimonial</label
-                    >
-                    <!-- <input
-                              type="text"
-                              class="form-control"
-                              id="inlineFormInputName"
-                            /> -->
-                    <textarea
-                      class="form-control"
-                      id="textAreaTestimonial"
-                      rows="3"
-                      required
-                    ></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Add</button>
+
+                    <div class="mb-3">
+                        <label for="textName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="textName" name="nama_testimoni" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="textProfession" class="form-label">Profession</label>
+                        <input type="text" class="form-control" id="textProfession" name="pekerjaan_testimoni" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="textAreaTestimonial" class="form-label">Testimonial</label>
+                        <textarea class="form-control" id="textAreaTestimonial" name="komentar_testimoni" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </form>
+
               </div>
             </div>
           </div>

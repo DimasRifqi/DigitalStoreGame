@@ -113,41 +113,45 @@
     <!-- Carousel Pamflet Start -->
     <section class="slide" id="slide">
         <div class="container">
-          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style=" height: auto; width: 80%; margin: 5rem auto 0 auto;">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="height: auto; width: 80%; margin: 5rem auto 0 auto;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="img/pamflet 1 1.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- Your caption content for Slide 1 -->
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="img/Pamflet 2 1.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- Your caption content for Slide 2 -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Pamflet 3 1.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <!-- Your caption content for Slide 3 -->
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="10000">
-                <img src="img/pamflet 1 1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <img src="img/Pamflet 2 1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="img/Pamflet 3 1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
         </div>
-      </section>
-      <!-- Carousel Pamflet End -->
+    </section>
+    <!-- Carousel Pamflet End -->
+
 
       <!-- Popular Game Start -->
       <section class="game_populer" id="game_populer">
@@ -173,7 +177,7 @@
                                 <img class="img-fluid w-100" src="img/gi2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/gi2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupGI') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -203,7 +207,7 @@
                                 <img class="img-fluid w-100" src="img/hsr2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/hsr2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupHSR') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -233,7 +237,7 @@
                                 <img class="img-fluid w-100" src="img/ml2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/ml2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupML') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -264,7 +268,7 @@
                                 <img class="img-fluid w-100" src="img/gipc.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/gipc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupGI') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -280,7 +284,7 @@
                                 <img class="img-fluid w-100" src="img/hsrpc.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/hsrpc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupHSR') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -626,7 +630,7 @@
             <div class="owl-carousel testimonial-carousel">
                 @foreach ($testimonials as $testimonial)
                 <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset($testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;">
                     <div class="testimonial-text text-center p-4">
                         <p>{{ $testimonial->komentar_testimoni }}</p>
                         <h5 class="mb-1">{{ $testimonial->nama_testimoni }}</h5>
