@@ -53,6 +53,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
@@ -179,7 +181,6 @@
     </div>
     <!-- Page Header End -->
 
-
   <!-- Product Start -->
   <form id="topupForm_{{ $topup_item }}" method="POST" action="{{ route('topup_form') }}">
         <div class="container-xxl py-5">
@@ -198,9 +199,7 @@
                     </div>
                     <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                         <div class="text-start mb-3 pb-3">
-
                             @yield('form')
-
                         </div>
                     </div>
                     <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -218,12 +217,36 @@
                     </div>
                 </div>
 
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+                            @foreach ($topup_item as $index => $item)
+                                @csrf
+                                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="product-item">
+                                        <div class="position-relative bg-light overflow-hidden">
+                                            <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                        </div>
+                                        <div class="text-center p-4">
+                                            <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                            <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
+                                            <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                            <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
+                                            <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                        </div>
+                                        <div class="d-grid gap-2 col-12 mx-auto">
+                                            <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        @endforeach
+                        </div>
+                    </div>
 
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                @foreach ($topup_item as $index => $item)
-                                    @csrf
+                      <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            @foreach ($topup_item as $index => $item)
+                                @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
                                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                         <div class="product-item">
                                             <div class="position-relative bg-light overflow-hidden">
@@ -237,76 +260,67 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
                                             </div>
                                         </div>
                                     </div>
-
+                                @endif
                             @endforeach
-
-                            </div>
-                        </div>
-
-                         <div id="tab-2" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                @foreach ($topup_item as $index => $item)
-                                    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
-                                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                            <div class="product-item">
-                                                <div class="position-relative bg-light overflow-hidden">
-                                                    <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                                </div>
-                                                <div class="text-center p-4">
-                                                    <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                                    <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
-                                                    <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                                    <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
-                                                    <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                                </div>
-                                                <div class="d-grid gap-2 col-12 mx-auto">
-                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div id="tab-3" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                @foreach ($topup_item as $item)
-                                    @if (Str::contains($item['item'], ['Welkin', 'Weekly', 'Pass']))
-                                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                            <div class="product-item">
-                                                <div class="position-relative bg-light overflow-hidden">
-                                                    <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
-                                                </div>
-                                                <div class="text-center p-4">
-                                                    <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
-                                                    <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
-                                                    <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
-                                                    <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
-                                                    <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
-                                                </div>
-                                                <div class="d-grid gap-2 col-12 mx-auto">
-                                                    <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
                         </div>
                     </div>
 
-
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            @foreach ($topup_item as $item)
+                                @if (Str::contains($item['item'], ['Welkin', 'Weekly', 'Pass']))
+                                    <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="product-item">
+                                            <div class="position-relative bg-light overflow-hidden">
+                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                            </div>
+                                            <div class="text-center p-4">
+                                                <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
+                                                <input type="hidden" value="{{ $item['item'] }}" name="item[{{ $index }}]">
+                                                <span class="text-primary me-1">Rp.{{ number_format($item['promo']) }}</span>
+                                                <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
+                                                <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
+                                            </div>
+                                            <div class="d-grid gap-2 col-12 mx-auto">
+                                                <button type="submit" class="btn btn-primary fw-medium" name="submit_topup" value="{{ $index }}">Beli</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <script>
+          document.querySelector(".submit").addEventListener("click", function(event) {
+            var confirmBeli = Swal.fire({
+            title: "Confirmation",
+            text: "Are you sure with Your Choice?",
+            imageUrl: "{{ asset($item['foto_item']) }}",
+            imageWidth: 500,
+            imageHeight: 250,
+            // imageAlt: "",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
+            confirmButtonColor: "#00ff55",
+            cancelButtonColor: "#999999",
+            reverseButtons: true,
+          });
+          
+            if (!confirmBeli) {
+                event.preventDefault();
+            }
+          });
+        </script>
     </form>
 <!-- Product End -->
-
-
 
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -440,6 +454,7 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 
     <!-- Template Javascript -->
