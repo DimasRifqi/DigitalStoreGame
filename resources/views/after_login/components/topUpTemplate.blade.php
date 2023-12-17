@@ -55,6 +55,7 @@
     />
     <!-- <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css">
 
 
     <!-- Libraries Stylesheet -->
@@ -144,7 +145,7 @@
                     </ul>
                 </div>
 
-              <script>
+              <!-- <script>
                 document.getElementById('logout-form').addEventListener('submit', function(event) {
                   // Swal.fire({
                   //   title: "Are you sure you Want Log Out?",
@@ -178,6 +179,28 @@
                   event.preventDefault();
                   }
                 });
+              </script> -->
+              <script>
+                document.getElementById('logout-form').addEventListener('submit', function(event) {
+                  // Menampilkan dialog box konfirmasi logout dengan SweetAlert2
+                  Swal.fire({
+                      title: "Are you sure you want to logout?",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#3085d6",
+                      cancelButtonColor: "#d33",
+                      confirmButtonText: "Yes"
+                  }).then((result) => {
+                        // Jika pengguna memilih untuk melanjutkan logout, maka lanjutkan dengan mengirim formulir logout seperti biasa. Jika pengguna memilih untuk menolak logout, maka SweetAlert2 akan menutup dialog box tanpa melanjutkan proses logout.  
+                        if (result.isConfirmed) {
+                          this.submit(); // Mengirim formulir logout seperti biasa setelah pengguna memilih untuk melanjutkan logout dari dialog box konfirmasi SweetAlert2.  
+                        } 
+                        else { // Menghentikan proses logout jika pengguna memilih untuk menolak logout dari dialog box konfirmasi SweetAlert2.
+                          return false; 
+                        } 
+                      }); // Mencegah formulir logout terlepas ketika pengguna menolak logout dari dialog box konfirmasi SweetAlert2. 
+                      event.preventDefault(); 
+                  }); // Menangani submit formulir logout secara manual dan menjalankan script JavaScript di atas saat pengguna mencubit tombol "Logout" di halaman logout. 
               </script>
         </div>
 
@@ -670,8 +693,9 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 
     <!-- Template Javascript -->
