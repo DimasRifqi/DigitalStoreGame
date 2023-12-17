@@ -97,7 +97,7 @@
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
                         <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Cread Testimoni</a>
-                        <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Update Testimoni</a>
+                        {{-- <a href="{{ url('dashboardadmin') }}" class="dropdown-item">Update Testimoni</a> --}}
 
                     </div>
 
@@ -220,6 +220,15 @@
                 </thead>
                 <tbody>
                     @foreach ($invoice as $invoiceGame)
+                        {{-- @php
+                            $totalPerolehan += $invoiceGame->hargaitem_game;
+
+                            // Check if the invoice date is today
+                            $today = now()->format('Y-m-d');
+                            if ($invoiceGame->tanggal_pembelian == $today) {
+                                $totalSale += $invoiceGame->id_sale;
+                            }
+                        @endphp --}}
                         <tr>
                             <td>{{ $invoiceGame->id_invoice }}</td>
                             <td>{{ $invoiceGame->tanggal_pembelian }}</td>
@@ -233,7 +242,7 @@
                         </tr>
                         @php
                             $totalPerolehan += $invoiceGame->hargaitem_game;
-                            $totalSale += $invoiceGame->id_invoice;
+                            $totalSale += $invoiceGame->id_sale;
                         @endphp
 
                     @endforeach
@@ -248,25 +257,25 @@
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
-                {{-- <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <div class="col-sm-6 col-xl-3">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
                     <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                    <div class="ms-3">
+                    <div class="ms-3 text-center">
                         <p class="mb-2">Today Sale</p>
                         <h6 class="mb-0">{{ number_format($totalSale) }}</h6>
                     </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
-                    <div class="ms-3">
-                        <p class="mb-2">otal SaleT</p>
+                    <div class="ms-3 text-center">
+                        <p class="mb-2">Total Sale</p>
                         <h6 class="mb-0">{{ number_format($totalSale) }}</h6>
                     </div>
                     </div>
-                </div> --}}
-                <div class="col-sm-6 col-xl-6">
+                </div>
+                <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
                         <i class="fas fa-dollar-sign fa-3x text-primary" aria-hidden="true"></i>
                         <div class="ms-3 text-center">
@@ -275,7 +284,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xl-6">
+                <div class="col-sm-6 col-xl-3">
                     <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
                         <i class="fa fa-wallet fa-3x text-primary"></i>
                         <div class="ms-3 text-center">

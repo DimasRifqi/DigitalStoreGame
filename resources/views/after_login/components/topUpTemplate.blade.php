@@ -139,7 +139,7 @@
                         <li>
                             <form id="logout-form" action="{{ url('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
+                                <button type="submit" class="dropdown-item" >Logout</button>
                             </form>
                         </li>
                     </ul>
@@ -191,16 +191,16 @@
                       cancelButtonColor: "#d33",
                       confirmButtonText: "Yes"
                   }).then((result) => {
-                        // Jika pengguna memilih untuk melanjutkan logout, maka lanjutkan dengan mengirim formulir logout seperti biasa. Jika pengguna memilih untuk menolak logout, maka SweetAlert2 akan menutup dialog box tanpa melanjutkan proses logout.  
+                        // Jika pengguna memilih untuk melanjutkan logout, maka lanjutkan dengan mengirim formulir logout seperti biasa. Jika pengguna memilih untuk menolak logout, maka SweetAlert2 akan menutup dialog box tanpa melanjutkan proses logout.
                         if (result.isConfirmed) {
-                          this.submit(); // Mengirim formulir logout seperti biasa setelah pengguna memilih untuk melanjutkan logout dari dialog box konfirmasi SweetAlert2.  
-                        } 
+                          this.submit(); // Mengirim formulir logout seperti biasa setelah pengguna memilih untuk melanjutkan logout dari dialog box konfirmasi SweetAlert2.
+                        }
                         else { // Menghentikan proses logout jika pengguna memilih untuk menolak logout dari dialog box konfirmasi SweetAlert2.
-                          return false; 
-                        } 
-                      }); // Mencegah formulir logout terlepas ketika pengguna menolak logout dari dialog box konfirmasi SweetAlert2. 
-                      event.preventDefault(); 
-                  }); // Menangani submit formulir logout secara manual dan menjalankan script JavaScript di atas saat pengguna mencubit tombol "Logout" di halaman logout. 
+                          return false;
+                        }
+                      }); // Mencegah formulir logout terlepas ketika pengguna menolak logout dari dialog box konfirmasi SweetAlert2.
+                      event.preventDefault();
+                  }); // Menangani submit formulir logout secara manual dan menjalankan script JavaScript di atas saat pengguna mencubit tombol "Logout" di halaman logout.
               </script>
         </div>
 
@@ -305,7 +305,7 @@
                                                   Swal.fire("Canceled", "", "info");
                                                 }
                                               })
-                                              
+
                                                 // if (!confirmBeli) {
                                                 //     event.preventDefault();
                                                 // }
@@ -334,7 +334,7 @@
                                           Swal.fire("Canceled", "", "info");
                                         }
                                       });
-                                      
+
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
                                         // }
@@ -383,7 +383,7 @@
                                                       Swal.fire("Canceled", "", "info");
                                                     }
                                                   });
-                                                  
+
                                                     // if (!confirmBeli) {
                                                     //     event.preventDefault();
                                                     // }
@@ -412,7 +412,7 @@
                                           Swal.fire("Canceled", "", "info");
                                         }
                                       });
-                                      
+
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
                                         // }
@@ -462,7 +462,7 @@
                                                       Swal.fire("Canceled", "", "info");
                                                     }
                                                   });
-                                                  
+
                                                     // if (!confirmBeli) {
                                                     //     event.preventDefault();
                                                     // }
@@ -491,7 +491,7 @@
                                           Swal.fire("Canceled", "", "info");
                                         }
                                       });
-                                      
+
                                         // if (!confirmBeli) {
                                         //     event.preventDefault();
                                         // }
@@ -525,7 +525,7 @@
             Swal.fire("Canceled", "", "info");
           }
         });
-        
+
           // if (!confirmBeli) {
           //     event.preventDefault();
           // }
@@ -552,7 +552,7 @@
             Swal.fire("Canceled", "", "info");
           }
         });
-        
+
           // if (!confirmBeli) {
           //     event.preventDefault();
           // }

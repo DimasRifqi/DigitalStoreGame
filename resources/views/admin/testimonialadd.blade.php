@@ -97,7 +97,7 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
                     <a href="{{ url('testimonialadd')}}" class="dropdown-item active">Cread Testimoni</a>
-                    <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
+                    {{-- <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a> --}}
 
                 </div>
 

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->enum('status',['Belum Lunas','Lunas'])->default('Belum Lunas');
             $table->foreignid('id_user')->references('id')->on('users')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamp('tanggal_pembelian')->default(now());
+            $table->integer('id_sale')->default(1);
             $table->timestamps();
 
         });

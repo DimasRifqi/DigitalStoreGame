@@ -98,7 +98,7 @@
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="{{ url('widget') }}" class="dropdown-item active">Data Testimoni</a>
                         <a href="{{ url('testimonialadd')}}" class="dropdown-item">Cread Testimoni</a>
-                        <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
+                        {{-- <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a> --}}
 
                     </div>
 
@@ -237,7 +237,7 @@
                             <td>
 
 
-                                {{-- <a href="{{ url('testimonialupdate', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-primary btn-sm">Update</a> --}}
+                                {{-- <a href="{{ route('testimonial_update', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to update this testimoni?');>Update</a> --}}
                                 <a href="{{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimoni?');">Delete</a>
 
                             </td>

@@ -98,7 +98,7 @@
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="{{ url('widget') }}" class="dropdown-item">Data Testimoni</a>
                         <a href="{{ url('testimonialadd')}}" class="dropdown-item">Cread Testimoni</a>
-                        <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a>
+                        {{-- <a href="{{ url('testimonialupdate')}}" class="dropdown-item">Update Testimoni</a> --}}
 
                     </div>
 
@@ -259,12 +259,13 @@
                         @foreach ($formContact as $contact)
                             <div class="testimonial-item text-center">
                                 <div class="testimonial-text text-center">
-                                    <h5 class="mb-1">{{ $contact->nama}}</h5>
-                                    <p>{{ $contact->email }}</p>
-                                    <p>{{ $contact->subject }}</p>
-                                    <p>{{ $contact->message }}</p>
+                                    <h5 class="mb-">{{ $contact->nama }}</h5>
+                                    <p style="font-size: 18px;">{{ $contact->email }}</p>
+                                    <p style="font-size: 16px;">{{ $contact->subject }}</p>
+                                    <p style="font-size: 16px;">{{ $contact->message }}</p>
                                 </div>
                             </div>
+
                         @endforeach
                     </div>
                   </div>
