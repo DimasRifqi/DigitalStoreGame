@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama_testimoni');
             $table->string('pekerjaan_testimoni');
             $table->text('komentar_testimoni');
+            $table->integer('slug')->default(0);
             $table->timestamps();
         });
     }

@@ -223,6 +223,7 @@
                     </tr>
                   </thead>
                   <tbody>
+
                     @foreach ($Testimoni as $testimonial)
                         <tr>
                             <td>{{ $testimonial->id_testimoni }}</td>
@@ -237,7 +238,19 @@
 
 
                                 {{-- <a href="{{ url('testimonialupdate', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-primary btn-sm">Update</a> --}}
-                                <a href="{{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-danger btn-sm">Delete</a>
+                                {{-- <form action="{{ route('testimonial.delete', ['id' => $testimonial->id_testimoni]) }}" method="POST" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</button>
+                                </form> --}}
+
+                                <form action={{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" method="POST" >
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete' onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</button>
+                                </form>
+
+                                {{-- <a href="{{url('post/hapus')}}/{{$testimonial->id}}" class="btn btn-danger">Hapus Post</a> --}}
 
                             </td>
                         </tr>
@@ -314,5 +327,38 @@
 
     <!-- Template Javascript -->
     <script src="js/main1.js"></script>
+
+    @push('scripts')
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+
+        $('.show_confirm').click(function(event) {
+            var form =  $(this).closest("form");
+            event.preventDefault();
+            swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                    Swal.fire(
+                    'Deleted!',
+                    'Your data has been deleted.',
+                    'success'
+                    )
+                }
+            });
+        });
+
+    </script>
+    @endpush
+
   </body>
 </html>
