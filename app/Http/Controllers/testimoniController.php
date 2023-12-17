@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Exception;
+use App\Http\Controllers\Flash;
 
 class testimoniController extends Controller
 {
@@ -64,19 +66,27 @@ class testimoniController extends Controller
         return redirect('/testimonials')->with('success', 'Testimonial updated successfully');
     }
 
-    public function delete($id)
-    {
-        $testimonial = testimoni::find($id);
+    public function delete(testimoni $testimoni){
 
-        if (!$testimonial) {
+        testimoni::destroy($testimoni ->id);
+        //dd($testimoni);
 
-            return redirect()->back()->with('error', 'Testimonial not found');
-        }
-
-        $testimonial->delete();
-
-        return redirect()->back()->with('success', 'Testimonial deleted successfully');
+        return redirect('widget');
     }
+
+    // public function delete(testimoni $testimoni)
+    // {
+    //     if ($testimoni->id_testimoni) {
+    //         Storage::delete('public/'.$testimoni->id_testimoni);
+    //     }
+
+    //     $testimoni->delete();
+    //     //dd($testimoni);
+
+    //     return to_route('widget')->with('success','Post deleted successfully');
+
+
+    // }
 
 
 }

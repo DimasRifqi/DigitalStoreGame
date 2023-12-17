@@ -49,7 +49,9 @@ Route::get('/testimonialupdate', [AdminController::class, 'testi_up_ctrl'])->nam
 Route::get('/testimonialadd', [AdminController::class, 'testi_add_ctrl'])->name('testimonialadd');
 Route::post('/testimonialadd', [testimoniController::class, 'create'])->name('testimonial_create');
 Route::post('/testimonial/update/{id}', [testimoniController::class, 'update'])->name('testimonial_update');
-Route::get('/testimonial/delete/{id}', [testimoniController::class, 'delete'])->name('testimonial_delete');
+//Route::get('/testimonial/delete/{id}', 'testimoniController@delete')->name('testimonial.delete');
+Route::delete('/widget', [testimoniController::class, 'delete'])->name('testimonial_delete');
+//Route::get('post/hapus/{id}', 'testimoniController@hapus');
 
 //contact page admin
 Route::get('/contactform', [AdminController::class, 'contactformctrl'])->name('contactform');
