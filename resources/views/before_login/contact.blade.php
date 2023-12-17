@@ -115,6 +115,12 @@
     </nav>
     <!-- Navbar End -->
 
+    @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 shadow">
       <div class="container py-5">

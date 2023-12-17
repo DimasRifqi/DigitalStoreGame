@@ -14,6 +14,17 @@
                         <label for="game_id1">Masukkan User ID</label>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="SERVER"
+                        name="SERVER"
+                        placeholder="Masukkan Server"/>
+                        <label for="SERVER">Masukkan Server</label>
+                    </div>
+                </div>
             </div>
 
 @endsection

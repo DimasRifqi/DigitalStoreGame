@@ -35,6 +35,15 @@ class Topup_Controller extends Controller
         //dd($request->all());
         $index = $request->input('submit_topup');
 
+        $request->validate([
+            'SERVER' => 'required',
+            'game_id1' => 'required',
+            'namagame' => 'required',
+            'tipegame' => 'required',
+            "item.{$index}" => 'required',
+            "promo.{$index}" => 'required',
+        ]);
+
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
@@ -63,11 +72,7 @@ class Topup_Controller extends Controller
         ]);
         $topup->save();
 
-
-
-        return redirect()->route('invoice');
-        //return redirect()->action([invoiceController::class, 'invoicectrl'])->name('invoice')->with('success', 'Top-up successful!');
-        //return redirect()->action(['\App\Http\Controllers\invoiceController', 'invoicectrl'])->with('success', 'Top-up successful!');
+        return redirect()->route('invoice')->with('success', 'Silahkan Pilih Pembayaran !');
 
     }
 
@@ -93,6 +98,15 @@ class Topup_Controller extends Controller
         //dd($request->all());
         $index = $request->input('submit_topup');
 
+        $request->validate([
+            'SERVER' => 'required',
+            'game_id1' => 'required',
+            'namagame' => 'required',
+            'tipegame' => 'required',
+            "item.{$index}" => 'required',
+            "promo.{$index}" => 'required',
+        ]);
+
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
@@ -121,7 +135,7 @@ class Topup_Controller extends Controller
         ]);
         $topup->save();
 
-        return redirect()->back()->with('success', 'Data inserted successfully!');
+        return redirect()->route('invoice')->with('success', 'Silahkan Pilih Pembayaran !');
 
     }
 
@@ -147,14 +161,23 @@ class Topup_Controller extends Controller
     public function topupformML(Request $request)
     {
         //dd($request);
-
         $index = $request->input('submit_topup');
+
+        $request->validate([
+            'SERVER' => 'required',
+            'game_id1' => 'required',
+            'namagame' => 'required',
+            'tipegame' => 'required',
+            "item.{$index}" => 'required',
+            "promo.{$index}" => 'required',
+        ]);
+
+        $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
-        $tipeGame = $request->input('tipegame');
+        $tipGame = $request->input('tipegame');
         $item = $request->input("item.{$index}");
         $promo = $request->input("promo.{$index}");
-
 
         $user = Auth::user();
         $faker = Faker::create();
@@ -168,7 +191,8 @@ class Topup_Controller extends Controller
             'kodepembayaran_invoice' => $faker->unique()->creditCardNumber(),
             'game_id' => $gameid,
             'nama_game' => $namagame,
-            'tipe_game' => $tipeGame,
+            'tipe_game' => $tipGame,
+            'server_game' => $server,
             'item_game' => $item,
             'hargaitem_game' => $promo,
             'tanggal_pembelian' => now(),
@@ -176,7 +200,7 @@ class Topup_Controller extends Controller
         ]);
         $topup->save();
 
-        return redirect()->back()->with('success', 'Data inserted successfully!');
+        return redirect()->route('invoice')->with('success', 'Silahkan Pilih Pembayaran !');
 
 
     }
@@ -205,6 +229,15 @@ class Topup_Controller extends Controller
         //dd($request->all());
         $index = $request->input('submit_topup');
 
+        $request->validate([
+            'SERVER' => 'required',
+            'game_id1' => 'required',
+            'namagame' => 'required',
+            'tipegame' => 'required',
+            "item.{$index}" => 'required',
+            "promo.{$index}" => 'required',
+        ]);
+
         $server = $request->input('SERVER');
         $gameid = $request->input('game_id1');
         $namagame = $request->input('namagame');
@@ -233,7 +266,7 @@ class Topup_Controller extends Controller
         ]);
         $topup->save();
 
-        return redirect()->back()->with('success', 'Data inserted successfully!');
+        return redirect()->route('invoice')->with('success', 'Silahkan Pilih Pembayaran !');
 
 
     }

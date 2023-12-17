@@ -214,6 +214,7 @@
                       <th scope="col">Phone Number</th>
                       <th scope="col">Type</th>
                       <th scope="col">Game</th>
+                      <th scope="col">Server</th>
                       <th scope="col">Price</th>
                       <th scope="col">Status </th>
                       {{-- <th scope="col">Details</th> --}}
@@ -231,6 +232,7 @@
                               <td>{{ $invoiceGame->number_pembeli }}</td>
                               <td>{{ $invoiceGame->tipe_game }}</td>
                               <td>{{ $invoiceGame->nama_game }}</td>
+                              <td>{{ $invoiceGame->server_game }}</td>
                               <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
                               <td>{{ $invoiceGame->status }}</td>
                               {{-- <td>

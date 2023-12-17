@@ -115,13 +115,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            {{-- <a href="{{ url('invoice') }}" class="nav-item nav-link">
-                <i class="fa fa-shopping-bag" aria-hidden="true"> Bayar</i>
-              </a> --}}
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Home</a>
-          <a href="{{ url('invoice') }}" class="nav-item nav-link">
+          {{-- <a href="{{ url('invoice') }}" class="nav-item nav-link">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-          </a>
+          </a> --}}
           <a href="{{ url('topup') }}" class="nav-item nav-link active">TOP UP</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>

@@ -77,33 +77,32 @@ class AdminController extends Controller
     }
 
 
+    // public function signinadmctrl()
+    // {
+    //     return view('/admin/signinadmin');
+    // }
 
-    public function signinadmctrl()
-    {
-        return view('/admin/signinadmin');
-    }
-
-    public function datamembctrl()
-    {
-        return view('/admin/datatablemember');
-    }
-
+    // public function datamembctrl()
+    // {
+    //     return view('/admin/datatablemember');
+    // }
 
 
-    public function paymentmblctrl()
-    {
-        return view('/admin/datatablepaymentmobile');
-    }
 
-    public function paymentpcctrl()
-    {
-        return view('/admin/datatablepaymentpc');
-    }
+    // public function paymentmblctrl()
+    // {
+    //     return view('/admin/datatablepaymentmobile');
+    // }
 
-    public function testictrl()
-    {
-        return view('/admin/datatabletestimonial');
-    }
+    // public function paymentpcctrl()
+    // {
+    //     return view('/admin/datatablepaymentpc');
+    // }
+
+    // public function testictrl()
+    // {
+    //     return view('/admin/datatabletestimonial');
+    // }
 
 
 

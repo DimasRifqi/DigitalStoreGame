@@ -102,7 +102,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
-         
+
           <a href="{{ url('dashboard') }}" class="nav-item nav-link">Dashboard</a>
           <a href="{{ url('aboutlogged') }}" class="nav-item nav-link">About</a>
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link active">Contact</a>
@@ -162,6 +162,11 @@
       </div>
     </div>
     <!-- Page Header End -->
+    @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <!-- Contact Start -->
     <div
@@ -271,7 +276,9 @@
                         <button class="btn btn-primary w-100 py-3" type="submit">
                         Send Message
                         </button>
+
                     </div>
+
                     </div>
                 </form>
             </div>

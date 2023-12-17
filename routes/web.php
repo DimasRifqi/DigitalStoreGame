@@ -28,6 +28,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchGameController;
 use App\Http\Controllers\Topup_Controller;
+use App\Http\Controllers\Topup1_Controller;
 use App\Http\Controllers\Auth_Controller;
 use App\Http\Controllers\User_Controller;
 use App\Http\Controllers\UserController;
@@ -58,13 +59,14 @@ Route::get('/contactform', [AdminController::class, 'contactformctrl'])->name('c
 Route::get('/contacts/delete/{id}', [ContactController::class, 'delete'])->name('contact_delete');
 
 //admin page
-Route::get('/signupadmin', [AdminController::class, 'signadmctrl'])->name('signupadmin');
 Route::get('/dashboardadmin', [AdminController::class, 'dashminctrl'])->name('dashboardadmin');
-Route::get('/datatablemember', [AdminController::class, 'datamembctrl'])->name('datatablemember');
 Route::get('/datatablepaymentall', [AdminController::class, 'paymentallctrl'])->name('datatablepaymentall');
-Route::get('/datatablepaymenmobile', [AdminController::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
-Route::get('/datatablepaymentpc', [AdminController::class, 'paymentpcctrl'])->name('datatablepaymentpc');
-Route::get('/datatabletestimonial', [AdminController::class, 'testictrl'])->name('datatabletestimonial');
+
+// Route::get('/signupadmin', [AdminController::class, 'signadmctrl'])->name('signupadmin');
+// Route::get('/datatablemember', [AdminController::class, 'datamembctrl'])->name('datatablemember');
+// Route::get('/datatablepaymenmobile', [AdminController::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
+// Route::get('/datatablepaymentpc', [AdminController::class, 'paymentpcctrl'])->name('datatablepaymentpc');
+// Route::get('/datatabletestimonial', [AdminController::class, 'testictrl'])->name('datatabletestimonial');
 
 
 //register

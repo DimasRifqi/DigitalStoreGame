@@ -81,15 +81,15 @@ class ContactController extends Controller
 
     public function delete($id)
     {
-        $testimonial = DB::table('contact_uses')->where('id_contact_us', $id)->first();
+        $contact = DB::table('contact_uses')->where('id_contact_us', $id)->first();
 
-        if (!$testimonial) {
-            return redirect()->back()->with('error', 'Testimonial not found');
+        if (!$contact) {
+            return redirect()->back()->with('error', 'contact not found');
         }
 
         DB::table('contact_uses')->where('id_contact_us', $id)->delete();
 
-        return redirect()->back()->with('success', 'Testimonial deleted successfully');
+        return redirect()->back()->with('success', 'contact deleted successfully');
     }
 
 }
