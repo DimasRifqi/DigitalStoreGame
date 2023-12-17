@@ -206,7 +206,7 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                   <h6>Contact Form All</h6>
                 </div>
-                <table class="table table-hover table-bordered">
+                <table class="table table-hover table-bordered text-center">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -226,11 +226,14 @@
                             <td>{{ $contact->subject }}</td>
                             <td>{{ $contact->message }}</td>
                             <td>
-                                
-                                <a href="{{ route('contact_delete', ['id' => $contact->id_contact_us]) }}" role="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</a>
+
+                                <a href="{{ route('contact_delete', ['id' => $contact->id_contact_us]) }}"
+                                    role="button"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this contact?');">Delete
+                                </a>
+
                             </td>
-
-
                         </tr>
                     @endforeach
 

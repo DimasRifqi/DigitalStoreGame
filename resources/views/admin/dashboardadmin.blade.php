@@ -261,7 +261,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                     <i class="fa fa-chart-line fa-3x text-primary"></i>
                     <div class="ms-3">
-                        <p class="mb-2">Total Sale</p>
+                        <p class="mb-2">otal SaleT</p>
                         <h6 class="mb-0">{{ number_format($totalSale) }}</h6>
                     </div>
                     </div>

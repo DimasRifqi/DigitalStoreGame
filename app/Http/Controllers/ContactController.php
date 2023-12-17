@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\contact_us;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -80,15 +81,15 @@ class ContactController extends Controller
 
     public function delete($id)
     {
-        $contact = contact_us::find($id);
+        $testimonial = DB::table('contact_uses')->where('id_contact_us', $id)->first();
 
-        if (!$contact) {
-            return redirect()->route('contacts.index')->with('error', 'Contact not found');
+        if (!$testimonial) {
+            return redirect()->back()->with('error', 'Testimonial not found');
         }
 
-        $contact->delete();
+        DB::table('contact_uses')->where('id_contact_us', $id)->delete();
 
-        return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully');
+        return redirect()->back()->with('success', 'Testimonial deleted successfully');
     }
 
 }

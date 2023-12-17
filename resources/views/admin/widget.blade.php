@@ -238,19 +238,7 @@
 
 
                                 {{-- <a href="{{ url('testimonialupdate', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-primary btn-sm">Update</a> --}}
-                                {{-- <form action="{{ route('testimonial.delete', ['id' => $testimonial->id_testimoni]) }}" method="POST" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</button>
-                                </form> --}}
-
-                                <form action={{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" method="POST" >
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete' onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</button>
-                                </form>
-
-                                {{-- <a href="{{url('post/hapus')}}/{{$testimonial->id}}" class="btn btn-danger">Hapus Post</a> --}}
+                                <a href="{{ route('testimonial_delete', ['id' => $testimonial->id_testimoni]) }}" role="button" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this testimoni?');">Delete</a>
 
                             </td>
                         </tr>

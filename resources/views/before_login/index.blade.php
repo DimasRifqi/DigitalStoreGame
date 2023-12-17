@@ -67,7 +67,7 @@
                     <div class="input-group-append mr-5">
                       <button class="btn btn-outline-info btn-primary" type="button">Search</button>
                     </div>
-                    <div id="searchResults" class="search-results mt-5 flex-column align-items-center position-absolute"></div>
+                    <div id="searchResults" class="search-results mt-0 flex-column align-items-center position-absolute"></div>
                 </div>
                 <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link">About</a>

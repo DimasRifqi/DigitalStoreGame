@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('foto_game');
             $table->string('tipegame');
             $table->string('namagame');
+            $table->string('linkgame');
             $table->timestamps();
         });
     }

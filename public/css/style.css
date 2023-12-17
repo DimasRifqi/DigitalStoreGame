@@ -628,6 +628,13 @@
     z-index: 1;
 }
 
+.search-results img {
+    max-width: 15%; /* Sesuaikan dengan kebutuhan */
+    height: auto;
+    margin-right: 10px; /* Atur jarak antara gambar dan teks */
+}
+
+
 .search-results div {
     padding: 10px;
     border-bottom: 1px solid #ccc;
