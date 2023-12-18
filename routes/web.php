@@ -36,7 +36,7 @@ use App\Models\User;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\testimoniController;
 
-Route::get('/api/items', [ItemController::class, 'index']);
+//Route::get('/api/items', [ItemController::class, 'items']);
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
 Route::get('/login', [Controller::class, 'loginctrl'])->name('login');
 Route::get('/index', [Controller::class, 'indexctrl'])->name('index');

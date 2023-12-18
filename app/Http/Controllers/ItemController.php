@@ -8,12 +8,10 @@ use App\Models\type_game_game;
 class ItemController extends Controller
 {
     // dalam ItemController.php
-
-
-public function index()
-{
-    $data = type_game::all();
-    return response()->json($data);
-}
+    public function items()
+    {
+        $data = type_game::all();
+        return response()->json($data);
+    }
 
 }

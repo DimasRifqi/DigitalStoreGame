@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\ItemController;
+use App\Models\testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/midtrans-callback', [invoiceController::class, 'callback']);
+//Route::post('/midtrans-callback', [invoiceController::class, 'callback']);
+
+Route::get('/index', function () {
+    $testimonials = testimoni::all();
+    return view('/before_login/index', compact('testimonials'));
+});
+
+Route::get('/items', [ItemController::class, 'items']);
+
