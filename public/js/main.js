@@ -118,6 +118,7 @@ searchInput.addEventListener('input', async () => {
     }
 });
 
+
 function displayResults(results) {
     searchResults.innerHTML = '';
 
@@ -125,24 +126,30 @@ function displayResults(results) {
         results.forEach(item => {
             const resultItem = document.createElement('div');
 
-            // Tambahkan gambar jika ada URL gambar
+
             if (item.foto_game) {
                 const img = document.createElement('img');
                 img.src = item.foto_game;
-                img.alt = item.namagame; // Gantilah dengan deskripsi gambar jika ada
+                img.alt = item.namagame;
 
                 resultItem.appendChild(img);
             }
 
-            // Tambahkan teks atau deskripsi item
+
             const text = document.createElement('span');
             text.textContent = item.namagame;
             resultItem.appendChild(text);
 
+
+            resultItem.addEventListener('click', () => {
+                window.location.href = `${item.linkgame}`;
+                // window.location.href = `{{ route('item.linkgame', [Topup_Controller::class, => item.linkgame]) }}`;
+            });
+
             searchResults.appendChild(resultItem);
         });
 
-        // Tampilkan popup dan atur posisi
+
         searchResults.style.display = 'block';
         searchResults.style.top = `${searchInput.offsetTop + searchInput.offsetHeight}px`;
     } else {
