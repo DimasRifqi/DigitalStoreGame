@@ -51,6 +51,12 @@ class Topup_Controller extends Controller
     public function topupformGI(Request $request)
     {
         //dd($request->all());
+
+        if (!auth()->check()) {
+
+            return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
+        }
+
         $index = $request->input('submit_topup');
 
         $request->validate([
@@ -114,6 +120,12 @@ class Topup_Controller extends Controller
     public function topupformHSR(Request $request)
     {
         //dd($request->all());
+
+        if (!auth()->check()) {
+
+            return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
+        }
+
         $index = $request->input('submit_topup');
 
         $request->validate([
@@ -179,6 +191,12 @@ class Topup_Controller extends Controller
     public function topupformML(Request $request)
     {
         //dd($request);
+
+        if (!auth()->check()) {
+
+            return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
+        }
+
         $index = $request->input('submit_topup');
 
         $request->validate([
@@ -245,6 +263,12 @@ class Topup_Controller extends Controller
     public function topupformTOF(Request $request)
     {
         //dd($request->all());
+
+        if (!auth()->check()) {
+
+            return redirect('/login')->with('error', 'Silahkan Login Terlebih Dahulu.');
+        }
+
         $index = $request->input('submit_topup');
 
         $request->validate([
