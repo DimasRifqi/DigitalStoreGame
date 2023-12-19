@@ -100,10 +100,11 @@
       class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 shadow"
     >
       <a
-        href="dashboard.html"
+        href="{{ url('dashboard') }}"
         class="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
-        <h2 class="m-0 text-primary">Digital Store</h2>
+        <img src="img/logo.png" class="pl-1">
+        <h2 class="m-2 text-primary">Digital Store</h2>
       </a>
       <button
         type="button"
