@@ -198,11 +198,20 @@
         </nav>
         <!-- Navbar End -->
 
+        @if(session('delete'))
+            <div class="alert alert-success text-center" style="background-color: red; color: white;">
+                {{ session('delete') }}
+            </div>
+        @endif
+        
         @if(session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
         @endif
+
+
+
 
         <!-- Widget Start -->
         <div class="container-fluid pt-4 px-4">

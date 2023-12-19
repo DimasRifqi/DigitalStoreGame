@@ -13,9 +13,17 @@ class AdminController extends Controller
     {
 
         if (Auth::check() && Auth::user()->role == 'admin') {
+
             $invoice = invoice_game::all();
-            $totalPerolehan = 0;
-            $totalSale = 0;
+
+            //$invoicesToday = invoice_game::where('tanggal_pembelian', '>=', now()->subDay())->get();
+            $invoicesToday = invoice_game::where('tanggal_pembelian', '>=', now()->startOfDay())->get();
+
+            $totalPerolehan = $invoice->sum('hargaitem_game');
+            $todayPerolehan = $invoicesToday->sum('hargaitem_game');
+
+            $totalSale = $invoice->sum('id_sale');
+            $todaySale = $invoicesToday->sum('id_sale');
 
             return view('/admin/dashboardadmin',compact('invoice','totalPerolehan','totalSale'));
         } else {

@@ -77,7 +77,7 @@ class testimoniController extends Controller
 
         DB::table('testimonis')->where('id_testimoni', $id)->delete();
 
-        return redirect()->back()->with('success', 'Testimonial deleted successfully');
+        return redirect()->back()->with('delete', 'Testimonial deleted successfully');
     }
 
 

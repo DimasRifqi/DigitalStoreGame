@@ -196,64 +196,6 @@
         </nav>
         <!-- Navbar End -->
 
-
-
-        <!-- Recent Sales Start -->
-        <div class="container-fluid pt-4 px-4">
-          <div class="bg-light text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-              <h6 class="mb-0">Data Payment</h6>
-              <a href="{{ url('datatablepaymentall') }}">Show All</a>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-hover table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Game</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status </th>
-                    {{-- <th scope="col">Details</th> --}}
-                  </tr>
-                </thead>
-                <tbody>
-                    @foreach ($invoice as $invoiceGame)
-                        {{-- @php
-                            $totalPerolehan += $invoiceGame->hargaitem_game;
-
-                            // Check if the invoice date is today
-                            $today = now()->format('Y-m-d');
-                            if ($invoiceGame->tanggal_pembelian == $today) {
-                                $totalSale += $invoiceGame->id_sale;
-                            }
-                        @endphp --}}
-                        <tr>
-                            <td>{{ $invoiceGame->id_invoice }}</td>
-                            <td>{{ $invoiceGame->tanggal_pembelian }}</td>
-                            <td>{{ $invoiceGame->nama_pembeli }}</td>
-                            <td>{{ $invoiceGame->nama_game }}</td>
-                            <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
-                            <td>{{ $invoiceGame->status }}</td>
-                            {{-- <td>
-                                <a class="btn btn-sm btn-primary" href="">Detail</a>
-                            </td> --}}
-                        </tr>
-                        @php
-                            $totalPerolehan += $invoiceGame->hargaitem_game;
-                            $totalSale += $invoiceGame->id_sale;
-                        @endphp
-
-                    @endforeach
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <!-- Recent Sales End -->
-
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
@@ -297,6 +239,50 @@
             </div>
         </div>
         <!-- Sale & Revenue End -->
+
+
+        <!-- Recent Sales Start -->
+        <div class="container-fluid pt-4 px-4">
+          <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h6 class="mb-0">Data Payment</h6>
+              <a href="{{ url('datatablepaymentall') }}">Show All</a>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Game</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status </th>
+                    {{-- <th scope="col">Details</th> --}}
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($invoice as $invoiceGame)
+                        <tr>
+                            <td>{{ $invoiceGame->id_invoice }}</td>
+                            <td>{{ $invoiceGame->tanggal_pembelian }}</td>
+                            <td>{{ $invoiceGame->nama_pembeli }}</td>
+                            <td>{{ $invoiceGame->nama_game }}</td>
+                            <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
+                            <td>{{ $invoiceGame->status }}</td>
+                            {{-- <td>
+                                <a class="btn btn-sm btn-primary" href="">Detail</a>
+                            </td> --}}
+                        </tr>
+
+                    @endforeach
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Recent Sales End -->
 
 
         <!-- Widgets Start -->

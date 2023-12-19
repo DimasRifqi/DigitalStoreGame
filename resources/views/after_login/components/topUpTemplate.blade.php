@@ -155,11 +155,12 @@
                     confirmButtonText: "Yes"
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      swalWithBootstrapButtons.fire({
+                      Swal.fire({
                         title: "Logged Out!",
                         text: "See You Soon",
                         icon: "success"
                       });
+                      document.getElementById("logout-form").submit();
                     } else {
                       Swal.fire({
                         title: "Log Out Canceled",

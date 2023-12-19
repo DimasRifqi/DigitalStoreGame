@@ -198,10 +198,11 @@
         <!-- Navbar End -->
 
         @if(session('success'))
-            <div class="alert alert-success text-center">
+            <div class="alert alert-success text-center" style="background-color: red; color: white;">
                 {{ session('success') }}
             </div>
         @endif
+
         <!-- Widget Start -->
         <div class="container-fluid pt-4 px-4">
           <div class="row g-4">

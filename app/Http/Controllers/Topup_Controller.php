@@ -30,6 +30,24 @@ class Topup_Controller extends Controller
         ]);
     }
 
+    // public function topupGIctrl()
+    // {
+    //     // Check if the user is authenticated
+    //     if (auth()->check()) {
+    //         // User is logged in
+    //         $topup_item = item_game::where('id_typegame', 1)->get();
+    //         $game = type_game::where('id_typegame', 1)->first();
+
+    //         return view('/after_login/topUpOption', compact('topup_item', 'game'), [
+    //             "welkin" => "Welkin",
+    //             "genesis" => "Genesis",
+    //         ]);
+    //     } else {
+    //         // Redirect to login page if the user is not logged in
+    //         return redirect('/login')->with('message', 'Please log in to access this page.');
+    //     }
+    // }
+
     public function topupformGI(Request $request)
     {
         //dd($request->all());

@@ -87,6 +87,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //top up gi
 Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->name('topupGI');
+//Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->middleware('auth');
+//Route::get('/topupgi', 'YourController@topupGIctrl')->middleware('auth');
+
 Route::post('/topuppp', [Topup_Controller::class, 'topupformGI'])->name('topup_form');
 
 //topup hsr
