@@ -125,8 +125,36 @@
                         </li>
                     </ul>
                 </div>
-
                 <script>
+                document.getElementById("logout-form").addEventListener("click", function(event) {
+                  event.preventDefault();
+                  Swal.fire({
+                    title: "Are you sure you Want Log Out?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes"
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire({
+                        title: "Logged Out!",
+                        text: "See You Soon",
+                        icon: "success"
+                      });
+                      document.getElementById("logout-form").submit();
+                    } else {
+                      Swal.fire({
+                        title: "Log Out Canceled",
+                        text: "You have canceled log out",
+                        icon: "warning"
+                      });
+                      event.preventDefault();
+                    }
+                  });
+                });
+              </script>
+                <!-- <script>
                     document.getElementById('logout-form').addEventListener('submit', function(event) {
                         // Pastikan Anda mengkonfirmasi logout jika diperlukan
                         var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
@@ -136,7 +164,7 @@
                             event.preventDefault();
                         }
                     });
-                </script>
+                </script> -->
         </div>
       </div>
     </nav>
