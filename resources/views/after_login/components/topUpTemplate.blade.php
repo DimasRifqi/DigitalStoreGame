@@ -53,9 +53,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <!-- <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'> -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css"> -->
 
 
     <!-- Libraries Stylesheet -->
@@ -142,43 +142,45 @@
                     </ul>
                 </div>
 
-              <!-- <script>
-                document.getElementById('logout-form').addEventListener('submit', function(event) {
-                  // Swal.fire({
-                  //   title: "Are you sure you Want Log Out?",
-                  //   icon: "warning",
-                  //   showCancelButton: true,
-                  //   confirmButtonColor: "#3085d6",
-                  //   cancelButtonColor: "#d33",
-                  //   confirmButtonText: "Yes"
-                  // }).then((result) => {
-                  //   if (!result.isConfirmed) {
-                  //     result.preventDefault();
-                  //   } else {
-                  //     swalWithBootstrapButtons.fire({
-                  //       title: "Logged Out!",
-                  //       text: "See You Soon",
-                  //       icon: "success"
-                  //     });
-                  //     Swal.fire({
-                  //       title: "Logged Out!",
-                  //       text: "See You Soon",
-                  //       icon: "success"
-                  //     });
-                  //   }
-                  // });
+              <script>
+                document.getElementById("logout-form").addEventListener("click", function(event) {
+                  event.preventDefault();
+                  Swal.fire({
+                    title: "Are you sure you Want Log Out?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes"
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      swalWithBootstrapButtons.fire({
+                        title: "Logged Out!",
+                        text: "See You Soon",
+                        icon: "success"
+                      });
+                    } else {
+                      Swal.fire({
+                        title: "Log Out Canceled",
+                        text: "You have canceled log out",
+                        icon: "warning"
+                      });
+                      event.preventDefault();
+                    }
+                  });
 
                   // Pastikan Anda mengkonfirmasi logout jika diperlukan
-                  var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
+                  // var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
 
                   // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
-                  if (!confirmLogout) {
-                  event.preventDefault();
-                  }
+                  // if (!confirmLogout) {
+                  // event.preventDefault();
+                  // }
                 });
-              </script> -->
-              <script>
-                document.getElementById('logout-form').addEventListener('submit', function(event) {
+              </script>
+              <!-- <script>
+                document.getElementById("logout-form").addEventListener("submit", function(event) {
+                  event.preventDefault();
                   // Menampilkan dialog box konfirmasi logout dengan SweetAlert2
                   Swal.fire({
                       title: "Are you sure you want to logout?",
@@ -194,13 +196,12 @@
                         }
                         else { // Menghentikan proses logout jika pengguna memilih untuk menolak logout dari dialog box konfirmasi SweetAlert2.
                           return false;
+                          event.preventDefault();
                         }
                       }); // Mencegah formulir logout terlepas ketika pengguna menolak logout dari dialog box konfirmasi SweetAlert2.
-                      event.preventDefault();
                   }); // Menangani submit formulir logout secara manual dan menjalankan script JavaScript di atas saat pengguna mencubit tombol "Logout" di halaman logout.
-              </script>
+              </script> -->
         </div>
-
       </div>
     </nav>
     <!-- Navbar End -->
@@ -280,8 +281,8 @@
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}" >Beli</button>
-                                            <script>
+                                            <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <!-- <script>
                                               document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                 Swal.fire({
                                                 title: "Confirmation",
@@ -307,36 +308,67 @@
                                                 //     event.preventDefault();
                                                 // }
                                               });
-                                            </script>
+                                            </script> -->
                                           </div>
                                     </div>
                                 </div>
-                                <!-- <script>
-                                      document.querySelector(".submit").addEventListener("click", function() {
-                                        Swal.fire({
-                                        title: "Confirmation",
-                                        text: "Are you sure with Your Choice?",
-                                        imageUrl: "{{ asset($item['foto_item']) }}",
-                                        imageWidth: 500,
-                                        imageHeight: 250,
-                                        // imageAlt: "",
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes",
-                                        cancelButtonText: "No",
-                                        confirmButtonColor: "#00ff55",
-                                        cancelButtonColor: "#999999",
-                                        reverseButtons: true,
-                                      }).then((result) => {
-                                        if (!result.isConfirmed) {
-                                          Swal.fire("Canceled", "", "info");
-                                        }
-                                      });
+                        <!-- <script>
+                              document.querySelector(".submit").addEventListener("click", function() {
+                                Swal.fire({
+                                title: "Confirmation",
+                                text: "Are you sure with Your Choice?",
+                                imageUrl: "{{ asset($item['foto_item']) }}",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                // imageAlt: "",
+                                showCancelButton: true,
+                                confirmButtonText: "Yes",
+                                cancelButtonText: "No",
+                                confirmButtonColor: "#00ff55",
+                                cancelButtonColor: "#999999",
+                                reverseButtons: true,
+                              }).then((result) => {
+                                if (!result.isConfirmed) {
+                                  Swal.fire("Canceled", "", "info");
+                                }
+                              });
 
-                                        // if (!confirmBeli) {
-                                        //     event.preventDefault();
-                                        // }
-                                      });
-                                    </script> -->
+                                // if (!confirmBeli) {
+                                //     event.preventDefault();
+                                // }
+                              });
+                            </script> -->
+                            <!-- <script>
+                              document.querySelector(".topuppay1").addEventListener("click", function(event) {
+                                event.preventDefault();
+                                Swal.fire({
+                                title: "Confirmation",
+                                imageUrl: "{{ asset($item['foto_item']) }}",
+                                text: "{{ $item['item'] }}",
+                                text: "Rp.{{ number_format($item['promo']) }}",
+                                text: "Rp.{{ number_format($item['harga']) }}",
+                                text: "Are you sure with Your Choice?",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                // imageAlt: "",
+                                showConfirmButton: true,
+                                showCancelButton: true,
+                                confirmButtonText: "Yes",
+                                CancelButtonText: "No",
+                                confirmButtonColor: "#00ff55",
+                                cancelButtonColor: "#999999",
+                                reverseButtons: true
+                              }).then((result) => {
+                                if (!result.isConfirmed) {
+                                  Swal.fire("Canceled", "", "info");
+                                }
+                              });
+
+                                // if (!confirmBeli) {
+                                //     event.preventDefault();
+                                // }
+                              });
+                          </script> -->
                         @endforeach
                         </div>
                     </div>
@@ -358,7 +390,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
+                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
@@ -415,6 +447,37 @@
                                         // }
                                       });
                                     </script> -->
+                                    <!-- <script>
+                                      document.querySelector(".topuppay2").addEventListener("click", function(event) {
+                                        event.preventDefault();
+                                        Swal.fire({
+                                        title: "Confirmation",
+                                        imageUrl: "{{ asset($item['foto_item']) }}",
+                                        text: "{{ $item['item'] }}",
+                                        text: "Rp.{{ number_format($item['promo']) }}",
+                                        text: "Rp.{{ number_format($item['harga']) }}",
+                                        text: "Are you sure with Your Choice?",
+                                        imageWidth: 500,
+                                        imageHeight: 250,
+                                        // imageAlt: "",
+                                        showConfirmButton: true,
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        CancelButtonText: "No",
+                                        confirmButtonColor: "#00ff55",
+                                        cancelButtonColor: "#999999",
+                                        reverseButtons: true
+                                      }).then((result) => {
+                                        if (!result.isConfirmed) {
+                                          Swal.fire("Canceled", "", "info");
+                                        }
+                                      });
+
+                                        // if (!confirmBeli) {
+                                        //     event.preventDefault();
+                                        // }
+                                      });
+                                  </script> -->
                                 @endif
                             @endforeach
                         </div>
@@ -437,7 +500,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}">Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
@@ -494,6 +557,37 @@
                                         // }
                                       });
                                     </script> -->
+                                    <!-- <script>
+                                      document.querySelector(".topuppay3").addEventListener("click", function(event) {
+                                        event.preventDefault();
+                                        Swal.fire({
+                                        title: "Confirmation",
+                                        imageUrl: "{{ asset($item['foto_item']) }}",
+                                        text: "{{ $item['item'] }}",
+                                        text: "Rp.{{ number_format($item['promo']) }}",
+                                        text: "Rp.{{ number_format($item['harga']) }}",
+                                        text: "Are you sure with Your Choice?",
+                                        imageWidth: 500,
+                                        imageHeight: 250,
+                                        // imageAlt: "",
+                                        showConfirmButton: true,
+                                        showCancelButton: true,
+                                        confirmButtonText: "Yes",
+                                        CancelButtonText: "No",
+                                        confirmButtonColor: "#00ff55",
+                                        cancelButtonColor: "#999999",
+                                        reverseButtons: true
+                                      }).then((result) => {
+                                        if (!result.isConfirmed) {
+                                          Swal.fire("Canceled", "", "info");
+                                        }
+                                      });
+
+                                        // if (!confirmBeli) {
+                                        //     event.preventDefault();
+                                        // }
+                                      });
+                                  </script> -->
                                 @endif
                             @endforeach
                         </div>
@@ -528,34 +622,42 @@
           // }
         });
       </script> -->
-      <script>
-        document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
-          Swal({
-          title: "Confirmation",
-          text: "Are you sure with Your Choice?",
-          imageUrl: "{{ asset($item['foto_item']) }}",
-          imageWidth: 500,
-          imageHeight: 250,
-          // imageAlt: "",
-          showConfirmButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          CancelButtonText: "No",
-          confirmButtonColor: "#00ff55",
-          cancelButtonColor: "#999999",
-          reverseButtons: true
-        }).then((event) => {
-          if (!result.isConfirmed) {
-            Swal.fire("Canceled", "", "info");
-          }
-        });
-
-          // if (!confirmBeli) {
-          //     event.preventDefault();
-          // }
-        });
-      </script>
     </form>
+    <script>
+      document.querySelector(".topuppay").addEventListener("click", function(event) {
+        event.preventDefault();
+        Swal.fire({
+        title: "Confirmation",
+        imageUrl: "{{ asset($item['foto_item']) }}",
+        text: "{{ $item['item'] }}",
+        text: "Rp.{{ number_format($item['promo']) }}",
+        text: "Rp.{{ number_format($item['harga']) }}",
+        text: "Are you sure with Your Choice?",
+        imageWidth: 500,
+        imageHeight: 250,
+        // imageAlt: "",
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        CancelButtonText: "No",
+        confirmButtonColor: "#00ff55",
+        cancelButtonColor: "#999999",
+        reverseButtons: true
+      }).then((result) => {
+        if (!result.isConfirmed) {
+            Swal.fire({
+            title: "Canceled",
+            text: "Your have canceled payment.",
+            icon: "warning"
+          });
+        }
+      });
+
+        // if (!confirmBeli) {
+        //     event.preventDefault();
+        // }
+      });
+  </script>
 <!-- Product End -->
 
   <!-- Footer Start -->
@@ -690,8 +792,8 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/sweetalert2.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
 
