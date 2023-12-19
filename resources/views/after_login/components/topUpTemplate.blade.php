@@ -142,7 +142,6 @@
                         </li>
                     </ul>
                 </div>
-
               <script>
                 document.getElementById("logout-form").addEventListener("click", function(event) {
                   event.preventDefault();
@@ -172,29 +171,6 @@
                   });
                 });
               </script>
-              <!-- <script>
-                document.getElementById("logout-form").addEventListener("submit", function(event) {
-                  event.preventDefault();
-                  // Menampilkan dialog box konfirmasi logout dengan SweetAlert2
-                  Swal.fire({
-                      title: "Are you sure you want to logout?",
-                      icon: "warning",
-                      showCancelButton: true,
-                      confirmButtonColor: "#3085d6",
-                      cancelButtonColor: "#d33",
-                      confirmButtonText: "Yes"
-                  }).then((result) => {
-                        // Jika pengguna memilih untuk melanjutkan logout, maka lanjutkan dengan mengirim formulir logout seperti biasa. Jika pengguna memilih untuk menolak logout, maka SweetAlert2 akan menutup dialog box tanpa melanjutkan proses logout.
-                        if (result.isConfirmed) {
-                          this.submit(); // Mengirim formulir logout seperti biasa setelah pengguna memilih untuk melanjutkan logout dari dialog box konfirmasi SweetAlert2.
-                        }
-                        else { // Menghentikan proses logout jika pengguna memilih untuk menolak logout dari dialog box konfirmasi SweetAlert2.
-                          return false;
-                          event.preventDefault();
-                        }
-                      }); // Mencegah formulir logout terlepas ketika pengguna menolak logout dari dialog box konfirmasi SweetAlert2.
-                  }); // Menangani submit formulir logout secara manual dan menjalankan script JavaScript di atas saat pengguna mencubit tombol "Logout" di halaman logout.
-              </script> -->
         </div>
       </div>
     </nav>

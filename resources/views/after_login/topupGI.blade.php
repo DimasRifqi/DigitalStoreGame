@@ -150,19 +150,7 @@
                   });
                 });
               </script>
-                <!-- <script>
-                    document.getElementById('logout-form').addEventListener('submit', function(event) {
-                        // Pastikan Anda mengkonfirmasi logout jika diperlukan
-                        var confirmLogout = confirm('Apakah Anda yakin ingin logout?');
-
-                        // Jika pengguna memilih untuk melanjutkan logout, lanjutkan dengan mengirim formulir
-                        if (!confirmLogout) {
-                            event.preventDefault();
-                        }
-                    });
-                </script> -->
         </div>
-
       </div>
     </nav>
     <!-- Navbar End -->
