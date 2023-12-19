@@ -624,7 +624,7 @@
         });
       </script> -->
     </form>
-    <script>
+    <!-- <script>
       document.querySelector(".topuppay").addEventListener("click", function(event) {
         event.preventDefault();
         Swal.fire({
@@ -658,7 +658,7 @@
         //     event.preventDefault();
         // }
       });
-  </script>
+  </script> -->
 <!-- Product End -->
 
   <!-- Footer Start -->
