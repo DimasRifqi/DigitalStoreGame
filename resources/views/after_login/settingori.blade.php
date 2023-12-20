@@ -63,6 +63,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+            
+
   </head>
 
   <body>
@@ -146,11 +148,11 @@
     <!-- Navbar End -->
 
     <section
-      class="vh-100"
+      class="vh-120"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
       <div class="container py-5 h-0">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="row d-flex justify-content-center align-items-center h-120">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem">
               <div class="row g-0">
@@ -175,6 +177,7 @@
                         >
                       </div>
 
+                      <a style="color: blue;">Update Nama</a>
                       <div class="form-floating mb-4 ">
                           <input
                             type="text"
@@ -192,7 +195,9 @@
                           </label>
                         </div>
 
+                        <a style="color: blue;">Update Email</a>
                         <div class="form-floating mb-4 ">
+
                           <input
                             type="email"
                             class="form-control"
@@ -209,6 +214,7 @@
                           </label>
                         </div>
 
+                        <a style="color: blue;">Update Phone</a>
                       <div class="form-floating mb-4 ">
                           <input
                             type="tel"
@@ -226,6 +232,7 @@
                           </label>
                         </div>
 
+                        <a style="color: blue;">Update Password</a>
                         <div class="form-floating mb-2 ">
                           <input
                             type="password"
@@ -256,10 +263,7 @@
     </section>
 
     <!-- Footer Start -->
-    <div
-      class="container-fluid bg-dark text-light footer wow fadeIn"
-      data-wow-delay="0.1s"
-    >
+    <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
       <div class="container py-5">
         <div class="row g-5">
           <div class="col-lg-5 col-md-8">

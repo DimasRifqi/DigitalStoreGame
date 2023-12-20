@@ -11,6 +11,10 @@ class invoiceController extends Controller
 {
     public function invoicectrl()
     {
+        if (!auth()->check()) {
+           
+            return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
+        }
 
         $userId = auth()->user()->id;
         $invoiceGame = invoice_game::where('status', 'Belum Lunas')
