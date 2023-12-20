@@ -148,7 +148,7 @@
             document.getElementById("logout-form").addEventListener("click", function(event) {
               event.preventDefault();
               Swal.fire({
-                title: "Are you sure you Want Log Out?",
+                title: "Are you sure you want Log Out?",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
