@@ -87,21 +87,22 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //top up gi
 Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->name('topupGI');
-//Route::get('/topupGI', [Topup_Controller::class, 'topupGIctrl'])->middleware('auth');
-//Route::get('/topupgi', 'YourController@topupGIctrl')->middleware('auth');
-
+Route::get('/topupGIIndex', [Topup_Controller::class, 'topupGIIndexctrl'])->name('topupGIIndex');
 Route::post('/topuppp', [Topup_Controller::class, 'topupformGI'])->name('topup_form');
 
 //topup hsr
 Route::get('/topupHSR', [Topup_Controller::class, 'topupHSRctrl'])->name('topupHSR');
+Route::get('/topupHSRIndex', [Topup_Controller::class, 'topupHSRIndexctrl'])->name('topupHSRIndex');
 Route::post('/topuppp', [Topup_Controller::class, 'topupformHSR'])->name('topup_form');
 
 //top up ml
 Route::get('/topupML', [Topup_Controller::class, 'topupMLctrl'])->name('topupML');
+Route::get('/topupMLIndex', [Topup_Controller::class, 'topupMLIndexctrl'])->name('topupMLIndex');
 Route::post('/topuppp', [Topup_Controller::class, 'topupformML'])->name('topup_form');
 
 //top up tof
 Route::get('/topupTOF', [Topup_Controller::class, 'topupTOFctrl'])->name('topupTOF');
+Route::get('/topupTOFIndex', [Topup_Controller::class, 'topupTOFIndexctrl'])->name('topupTOFIndex');
 Route::post('/topuppp', [Topup_Controller::class, 'topupformTOF'])->name('topup_form');
 
 //contact
@@ -114,8 +115,3 @@ Route::post('/contact', [ContactController::class, 'contactform'])->name('contac
 
 //invoice
 Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice');
-
-
-//Serching Game
-// Route::get('/search/game', [SearchGameController::class, 'search'])->name('search.game');
-// Route::get('/games/{id_typegame}', [SearchGameController::class, 'show'])->name('game.show');

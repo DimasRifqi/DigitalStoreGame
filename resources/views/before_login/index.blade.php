@@ -120,8 +120,9 @@
     <!-- Carousel Pamflet End -->
 
 
+      <!-- Popular Game Start -->
       <section class="game_populer" id="game_populer">
-           <!-- Projects Start -->
+        <!-- Projects Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="section-title text-center">
@@ -143,7 +144,7 @@
                                 <img class="img-fluid w-100" src="img/gi2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/gi2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupGIIndex') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -173,7 +174,7 @@
                                 <img class="img-fluid w-100" src="img/hsr2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/hsr2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupHSRIndex') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -203,7 +204,7 @@
                                 <img class="img-fluid w-100" src="img/ml2.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/ml2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupMLIndex') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -234,7 +235,7 @@
                                 <img class="img-fluid w-100" src="img/gipc.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/gipc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupGIIndex') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -250,7 +251,7 @@
                                 <img class="img-fluid w-100" src="img/hsrpc.png" alt="">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/hsrpc.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="{{ route('topupHSRIndex') }}"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="border border-5 border-light border-top-0 p-4">
@@ -263,13 +264,12 @@
             </div>
         </div>
         <!-- Projects End -->
-
       </section>
+      <!-- Popular Game End -->
 
 
 
-
-    <!-- Service Start -->
+    <!-- Top Up Mobile Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center">
@@ -284,28 +284,9 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Genshin Impact</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton1" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton1").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="{{ url('topuGIIndex') }}">TOP UP</a></button> -->
+                                <a href="{{ route('topupGIIndex') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -317,26 +298,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Honkai Star Rail</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton2" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton2").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ route('topupHSRIndex') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -349,26 +312,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Mobile Legend</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton3" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton3").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ route('topupMLIndex') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -379,28 +324,10 @@
                             <img class="img-fluid" src="img/TOFTopUP/logoTOF.png" alt="">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Tower of Fantasy</h4>
+                            <h4 class="mb-3">Tower Of Fantasy</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton4" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton4").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ route('topupTOFIndex') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -413,26 +340,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">PUBGM</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton5" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton5").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -445,26 +354,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Free Fire</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton6" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton6").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -477,26 +368,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Arena of Valor</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton7" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton7").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -509,41 +382,20 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Clash of Clans</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton8" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton8").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
-
+                            <!-- <a class="fw-medium" href="">TOP UP<i class="fa fa-arrow-right ms-2"></i></a> -->
                         </div>
                     </div>
                 </div>
 
-
-
-
             </div>
         </div>
     </div>
-    <!-- Service End -->
+    <!-- Top Up Nobile End -->
 
-    <!-- Service Start -->
+    <!-- Top Up PC Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-title text-center">
@@ -558,26 +410,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Genshin Impact</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton9" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton9").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -590,26 +424,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Honkai Star Rail</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton10" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton10").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -622,26 +438,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Mobile Legend</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton11" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton11").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -654,26 +452,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Call Of Duty Mobile</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton12" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton12").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -686,27 +466,10 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">PUBGM</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton13" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton13").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
+                            <!-- <a class="fw-medium" href="">TOP UP<i class="fa fa-arrow-right ms-2"></i></a> -->
                         </div>
                     </div>
                 </div>
@@ -718,26 +481,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Free Fire</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton14" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton14").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -750,26 +495,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Arena of Valor</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton15" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton15").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -782,26 +509,8 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Clash of Clans</h4>
                             <div class="d-grid gap-2 col-12 mx-auto">
-                                <button type="button" id="topUpButton16" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button>
-                                <script>
-                                    document.getElementById("topUpButton16").addEventListener("click", function() {
-                                        // Cek apakah pengguna sudah login
-                                        if (!isUserLoggedIn()) {
-                                            // Jika belum login, tampilkan notifikasi
-                                            alert("Anda harus login terlebih dahulu untuk melakukan top-up.");
-                                        } else {
-                                            // Jika sudah login, lanjutkan ke halaman top-up
-                                            window.location.href = "link-halaman-top-up"; // Ganti dengan link halaman top-up Anda
-                                        }
-                                    });
-
-                                    function isUserLoggedIn() {
-                                        // Fungsi untuk memeriksa apakah pengguna sudah login
-                                        // Gantilah dengan logika autentikasi sesuai dengan sistem yang Anda gunakan
-                                        // Contoh sederhana: return true jika pengguna sudah login, false jika belum
-                                        return false; // Gantilah sesuai kebutuhan
-                                    }
-                                </script>
+                                <!-- <button type="button" class="btn btn-primary"><a class="fw-medium link-light" href="">TOP UP</a></button> -->
+                                <a href="{{ url('topupGI') }}" class="btn btn-primary fw-medium" role="button">TOP UP</a>
                             </div>
                         </div>
                     </div>
@@ -810,6 +519,7 @@
             </div>
         </div>
     </div>
+    <!-- Top Up PC End -->
 
 
 

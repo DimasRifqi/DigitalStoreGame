@@ -53,7 +53,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    
+
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css"> -->
@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                         <div class="text-start mb-3 pb-3">
-                            <!-- @yield('form') -->
+                            @yield('formIndex')
                         </div>
                     </div>
                     <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
