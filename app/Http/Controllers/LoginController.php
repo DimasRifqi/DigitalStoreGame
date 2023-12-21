@@ -30,7 +30,9 @@ class LoginController extends Controller
                 return redirect('/dashboard');
             }
         } else {
-            return back()->with('error', 'Kamu gagal Login');
+            return back()->withInput()->withErrors([
+                'email' => 'Email atau password salah',
+            ]);
         }
     }
 

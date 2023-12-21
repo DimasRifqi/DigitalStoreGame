@@ -85,9 +85,28 @@
       class="vh-100 mb-0"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
-        @if(session('error'))
+
+    @if(session('error'))
         <div class="alert alert-success text-center">
             {{ session('error') }}
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if($errors->has('email'))
+        <div class="alert alert-danger">
+            {{ $errors->first('email') }}
+        </div>
+    @endif
+
+    @if($errors->has('password'))
+        <div class="alert alert-danger">
+            {{ $errors->first('password') }}
         </div>
     @endif
 

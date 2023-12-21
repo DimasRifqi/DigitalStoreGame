@@ -12,7 +12,7 @@ class invoiceController extends Controller
     public function invoicectrl()
     {
         if (!auth()->check()) {
-           
+
             return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
         }
 
@@ -47,6 +47,43 @@ class invoiceController extends Controller
         $snapToken = Snap::getSnapToken($params);
 
         return view('/after_login/invoice', compact('invoiceGame','snapToken'));
+    }
+
+    public function handleMidtransNotification(Request $request)
+    {
+        try {
+            Log::info('Midtrans Notification Received', $request->all());
+
+            // Get the relevant data from the incoming request
+            $orderId = $request->input('order_id');
+            $transactionStatus = $request->input('transaction_status');
+
+            // Check if the transaction is successful
+            if ($transactionStatus === 'capture') {
+                // Find the corresponding invoice in your database
+                $invoiceGame = invoice_game::where('kodepembayaran_invoice', $orderId)->first();
+
+                if ($invoiceGame) {
+                    // Update the status to "Lunas" or any other status you prefer
+                    $invoiceGame->status = 'Lunas';
+                    $invoiceGame->save();
+
+                    // You may also perform other tasks here, such as sending email notifications, etc.
+
+                    // Return a response to Midtrans
+                    return response('Transaction status updated successfully.', 200);
+                } else {
+                    Log::error('Invoice not found for order ID: ' . $orderId);
+                }
+            } else {
+                Log::warning('Unexpected transaction status: ' . $transactionStatus);
+            }
+        } catch (\Exception $e) {
+            Log::error('Error handling Midtrans notification: ' . $e->getMessage());
+        }
+
+        // If the transaction status is not 'capture' or the invoice is not found, return an error response
+        return response('Error updating transaction status.', 400);
     }
 
 

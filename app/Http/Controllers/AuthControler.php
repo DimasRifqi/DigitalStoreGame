@@ -12,26 +12,40 @@ class Req extends Auth
 {
     public function login(Request $request)
     {
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Jika berhasil login
-            $fullname = Auth::user()->fullname;
-            $email = Auth::user()->email;
-            $phone = Auth::user()->phone;
-            $password = Auth::user()->password;
 
+        if (Auth::attempt($credentials)) {
+
+            $user = Auth::user();
+
+
+            $fullname = $user->fullname;
+            $email = $user->email;
+            $phone = $user->phone;
+
+            // Avoid unnecessary variables
+            $password = $user->password; 
+
+            // Redirect to the intended page or default dashboard
             return redirect()->intended('/dashboard');
         }
 
-        // Jika login gagal
-        // return redirect()->back()->with('status', 'Email atau password anda salah.');
-        return redirect()->back()->withInput()->withErrors([
-            'email' => 'Email atau password salah'
-        ]);
-
+        // If authentication fails
+        return redirect()
+            ->back()
+            ->withInput()
+            ->withErrors([
+                'email' => 'Email atau password salah',
+            ]);
     }
-    
+
 
 }
 

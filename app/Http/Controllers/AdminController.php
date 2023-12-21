@@ -28,7 +28,7 @@ class AdminController extends Controller
             return view('/admin/dashboardadmin',compact('invoice','totalPerolehan','totalSale'));
         } else {
 
-            return redirect('/login')->with('error', 'Unauthorized access');
+            return redirect('/login')->with('error', 'Tolong login sebagai admin');
         }
 
     }
@@ -41,7 +41,7 @@ class AdminController extends Controller
             return view('/admin/datatablepaymentall',compact('invoice'));
         } else {
 
-            return redirect('/login')->with('error', 'Unauthorized access');
+            return redirect('/login')->with('error', 'Tolong login sebagai admin');
         }
     }
 
@@ -53,7 +53,7 @@ class AdminController extends Controller
             return view('/admin/widget',compact('Testimoni'));
         } else {
 
-            return redirect('/login')->with('error', 'Unauthorized access');
+            return redirect('/login')->with('error', 'Tolong login sebagai admin');
         }
 
     }
@@ -66,7 +66,7 @@ class AdminController extends Controller
             return view('/admin/contactform',compact('formContact'));
         } else {
 
-            return redirect('/login')->with('error', 'Unauthorized access');
+            return redirect('/login')->with('error', 'Tolong login sebagai admin');
         }
 
     }
@@ -80,7 +80,7 @@ class AdminController extends Controller
             return view('/admin/testimonialupdate',compact('testimonial'));
         } else {
 
-            return redirect('/login')->with('error', 'Unauthorized access');
+            return redirect('/login')->with('error', 'Tolong login sebagai admin');
         }
     }
 

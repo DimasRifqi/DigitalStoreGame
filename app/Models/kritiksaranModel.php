@@ -11,4 +11,5 @@ class kritiksaranModel extends Model
 
     protected $table = 'testimonis';
     protected $guarded = ['id_testimoni'] ;
+    
 }
