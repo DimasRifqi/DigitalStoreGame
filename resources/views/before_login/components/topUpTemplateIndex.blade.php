@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-lg-7 text-start wow fadeInUp" data-wow-delay="0.1s">
                         <div class="text-start mb-3 pb-3">
-                            @yield('form')
+                            <!-- @yield('form') -->
                         </div>
                     </div>
                     <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -299,11 +299,6 @@
               confirmButtonText: "Ok"
             }).then((result) => {
               if (result.isConfirmed) {
-                Swal.fire({
-                  title: "Logged Out!",
-                  text: "See You Soon",
-                  icon: "success"
-                });
                 document.getElementById(".login-form").submit();
               }
             });
