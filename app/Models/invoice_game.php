@@ -11,6 +11,8 @@ class invoice_game extends Model
 
     protected $table = 'invoice_games';
     protected $guarded = ['id_invoice'] ;
+    protected $primaryKey = 'kodepembayaran_invoice';
+    //protected $primaryKey  = ['id_invoice'] ;
 
     //protected $fillable = ['item_game', 'hargaitem_game'];
 

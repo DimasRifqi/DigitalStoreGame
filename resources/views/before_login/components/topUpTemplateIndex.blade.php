@@ -107,15 +107,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
-                <div class="input-group mb-3 h-25 mt-3 mx-5">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
-                    {{-- <div id="searchResults" class="search-results"></div> --}}
-                    <div class="input-group-append mr-5">
-                      <button class="btn btn-outline-info btn-primary" type="button">Search</button>
-                    </div>
-                    <div id="searchResults" class="search-results mt-0 flex-column align-items-center position-absolute"></div>
-                </div>
                 <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url('topup') }}" class="nav-item nav-link active">TOP UP</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
                 <a href="{{ url('login') }}" class="login-form nav-item btn btn-primary py-4 px-lg-5 d-lg-block">LOGIN</a>
