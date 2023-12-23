@@ -52,7 +52,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    
+
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css"> -->
@@ -112,7 +112,7 @@
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link active">Contact</a>
 
           <div class="btn-group px-1">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    <button type="button" class="btn btn-primary btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                         @auth
                             {{ Auth::user()->fullname }}
                         @else

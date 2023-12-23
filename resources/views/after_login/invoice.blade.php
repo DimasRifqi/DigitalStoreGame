@@ -170,11 +170,11 @@
         </div>
             <div class="button-container" style="display: flex; justify-content: space-between;">
                 <div class="d-grid gap-2 col-4">
-                    <a id="backButton" class="btn btn-danger fw-medium" style="font-size: 1.5em; padding: 10px 20px; border-radius:10px 10px 10px 10px;">Back</a>
+                    <a id="backButton" class="btn btn-danger fw-medium btn-outline-secondary" style="font-size: 1.5em; padding: 10px 20px; border-radius:10px 10px 10px 10px; color: white;">Back</a>
                 </div>
 
                 <div class="d-grid gap-2 col-4">
-                    <button type="submit" class="btn btn-warning fw-medium" style="font-size: 1.5em; padding: 10px 20px; border-radius: 10px 10px 10px 10px;" id="pay-button">Pilih Pembayaran</button>
+                    <button type="submit" class="btn btn-warning fw-medium btn-outline-secondary " style="font-size: 1.5em; padding: 10px 20px; border-radius: 10px 10px 10px 10px; color: white;" id="pay-button">Pilih Pembayaran</button>
                 </div>
             </div>
             {{-- <div class="button-container1" style="margin-right: auto;">
@@ -345,6 +345,15 @@
             onSuccess: function(result){
                 /* You may add your own implementation here */
                 alert("payment success!"); console.log(result);
+
+                // Send data to WhatsApp on successful payment
+                sendWhatsAppMessage({
+                    nama_pembeli: '{{ $invoiceGame->nama_pembeli }}',
+                    nama_game: '{{ $invoiceGame->nama_game }}',
+                    item_game: '{{ $invoiceGame->item_game }}',
+                    harga: '{{ $invoiceGame->hargaitem_game }}'
+                });
+
                 window.location.href = '/dashboard';
             },
             onPending: function(result){
@@ -361,6 +370,23 @@
             }
             })
         });
+
+            function sendWhatsAppMessage(data) {
+                // Make an HTTP request to your server-side script
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/send-whatsapp-message', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log(xhr.responseText);
+                    }
+                };
+
+                // Send the data as JSON
+                xhr.send(JSON.stringify(data));
+            }
+
     </script>
 
 

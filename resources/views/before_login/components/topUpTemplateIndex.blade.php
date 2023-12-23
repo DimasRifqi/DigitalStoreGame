@@ -192,7 +192,7 @@
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                             <!-- <script>
                                               document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                 Swal.fire({
@@ -244,7 +244,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
+                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                               </div>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                               </div>
                                         </div>
                                     </div>

@@ -110,12 +110,12 @@
         </div>
     @endif
 
-      <div class="container py-5 h-100">
+      <div class="container py-5 h-100 wow fadeInUp">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem">
               <div class="row g-0">
-                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <div class="col-md-6 col-lg-5 d-none d-md-block ">
                   <img
                     src="img/login.png"
                     alt="login form"
@@ -124,7 +124,7 @@
                   />
                 </div>
 
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="col-md-6 col-lg-7 d-flex align-items-center ">
                   <div class="card-body p-4 p-lg-5 text-black">
                     {{-- @if(session('status'))
                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -141,9 +141,9 @@
                       @csrf
                         <a href="{{ url('index') }}">
                           <button
-                            class="btn btn-primary btn-outline-light text-capitalize"
+                            class="btn btn-danger fw-medium btn-outline-secondary text-capitalize"
                             type="button"
-                            style="margin-top: -3%; margin-left: 80%"
+                            style="margin-left: 85%; border-radius: 10px 10px 10px 10px; color: white; margin-top: -40px; padding: 10px 25px;"
                           >
                             back
                           </button>
@@ -192,13 +192,18 @@
                           <label for="name">Password</label>
                         </div>
 
-                      <div class="pt-1 mb-4">
-                        <button
-                          class="btn btn-login btn-primary btn-lg btn-block text-capitalize"
-                          type="submit">
-                          login
-                        </button>
-                      </div>
+                        <div class="pt-1 mb-4">
+                            <button
+                              class="btn btn-login btn-primary btn-outline-secondary btn-lg btn-block text-capitalize"
+                              type="submit"
+                              style="border-radius: 10px 10px 10px 10px; color: white; padding: 10px 25px;"
+                            >
+                              login
+                            </button>
+
+                          </div>
+
+
 
                       <a class="small link-primary" href="#!"
                         >Forgot password?</a

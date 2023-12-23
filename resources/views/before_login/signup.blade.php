@@ -85,7 +85,7 @@
       class="vh-100"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
-      <div class="container py-5 h-0">
+      <div class="container py-5 h-0 wow fadeInUp">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem">
@@ -103,7 +103,7 @@
                     <form method="POST" action="{{ route('user_login') }}">
                         @csrf
 
-                        <a href="{{ url('index') }}">
+                        {{-- <a href="{{ url('index') }}">
                           <button
                             class="btn btn-primary btn-outline-light text-capitalize"
                             type="button"
@@ -111,7 +111,7 @@
                           >
                             back
                           </button>
-                        </a>
+                        </a> --}}
 
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <img src="img/logo.png" class="fa-2x me-3" />
@@ -198,7 +198,8 @@
 
                       <div class="pt-1 mb-1">
                         <button
-                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit">
+                          class="btn btn-primary btn-outline-secondary btn-lg btn-block text-capitalize" type="submit"
+                          style="border-radius: 10px 10px 10px 10px; color: white; padding: 10px 25px;">
                           register
                         </button>
 
@@ -210,7 +211,7 @@
                           >Login here</a
                         >
                       </p>
-                      
+
                     </form>
                   </div>
                 </div>

@@ -63,7 +63,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
-            
+
 
   </head>
 
@@ -104,21 +104,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
-          <div class="input-group mb-3 h-25 mt-3 mx-5">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search Game"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-
-            <div class="input-group-append mr-5">
-              <button class="btn btn-outline-info btn-primary" type="button">
-                Search
-              </button>
-            </div>
-          </div>
           <a href="{{ url('dashboard') }}" class="nav-item nav-link"
             >Dashboard</a
           >
@@ -127,7 +112,7 @@
           <div class="btn-group px-1">
             <button
               type="button"
-              class="btn btn-primary dropdown-toggle"
+              class="btn btn-primary btn-outline-secondary dropdown-toggle"
               data-bs-toggle="dropdown"
             >
             @auth
@@ -151,7 +136,7 @@
       class="vh-120"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
-      <div class="container py-5 h-0">
+      <div class="container py-5 h-0 wow fadeInUp">
         <div class="row d-flex justify-content-center align-items-center h-120">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem">
@@ -177,7 +162,7 @@
                         >
                       </div>
 
-                      <a style="color: blue;">Update Nama</a>
+                      <a style="color: blue;">Nama</a>
                       <div class="form-floating mb-4 ">
                           <input
                             type="text"
@@ -195,7 +180,7 @@
                           </label>
                         </div>
 
-                        <a style="color: blue;">Update Email</a>
+                        <a style="color: blue;">Email</a>
                         <div class="form-floating mb-4 ">
 
                           <input
@@ -214,7 +199,7 @@
                           </label>
                         </div>
 
-                        <a style="color: blue;">Update Phone</a>
+                        <a style="color: blue;">Phone</a>
                       <div class="form-floating mb-4 ">
                           <input
                             type="tel"
@@ -232,7 +217,7 @@
                           </label>
                         </div>
 
-                        <a style="color: blue;">Update Password</a>
+                        <a style="color: blue;">Password</a>
                         <div class="form-floating mb-2 ">
                           <input
                             type="password"
@@ -246,7 +231,7 @@
 
                       <div class="pt-1 mb-1">
                         <button
-                          class="btn btn-primary btn-lg btn-block text-capitalize" type="submit" onclick="validatePhone()">
+                          class="btn btn-primary btn-outline-secondary btn-lg btn-block text-capitalize" style="color: white"  type="submit" onclick="validatePhone()">
                           Update
                         </button>
 

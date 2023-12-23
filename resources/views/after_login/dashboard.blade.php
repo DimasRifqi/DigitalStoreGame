@@ -70,7 +70,7 @@
                     <input type="text" id="searchInput" class="form-control" placeholder="Search Game" aria-label="Recipient's username" aria-describedby="basic-addon2" >
                     {{-- <div id="searchResults" class="search-results"></div> --}}
                     <div class="input-group-append mr-5">
-                      <button class="btn btn-outline-info btn-primary" type="button">Search</button>
+                      <button class="btn btn-outline-info btn-primary btn-outline-primary" type="button">Search</button>
                     </div>
                     <div id="searchResults" class="search-results mt-0 flex-column align-items-center position-absolute"></div>
                 </div>
@@ -79,7 +79,7 @@
                 <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
 
                 <div class="btn-group px-1">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    <button type="button" class="btn btn-primary btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                         @auth
                             {{ Auth::user()->fullname }}
                         @else

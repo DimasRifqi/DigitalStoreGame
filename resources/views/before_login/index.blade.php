@@ -68,10 +68,10 @@
                     </div>
                     <div id="searchResults" class="search-results mt-0 flex-column align-items-center position-absolute"></div>
                 </div>
-                <a href="{{ url('index') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url('index') }}" class="nav-item nav-link active">Home</a>
                 <a href="{{ url('about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
-                <a href="{{ url('login') }}" class="nav-item btn btn-primary py-4 px-lg-5 d-lg-block">LOGIN</a>
+                <a href="{{ url('login') }}" class="nav-item btn btn-primary btn-outline-secondary py-4 px-lg-5 d-lg-block" style="color: white">LOGIN</a>
             </div>
         </div>
     </nav>

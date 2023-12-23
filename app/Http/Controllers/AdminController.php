@@ -25,7 +25,7 @@ class AdminController extends Controller
             $totalSale = $invoice->sum('id_sale');
             $todaySale = $invoicesToday->sum('id_sale');
 
-            return view('/admin/dashboardadmin',compact('invoice','totalPerolehan','totalSale'));
+            return view('/admin/dashboardadmin',compact('invoice','totalPerolehan','totalSale','todaySale','todayPerolehan'));
         } else {
 
             return redirect('/login')->with('error', 'Tolong login sebagai admin');

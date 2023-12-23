@@ -53,7 +53,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    
+
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/css/sweetalert2.min.css"> -->
@@ -252,7 +252,7 @@
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
                                         <div class="d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                             <!-- <script>
                                               document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                 Swal.fire({
@@ -361,7 +361,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }} " onclick="showPaymentOptions()">Beli</button>
+                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
@@ -471,7 +471,7 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary fw-medium enter topuppay" name="submit_topup" value="{{ $index }}">Beli</button>
+                                                 <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({

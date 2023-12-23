@@ -107,19 +107,6 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-lg-0 justify-content-center">
           <div class="input-group mb-3 h-25 mt-3 mx-5">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search Game"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-
-            <div class="input-group-append mr-5">
-              <button class="btn btn-outline-info btn-primary" type="button">
-                Search
-              </button>
-            </div>
           </div>
           <a href="{{ url('dashboard') }}" class="nav-item nav-link"
             >Dashboard</a
@@ -129,7 +116,7 @@
           <div class="btn-group px-1">
             <button
               type="button"
-              class="btn btn-primary dropdown-toggle"
+              class="btn btn-primary btn-outline-secondary dropdown-toggle"
               data-bs-toggle="dropdown"
             >
               @auth
@@ -186,7 +173,7 @@
       class="vh-95"
       style="background: url(img/bgGambar.png); background-size: cover"
     >
-      <div class="container py-5 h-0">
+      <div class="container py-5 h-0 wow fadeInUp   ">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-8">
             <div class="card" style="border-radius: 1rem">
@@ -271,7 +258,7 @@
                               id="email"
                               name="email"
                               placeholder="email"/>
-                            
+
                             @error('email')
 
                             <div class="invalid-feedback">
@@ -374,7 +361,7 @@
                             </div>
 
                             @enderror
-                            
+
                             <label for="name">Password</label>
 
                           </div>
