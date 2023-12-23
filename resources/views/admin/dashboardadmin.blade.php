@@ -204,7 +204,7 @@
                     <i class="fa fa-chart-bar fa-3x text-primary"></i>
                     <div class="ms-3 text-center">
                         <p class="mb-2">Today Sale</p>
-                        <h6 class="mb-0">{{ number_format($todaylSale) }}</h6>
+                        <h6 class="mb-0">{{ number_format($todaySale) }}</h6>
                     </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                         <i class="fas fa-dollar-sign fa-3x text-primary" aria-hidden="true"></i>
                         <div class="ms-3 text-center">
                             <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">Rp.{{ number_format($todaylPerolehan) }}</h6>
+                            <h6 class="mb-0">Rp.{{ number_format($todayPerolehan) }}</h6>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
                         <i class="fa fa-wallet fa-3x text-primary"></i>
                         <div class="ms-3 text-center">
                             <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">Rp.{{ number_format($todayPerolehan) }}</h6>
+                            <h6 class="mb-0">Rp.{{ number_format($totalPerolehan) }}</h6>
                         </div>
                     </div>
                 </div>
