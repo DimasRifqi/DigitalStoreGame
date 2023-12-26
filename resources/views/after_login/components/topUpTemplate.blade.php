@@ -126,7 +126,7 @@
           <a href="{{ url('contactlogged') }}" class="nav-item nav-link">Contact</a>
 
           <div class="btn-group px-1">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    <button type="button" class="btn btn-primary btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" style="color: white">
                         @auth
                             {{ Auth::user()->fullname }}
                         @else

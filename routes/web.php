@@ -35,6 +35,7 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\testimoniController;
+use App\Http\Controllers\WAController;
 
 //Route::get('/api/items', [ItemController::class, 'items']);
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
@@ -118,3 +119,6 @@ Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice
 
 //midtrans
 Route::post('midtrans/webhook', [invoiceController::class, 'handleMidtransNotification']);
+
+//WA Notification
+// Route::post('/sendWA', [WAController::class, 'WA'])->name('topup_form');

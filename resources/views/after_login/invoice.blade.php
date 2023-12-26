@@ -346,46 +346,31 @@
                 /* You may add your own implementation here */
                 alert("payment success!"); console.log(result);
 
-                // Send data to WhatsApp on successful payment
-                sendWhatsAppMessage({
-                    nama_pembeli: '{{ $invoiceGame->nama_pembeli }}',
-                    nama_game: '{{ $invoiceGame->nama_game }}',
-                    item_game: '{{ $invoiceGame->item_game }}',
-                    harga: '{{ $invoiceGame->hargaitem_game }}'
-                });
-
                 window.location.href = '/dashboard';
             },
             onPending: function(result){
                 /* You may add your own implementation here */
                 alert("wating your payment!"); console.log(result);
+
+                window.location.href = '/dashboard';
             },
             onError: function(result){
                 /* You may add your own implementation here */
                 alert("payment failed!"); console.log(result);
+
+                window.location.href = '/dashboard';
             },
             onClose: function(){
                 /* You may add your own implementation here */
                 alert('you closed the popup without finishing the payment');
+
+                window.location.href = '/dashboard';
             }
+            
             })
         });
 
-            function sendWhatsAppMessage(data) {
-                // Make an HTTP request to your server-side script
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/send-whatsapp-message', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
 
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log(xhr.responseText);
-                    }
-                };
-
-                // Send the data as JSON
-                xhr.send(JSON.stringify(data));
-            }
 
     </script>
 
