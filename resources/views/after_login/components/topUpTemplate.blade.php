@@ -251,8 +251,8 @@
                                             <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
-                                        <div class="d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
+                                        <div class="topuppay d-grid gap-2 col-12 mx-auto">
+                                            <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                             <!-- <script>
                                               document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                 Swal.fire({
@@ -309,8 +309,8 @@
                                 // }
                               });
                             </script> -->
-                            <!-- <script>
-                              document.querySelector(".topuppay1").addEventListener("click", function(event) {
+                            <script>
+                              document.querySelector(".topuppay").addEventListener("click", function(event) {
                                 event.preventDefault();
                                 Swal.fire({
                                 title: "Confirmation",
@@ -339,7 +339,7 @@
                                 //     event.preventDefault();
                                 // }
                               });
-                          </script> -->
+                          </script>
                         @endforeach
                         </div>
                     </div>
@@ -360,8 +360,8 @@
                                                 <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
-                                            <div class="d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <div class="topuppay d-grid gap-2 col-12 mx-auto">
+                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
@@ -418,8 +418,8 @@
                                         // }
                                       });
                                     </script> -->
-                                    <!-- <script>
-                                      document.querySelector(".topuppay2").addEventListener("click", function(event) {
+                                    <script>
+                                      document.querySelector(".topuppay").addEventListener("click", function(event) {
                                         event.preventDefault();
                                         Swal.fire({
                                         title: "Confirmation",
@@ -448,7 +448,7 @@
                                         //     event.preventDefault();
                                         // }
                                       });
-                                  </script> -->
+                                  </script>
                                 @endif
                             @endforeach
                         </div>
@@ -470,8 +470,8 @@
                                                 <input type="hidden" name="promo[{{ $index }}]" value="{{ $item['promo'] }}">
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
-                                            <div class="d-grid gap-2 col-12 mx-auto">
-                                                 <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium enter topuppay" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
+                                            <div class="topuppay d-grid gap-2 col-12 mx-auto">
+                                                 <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
                                                 <!-- <script>
                                                   document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
                                                     Swal.fire({
@@ -528,8 +528,8 @@
                                         // }
                                       });
                                     </script> -->
-                                    <!-- <script>
-                                      document.querySelector(".topuppay3").addEventListener("click", function(event) {
+                                    <script>
+                                      document.querySelector(".topuppay").addEventListener("click", function(event) {
                                         event.preventDefault();
                                         Swal.fire({
                                         title: "Confirmation",
@@ -558,7 +558,7 @@
                                         //     event.preventDefault();
                                         // }
                                       });
-                                  </script> -->
+                                  </script>
                                 @endif
                             @endforeach
                         </div>
@@ -594,41 +594,161 @@
         });
       </script> -->
     </form>
-    <!-- <script>
-      document.querySelector(".topuppay").addEventListener("click", function(event) {
-        event.preventDefault();
-        Swal.fire({
-        title: "Confirmation",
-        imageUrl: "{{ asset($item['foto_item']) }}",
-        text: "{{ $item['item'] }}",
-        text: "Rp.{{ number_format($item['promo']) }}",
-        text: "Rp.{{ number_format($item['harga']) }}",
-        text: "Are you sure with Your Choice?",
-        imageWidth: 500,
-        imageHeight: 250,
-        // imageAlt: "",
-        showConfirmButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Yes",
-        CancelButtonText: "No",
-        confirmButtonColor: "#00ff55",
-        cancelButtonColor: "#999999",
-        reverseButtons: true
-      }).then((result) => {
-        if (!result.isConfirmed) {
-            Swal.fire({
-            title: "Canceled",
-            text: "Your have canceled payment.",
-            icon: "warning"
-          });
-        }
-      });
+    <!-- @foreach ($topup_item as $index => $item)
+      <script>
+        document.querySelector(".topuppay").addEventListener("click", function(event) {
+          event.preventDefault();
+          Swal.fire({
+          title: "Confirmation",
+          imageUrl: "{{ asset($item['foto_item']) }}",
+          text: "{{ $item['item'] }}",
+          text: "Rp.{{ number_format($item['promo']) }}",
+          text: "Rp.{{ number_format($item['harga']) }}",
+          text: "Are you sure with Your Choice?",
+          imageWidth: 500,
+          imageHeight: 250,
+          // imageAlt: "",
+          showConfirmButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          CancelButtonText: "No",
+          confirmButtonColor: "#00ff55",
+          cancelButtonColor: "#999999",
+          reverseButtons: true
+        }).then((result) => {
+          if (!result.isConfirmed) {
+              Swal.fire({
+              title: "Canceled",
+              text: "Your have canceled payment.",
+              icon: "warning"
+            });
+          }
+        });
 
-        // if (!confirmBeli) {
-        //     event.preventDefault();
-        // }
-      });
-  </script> -->
+          // if (!confirmBeli) {
+          //     event.preventDefault();
+          // }
+        });
+    </script>
+  @endforeach -->
+
+  <!-- @foreach ($topup_item as $index => $item)
+    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
+      <script>
+          document.querySelector(".topuppay").addEventListener("click", function(event) {
+            event.preventDefault();
+            Swal.fire({
+            title: "Confirmation",
+            imageUrl: "{{ asset($item['foto_item']) }}",
+            text: "{{ $item['item'] }}",
+            text: "Rp.{{ number_format($item['promo']) }}",
+            text: "Rp.{{ number_format($item['harga']) }}",
+            text: "Are you sure with Your Choice?",
+            imageWidth: 500,
+            imageHeight: 250,
+            // imageAlt: "",
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            CancelButtonText: "No",
+            confirmButtonColor: "#00ff55",
+            cancelButtonColor: "#999999",
+            reverseButtons: true
+          }).then((result) => {
+            if (!result.isConfirmed) {
+                Swal.fire({
+                title: "Canceled",
+                text: "Your have canceled payment.",
+                icon: "warning"
+              });
+            }
+          });
+
+            // if (!confirmBeli) {
+            //     event.preventDefault();
+            // }
+          });
+      </script>
+    @endif
+  @endforeach -->
+
+  <!-- @foreach ($topup_item as $item)
+    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
+      <script>
+          document.querySelector(".topuppay").addEventListener("click", function(event) {
+            event.preventDefault();
+            Swal.fire({
+            title: "Confirmation",
+            imageUrl: "{{ asset($item['foto_item']) }}",
+            text: "{{ $item['item'] }}",
+            text: "Rp.{{ number_format($item['promo']) }}",
+            text: "Rp.{{ number_format($item['harga']) }}",
+            text: "Are you sure with Your Choice?",
+            imageWidth: 500,
+            imageHeight: 250,
+            // imageAlt: "",
+            showConfirmButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            CancelButtonText: "No",
+            confirmButtonColor: "#00ff55",
+            cancelButtonColor: "#999999",
+            reverseButtons: true
+          }).then((result) => {
+            if (!result.isConfirmed) {
+                Swal.fire({
+                title: "Canceled",
+                text: "Your have canceled payment.",
+                icon: "warning"
+              });
+            }
+          });
+
+            // if (!confirmBeli) {
+            //     event.preventDefault();
+            // }
+          });
+      </script>
+    @endif
+  @endforeach -->
+
+  <!-- @foreach ($topup_item as $item)
+    <script>
+        document.querySelector(".topuppay").addEventListener("click", function(event) {
+          event.preventDefault();
+          Swal.fire({
+          title: "Confirmation",
+          imageUrl: "{{ asset($item['foto_item']) }}",
+          text: "{{ $item['item'] }}",
+          text: "Rp.{{ number_format($item['promo']) }}",
+          text: "Rp.{{ number_format($item['harga']) }}",
+          text: "Are you sure with Your Choice?",
+          imageWidth: 500,
+          imageHeight: 250,
+          // imageAlt: "",
+          showConfirmButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          CancelButtonText: "No",
+          confirmButtonColor: "#00ff55",
+          cancelButtonColor: "#999999",
+          reverseButtons: true
+        }).then((result) => {
+          if (!result.isConfirmed) {
+              Swal.fire({
+              title: "Canceled",
+              text: "Your have canceled payment.",
+              icon: "warning"
+            });
+          }
+        });
+
+          // if (!confirmBeli) {
+          //     event.preventDefault();
+          // }
+        });
+    </script>
+  @endforeach -->
 <!-- Product End -->
 
   <!-- Footer Start -->
