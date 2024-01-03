@@ -262,22 +262,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($invoice as $invoiceGame)
-                        <tr>
-                            <td>{{ $invoiceGame->id_invoice }}</td>
-                            <td>{{ $invoiceGame->tanggal_pembelian }}</td>
-                            <td>{{ $invoiceGame->nama_pembeli }}</td>
-                            <td>{{ $invoiceGame->nama_game }}</td>
-                            <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
-                            <td>{{ $invoiceGame->status }}</td>
-                            {{-- <td>
-                                <a class="btn btn-sm btn-primary" href="">Detail</a>
-                            </td> --}}
-                        </tr>
-
+                    @foreach ($invoice as $index => $invoiceGame)
+                        @if ($index < 5)
+                            <tr>
+                                <td>{{ $invoiceGame->id_invoice }}</td>
+                                <td>{{ $invoiceGame->tanggal_pembelian }}</td>
+                                <td>{{ $invoiceGame->nama_pembeli }}</td>
+                                <td>{{ $invoiceGame->nama_game }}</td>
+                                <td>{{ number_format($invoiceGame->hargaitem_game) }}</td>
+                                <td>{{ $invoiceGame->status }}</td>
+                            </tr>
+                        @endif
                     @endforeach
-
                 </tbody>
+
               </table>
             </div>
           </div>

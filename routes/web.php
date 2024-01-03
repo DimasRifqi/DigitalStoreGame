@@ -120,5 +120,3 @@ Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice
 //midtrans
 Route::post('midtrans/webhook', [invoiceController::class, 'handleMidtransNotification']);
 
-//WA Notification
-// Route::post('/sendWA', [WAController::class, 'WA'])->name('topup_form');

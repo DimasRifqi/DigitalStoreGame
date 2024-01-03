@@ -15,6 +15,24 @@ class Topup_Controller extends Controller
 {
     public function topupGIctrl()
     {
+
+        if (!auth()->check()) {
+
+            $topup_item = item_game::where('id_typegame', 1)->get();
+            $game = type_game::where('id_typegame', 1)->first();
+
+            return view('/before_login/topUpOptionIndex',
+
+                compact('topup_item','game'),
+
+                [
+
+                "welkin" => "Welkin",
+                "genesis" => "Genesis",
+
+            ]);
+        }
+
          $topup_item = item_game::where('id_typegame', 1)->get();
          $game = type_game::where('id_typegame', 1)->first();
 
@@ -29,24 +47,6 @@ class Topup_Controller extends Controller
 
         ]);
     }
-
-    public function topupGIIndexctrl()
-    {
-         $topup_item = item_game::where('id_typegame', 1)->get();
-         $game = type_game::where('id_typegame', 1)->first();
-
-        return view('/before_login/topUpOptionIndex',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Welkin",
-            "genesis" => "Genesis",
-
-        ]);
-    }
-
 
     public function topupformGI(Request $request)
     {
@@ -102,27 +102,28 @@ class Topup_Controller extends Controller
 
     public function topupHSRctrl()
     {
+
+        if (!auth()->check()) {
+
+            $topup_item = item_game::where('id_typegame', 2)->get();
+            $game = type_game::where('id_typegame', 2)->first();
+
+            return view('/before_login/topUpOptionIndex',
+
+                compact('topup_item','game'),
+
+                [
+
+                "welkin" => "Expess Supply Pass",
+                "genesis" => "Oneiric Shard",
+
+            ]);
+        }
+
         $topup_item = item_game::where('id_typegame', 2)->get();
          $game = type_game::where('id_typegame', 2)->first();
 
         return view('/after_login/topUpOption',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Expess Supply Pass",
-            "genesis" => "Oneiric Shard",
-
-        ]);
-    }
-
-    public function topupHSRIndexctrl()
-    {
-        $topup_item = item_game::where('id_typegame', 2)->get();
-         $game = type_game::where('id_typegame', 2)->first();
-
-        return view('/before_login/topUpOptionIndex',
 
             compact('topup_item','game'),
 
@@ -189,9 +190,25 @@ class Topup_Controller extends Controller
 
     public function topupMLctrl()
     {
+        if (!auth()->check()) {
+
+            $topup_item = item_game::where('id_typegame', 3)->get();
+            $game = type_game::where('id_typegame', 3)->first();
+
+           return view('/before_login/topUpInputIndex',
+
+               compact('topup_item','game'),
+
+               [
+
+               "welkin" => "Weekly Diamond",
+               "genesis" => "Diamond",
+
+           ]);
+        }
 
         $topup_item = item_game::where('id_typegame', 3)->get();
-         $game = type_game::where('id_typegame', 3)->first();
+        $game = type_game::where('id_typegame', 3)->first();
 
         return view('/after_login/topUpInput',
 
@@ -205,28 +222,8 @@ class Topup_Controller extends Controller
         ]);
     }
 
-    public function topupMLIndexctrl()
-    {
-
-        $topup_item = item_game::where('id_typegame', 3)->get();
-         $game = type_game::where('id_typegame', 3)->first();
-
-        return view('/before_login/topUpInputIndex',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Weekly Diamond",
-            "genesis" => "Diamond",
-
-        ]);
-    }
-
     public function topupformML(Request $request)
     {
-        //dd($request);
-
         if (!auth()->check()) {
 
             return redirect('/login')->with('error', 'Tolong login terlebih dahulu.');
@@ -279,29 +276,27 @@ class Topup_Controller extends Controller
 
     public function topupTOFctrl()
     {
+        if (!auth()->check()) {
+
+            $topup_item = item_game::where('id_typegame', 4)->get();
+            $game = type_game::where('id_typegame', 4)->first();
+
+            return view('/before_login/topUpOption1Index',
+
+                compact('topup_item','game'),
+
+                [
+
+                "welkin" => "Monthly & Pack",
+                "genesis" => "Tanium",
+
+            ]);
+        }
 
         $topup_item = item_game::where('id_typegame', 4)->get();
-         $game = type_game::where('id_typegame', 4)->first();
+        $game = type_game::where('id_typegame', 4)->first();
 
         return view('/after_login/topUpOption1',
-
-            compact('topup_item','game'),
-
-            [
-
-            "welkin" => "Monthly & Pack",
-            "genesis" => "Tanium",
-
-        ]);
-    }
-
-    public function topupTOFIndexctrl()
-    {
-
-        $topup_item = item_game::where('id_typegame', 4)->get();
-         $game = type_game::where('id_typegame', 4)->first();
-
-        return view('/before_login/topUpOption1Index',
 
             compact('topup_item','game'),
 
