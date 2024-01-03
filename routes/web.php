@@ -117,6 +117,4 @@ Route::post('/contact', [ContactController::class, 'contactform'])->name('contac
 //invoice
 Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice');
 
-//midtrans
-Route::post('midtrans/webhook', [invoiceController::class, 'handleMidtransNotification']);
 
