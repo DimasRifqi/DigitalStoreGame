@@ -17,19 +17,7 @@ class Topup_Controller extends Controller
     {
         if (!auth()->check()) {
 
-            $topup_item = item_game::where('id_typegame', 1)->get();
-            $game = type_game::where('id_typegame', 1)->first();
-
-            return view('/before_login/topUpOptionIndex',
-
-                compact('topup_item','game'),
-
-                [
-
-                "welkin" => "Welkin",
-                "genesis" => "Genesis",
-
-            ]);
+            return redirect('/topupGIIndex');
         }
 
          $topup_item = item_game::where('id_typegame', 1)->get();
@@ -120,19 +108,7 @@ class Topup_Controller extends Controller
     {
         if (!auth()->check()) {
 
-            $topup_item = item_game::where('id_typegame', 2)->get();
-            $game = type_game::where('id_typegame', 2)->first();
-
-            return view('/before_login/topUpOptionIndex',
-
-                compact('topup_item','game'),
-
-                [
-
-                "welkin" => "Expess Supply Pass",
-                "genesis" => "Oneiric Shard",
-
-            ]);
+            return redirect('/topupHSRIndex');
         }
 
         $topup_item = item_game::where('id_typegame', 2)->get();
@@ -224,19 +200,7 @@ class Topup_Controller extends Controller
     {
         if (!auth()->check()) {
 
-            $topup_item = item_game::where('id_typegame', 3)->get();
-            $game = type_game::where('id_typegame', 3)->first();
-
-           return view('/before_login/topUpInputIndex',
-
-               compact('topup_item','game'),
-
-               [
-
-               "welkin" => "Weekly Diamond",
-               "genesis" => "Diamond",
-
-           ]);
+            return redirect('/topupMLIndex');
         }
 
         $topup_item = item_game::where('id_typegame', 3)->get();
@@ -330,19 +294,7 @@ class Topup_Controller extends Controller
     {
         if (!auth()->check()) {
 
-            $topup_item = item_game::where('id_typegame', 4)->get();
-            $game = type_game::where('id_typegame', 4)->first();
-
-            return view('/before_login/topUpOption1Index',
-
-                compact('topup_item','game'),
-
-                [
-
-                "welkin" => "Monthly & Pack",
-                "genesis" => "Tanium",
-
-            ]);
+            return redirect('/topupTOFIndex');
         }
 
         $topup_item = item_game::where('id_typegame', 4)->get();

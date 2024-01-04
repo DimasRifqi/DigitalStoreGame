@@ -16,7 +16,6 @@ class AdminController extends Controller
 
             $invoice = invoice_game::all();
 
-            //$invoicesToday = invoice_game::where('tanggal_pembelian', '>=', now()->subDay())->get();
             $invoicesToday = invoice_game::where('tanggal_pembelian', '>=', now()->startOfDay())->get();
 
             $totalPerolehan = $invoice->sum('hargaitem_game');
@@ -38,7 +37,16 @@ class AdminController extends Controller
         if (Auth::check() && Auth::user()->role == 'admin') {
             $invoice = invoice_game::all();
 
-            return view('/admin/datatablepaymentall',compact('invoice'));
+            $invoicesToday = invoice_game::where('tanggal_pembelian', '>=', now()->startOfDay())->get();
+
+            $totalPerolehan = $invoice->sum('hargaitem_game');
+            $todayPerolehan = $invoicesToday->sum('hargaitem_game');
+
+            $totalSale = $invoice->sum('id_sale');
+            $todaySale = $invoicesToday->sum('id_sale');
+
+
+            return view('/admin/datatablepaymentall',compact('invoice','totalPerolehan','totalSale','todaySale','todayPerolehan'));
         } else {
 
             return redirect('/login')->with('error', 'Tolong login sebagai admin');
@@ -84,50 +92,10 @@ class AdminController extends Controller
         }
     }
 
-
-    // public function signinadmctrl()
-    // {
-    //     return view('/admin/signinadmin');
-    // }
-
-    // public function datamembctrl()
-    // {
-    //     return view('/admin/datatablemember');
-    // }
-
-
-
-    // public function paymentmblctrl()
-    // {
-    //     return view('/admin/datatablepaymentmobile');
-    // }
-
-    // public function paymentpcctrl()
-    // {
-    //     return view('/admin/datatablepaymentpc');
-    // }
-
-    // public function testictrl()
-    // {
-    //     return view('/admin/datatabletestimonial');
-    // }
-
-
-
-
-
-
     public function testi_add_ctrl()
     {
         return view('/admin/testimonialadd');
     }
-
-
-    public function signadmctrl()
-    {
-        return view('/admin/signupadmin');
-    }
-
 
 
 }

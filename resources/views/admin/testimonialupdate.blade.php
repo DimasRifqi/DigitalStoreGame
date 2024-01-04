@@ -38,6 +38,10 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min1.css" rel="stylesheet" />
 
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+
     <!-- Template Stylesheet -->
     <link href="css/style1.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
@@ -130,46 +134,7 @@
           <a href="#" class="sidebar-toggler flex-shrink-0">
             <i class="fa fa-bars"></i>
           </a>
-          <form class="d-none d-md-flex ms-4">
-            <input
-              class="form-control border-0"
-              type="search"
-              placeholder="Search"
-            />
-          </form>
           <div class="navbar-nav align-items-center ms-auto">
-            <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                <i class="fa fa-bell me-lg-2"></i>
-                <span class="d-none d-lg-inline-flex">Notification</span>
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"
-              >
-                <a href="#" class="dropdown-item">
-                  <h6 class="fw-normal mb-0">Profile updated</h6>
-                  <small>15 minutes ago</small>
-                </a>
-                <hr class="dropdown-divider" />
-                <a href="#" class="dropdown-item">
-                  <h6 class="fw-normal mb-0">New user added</h6>
-                  <small>15 minutes ago</small>
-                </a>
-                <hr class="dropdown-divider" />
-                <a href="#" class="dropdown-item">
-                  <h6 class="fw-normal mb-0">Password changed</h6>
-                  <small>15 minutes ago</small>
-                </a>
-                <hr class="dropdown-divider" />
-                <a href="#" class="dropdown-item text-center"
-                  >See all notifications</a
-                >
-              </div>
-            </div>
             <div class="nav-item dropdown">
               <a
                 href="#"
@@ -187,9 +152,14 @@
               <div
                 class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"
               >
-                <!-- <a href="#" class="dropdown-item">My Profile</a> -->
-                <a href="#" class="dropdown-item">Settings</a>
-                <a href="{{ url('signinadmin') }}" class="dropdown-item">Log Out</a>
+                <li><a class="dropdown-item" href="{{ url('setting') }}">Setting</a></li>
+                <li>
+                    <form id="logout-form" action="{{ url('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="dropdown-item">Logout</button>
+                    </form>
+                </li>
+
               </div>
             </div>
           </div>
@@ -271,8 +241,42 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.4.16/sweetalert2.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main1.js"></script>
+
+    <script>
+        document.getElementById("logout-form").addEventListener("click", function(event) {
+            event.preventDefault();
+            Swal.fire({
+            title: "Are you sure you want Log Out?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#B80000",
+            confirmButtonText: "Yes"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                title: "Logged Out!",
+                text: "See You Soon",
+                icon: "success"
+                });
+                document.getElementById("logout-form").submit();
+            } else {
+                Swal.fire({
+                title: "Log Out Canceled",
+                text: "You have canceled log out",
+                icon: "warning"
+                });
+                event.preventDefault();
+            }
+            });
+        });
+        </script>
+
   </body>
 </html>
