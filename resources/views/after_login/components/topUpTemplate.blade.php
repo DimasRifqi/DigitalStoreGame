@@ -242,7 +242,7 @@
                                 <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="product-item">
                                         <div class="position-relative bg-light overflow-hidden">
-                                            <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                          <img id="itemPhoto_{{ $index }}" class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
                                         </div>
                                         <div class="text-center p-4">
                                             <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
@@ -252,94 +252,11 @@
                                             <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                         </div>
                                         <div class="topuppay d-grid gap-2 col-12 mx-auto">
-                                            <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
-                                            <!-- <script>
-                                              document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
-                                                Swal.fire({
-                                                title: "Confirmation",
-                                                text: "Are you sure with Your Choice?",
-                                                imageUrl: "{{ asset($item['foto_item']) }}",
-                                                imageWidth: 500,
-                                                imageHeight: 250,
-                                                // imageAlt: "",
-                                                showConfirmButton: true,
-                                                showDenyButton: true,
-                                                confirmButtonText: "Yes",
-                                                denyButtonText: `No`,
-                                                confirmButtonColor: "#00ff55",
-                                                cancelButtonColor: "#999999",
-                                                reverseButtons: true
-                                              }).then((event) => {
-                                                if (!result.isConfirmed) {
-                                                  Swal.fire("Canceled", "", "info");
-                                                }
-                                              })
-
-                                                // if (!confirmBeli) {
-                                                //     event.preventDefault();
-                                                // }
-                                              });
-                                            </script> -->
-                                          </div>
+                                            <button type="button" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white" onclick="showConfirmation({{ $index }})">Beli</button>
+                                            <input type="submit" class="d-none" name="submit_topup" value="{{ $index }}">
+                                        </div>
                                     </div>
                                 </div>
-                        <!-- <script>
-                              document.querySelector(".submit").addEventListener("click", function() {
-                                Swal.fire({
-                                title: "Confirmation",
-                                text: "Are you sure with Your Choice?",
-                                imageUrl: "{{ asset($item['foto_item']) }}",
-                                imageWidth: 500,
-                                imageHeight: 250,
-                                // imageAlt: "",
-                                showCancelButton: true,
-                                confirmButtonText: "Yes",
-                                cancelButtonText: "No",
-                                confirmButtonColor: "#00ff55",
-                                cancelButtonColor: "#999999",
-                                reverseButtons: true,
-                              }).then((result) => {
-                                if (!result.isConfirmed) {
-                                  Swal.fire("Canceled", "", "info");
-                                }
-                              });
-
-                                // if (!confirmBeli) {
-                                //     event.preventDefault();
-                                // }
-                              });
-                            </script> -->
-                            <script>
-                              document.querySelector(".topuppay").addEventListener("click", function(event) {
-                                event.preventDefault();
-                                Swal.fire({
-                                title: "Confirmation",
-                                imageUrl: "{{ asset($item['foto_item']) }}",
-                                text: "{{ $item['item'] }}",
-                                text: "Rp.{{ number_format($item['promo']) }}",
-                                text: "Rp.{{ number_format($item['harga']) }}",
-                                text: "Are you sure with Your Choice?",
-                                imageWidth: 500,
-                                imageHeight: 250,
-                                // imageAlt: "",
-                                showConfirmButton: true,
-                                showCancelButton: true,
-                                confirmButtonText: "Yes",
-                                CancelButtonText: "No",
-                                confirmButtonColor: "#00ff55",
-                                cancelButtonColor: "#999999",
-                                reverseButtons: true
-                              }).then((result) => {
-                                if (!result.isConfirmed) {
-                                  Swal.fire("Canceled", "", "info");
-                                }
-                              });
-
-                                // if (!confirmBeli) {
-                                //     event.preventDefault();
-                                // }
-                              });
-                          </script>
                         @endforeach
                         </div>
                     </div>
@@ -351,7 +268,7 @@
                                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                         <div class="product-item">
                                             <div class="position-relative bg-light overflow-hidden">
-                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                            <img id="itemPhoto_{{ $index }}" class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
                                             </div>
                                             <div class="text-center p-4">
                                                 <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
@@ -361,94 +278,11 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="topuppay d-grid gap-2 col-12 mx-auto">
-                                                <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
-                                                <!-- <script>
-                                                  document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
-                                                    Swal.fire({
-                                                    title: "Confirmation",
-                                                    text: "Are you sure with Your Choice?",
-                                                    imageUrl: "{{ asset($item['foto_item']) }}",
-                                                    imageWidth: 500,
-                                                    imageHeight: 250,
-                                                    // imageAlt: "",
-                                                    showConfirmButton: true,
-                                                    showDenyButton: true,
-                                                    confirmButtonText: "Yes",
-                                                    denyButtonText: `No`,
-                                                    confirmButtonColor: "#00ff55",
-                                                    cancelButtonColor: "#999999",
-                                                    reverseButtons: true
-                                                  }).then((event) => {
-                                                    if (!result.isConfirmed) {
-                                                      Swal.fire("Canceled", "", "info");
-                                                    }
-                                                  });
-
-                                                    // if (!confirmBeli) {
-                                                    //     event.preventDefault();
-                                                    // }
-                                                  });
-                                                </script> -->
-                                              </div>
+                                                <button type="button" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white" onclick="showConfirmation({{ $index }})">Beli</button>
+                                                <input type="submit" class="d-none" name="submit_topup" value="{{ $index }}">
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- <script>
-                                      document.querySelector(".submit").addEventListener('click', function() {
-                                        Swal.fire({
-                                        title: "Confirmation",
-                                        text: "Are you sure with Your Choice?",
-                                        imageUrl: "{{ asset($item['foto_item']) }}",
-                                        imageWidth: 500,
-                                        imageHeight: 250,
-                                        // imageAlt: "",
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes",
-                                        cancelButtonText: "No",
-                                        confirmButtonColor: "#00ff55",
-                                        cancelButtonColor: "#999999",
-                                        reverseButtons: true,
-                                      }).then((result) => {
-                                        if (!result.isConfirmed) {
-                                          Swal.fire("Canceled", "", "info");
-                                        }
-                                      });
-
-                                        // if (!confirmBeli) {
-                                        //     event.preventDefault();
-                                        // }
-                                      });
-                                    </script> -->
-                                    <script>
-                                      document.querySelector(".topuppay").addEventListener("click", function(event) {
-                                        event.preventDefault();
-                                        Swal.fire({
-                                        title: "Confirmation",
-                                        imageUrl: "{{ asset($item['foto_item']) }}",
-                                        text: "{{ $item['item'] }}",
-                                        text: "Rp.{{ number_format($item['promo']) }}",
-                                        text: "Rp.{{ number_format($item['harga']) }}",
-                                        text: "Are you sure with Your Choice?",
-                                        imageWidth: 500,
-                                        imageHeight: 250,
-                                        // imageAlt: "",
-                                        showConfirmButton: true,
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes",
-                                        CancelButtonText: "No",
-                                        confirmButtonColor: "#00ff55",
-                                        cancelButtonColor: "#999999",
-                                        reverseButtons: true
-                                      }).then((result) => {
-                                        if (!result.isConfirmed) {
-                                          Swal.fire("Canceled", "", "info");
-                                        }
-                                      });
-
-                                        // if (!confirmBeli) {
-                                        //     event.preventDefault();
-                                        // }
-                                      });
-                                  </script>
                                 @endif
                             @endforeach
                         </div>
@@ -456,12 +290,12 @@
 
                     <div id="tab-3" class="tab-pane fade show p-0">
                         <div class="row g-4">
-                            @foreach ($topup_item as $item)
+                            @foreach ($topup_item as $index => $item)
                                 @if (Str::contains($item['item'], ['Welkin', 'Weekly', 'Pass']))
                                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                         <div class="product-item">
                                             <div class="position-relative bg-light overflow-hidden">
-                                                <img class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
+                                            <img id="itemPhoto_{{ $index }}" class="img-fluid w-100" src="{{ asset($item['foto_item']) }}" alt="{{ $item['item'] }}">
                                             </div>
                                             <div class="text-center p-4">
                                                 <p class="d-block h6 mb-2">{{ $item['item'] }}</p>
@@ -471,94 +305,12 @@
                                                 <span class="text-body text-decoration-line-through">Rp.{{ number_format($item['harga']) }}</span>
                                             </div>
                                             <div class="topuppay d-grid gap-2 col-12 mx-auto">
-                                                 <button type="submit" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white"   name="submit_topup" value="{{ $index }}" >Beli</button>
-                                                <!-- <script>
-                                                  document.getElementById('topupForm_{{ $topup_item }}').addEventListener('submit', function(event) {
-                                                    Swal.fire({
-                                                    title: "Confirmation",
-                                                    text: "Are you sure with Your Choice?",
-                                                    imageUrl: "{{ asset($item['foto_item']) }}",
-                                                    imageWidth: 500,
-                                                    imageHeight: 250,
-                                                    // imageAlt: "",
-                                                    showConfirmButton: true,
-                                                    showDenyButton: true,
-                                                    confirmButtonText: "Yes",
-                                                    denyButtonText: `No`,
-                                                    confirmButtonColor: "#00ff55",
-                                                    cancelButtonColor: "#999999",
-                                                    reverseButtons: true
-                                                  }).then((event) => {
-                                                    if (!result.isConfirmed) {
-                                                      Swal.fire("Canceled", "", "info");
-                                                    }
-                                                  });
-
-                                                    // if (!confirmBeli) {
-                                                    //     event.preventDefault();
-                                                    // }
-                                                  });
-                                                </script> -->
-                                              </div>
+                                                <button type="button" class="btn btn-primary btn-outline-secondary fw-medium" style="color:white" onclick="showConfirmation({{ $index }})">Beli</button>
+                                                <input type="submit" class="d-none" name="submit_topup" value="{{ $index }}">
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- <script>
-                                      document.querySelector(".submit").addEventListener("click", function() {
-                                        Swal.fire({
-                                        title: "Confirmation",
-                                        text: "Are you sure with Your Choice?",
-                                        imageUrl: "{{ asset($item['foto_item']) }}",
-                                        imageWidth: 500,
-                                        imageHeight: 250,
-                                        // imageAlt: "",
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes",
-                                        cancelButtonText: "No",
-                                        confirmButtonColor: "#00ff55",
-                                        cancelButtonColor: "#999999",
-                                        reverseButtons: true,
-                                      }).then((result) => {
-                                        if (!result.isConfirmed) {
-                                          Swal.fire("Canceled", "", "info");
-                                        }
-                                      });
 
-                                        // if (!confirmBeli) {
-                                        //     event.preventDefault();
-                                        // }
-                                      });
-                                    </script> -->
-                                    <script>
-                                      document.querySelector(".topuppay").addEventListener("click", function(event) {
-                                        event.preventDefault();
-                                        Swal.fire({
-                                        title: "Confirmation",
-                                        imageUrl: "{{ asset($item['foto_item']) }}",
-                                        text: "{{ $item['item'] }}",
-                                        text: "Rp.{{ number_format($item['promo']) }}",
-                                        text: "Rp.{{ number_format($item['harga']) }}",
-                                        text: "Are you sure with Your Choice?",
-                                        imageWidth: 500,
-                                        imageHeight: 250,
-                                        // imageAlt: "",
-                                        showConfirmButton: true,
-                                        showCancelButton: true,
-                                        confirmButtonText: "Yes",
-                                        CancelButtonText: "No",
-                                        confirmButtonColor: "#00ff55",
-                                        cancelButtonColor: "#999999",
-                                        reverseButtons: true
-                                      }).then((result) => {
-                                        if (!result.isConfirmed) {
-                                          Swal.fire("Canceled", "", "info");
-                                        }
-                                      });
-
-                                        // if (!confirmBeli) {
-                                        //     event.preventDefault();
-                                        // }
-                                      });
-                                  </script>
                                 @endif
                             @endforeach
                         </div>
@@ -566,189 +318,9 @@
                 </div>
             </div>
         </div>
-      <!-- <script>
-        document.querySelector(".enter").addEventListener('click', function(event) {
-          Swal({
-          title: "Confirmation",
-          text: "Are you sure with Your Choice?",
-          imageUrl: "{{ asset($item['foto_item']) }}",
-          imageWidth: 500,
-          imageHeight: 250,
-          // imageAlt: "",
-          showConfirmButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          denyButtonText: `No`,
-          confirmButtonColor: "#00ff55",
-          cancelButtonColor: "#999999",
-          reverseButtons: true
-        }).then((event) => {
-          if (!result.isConfirmed) {
-            Swal.fire("Canceled", "", "info");
-          }
-        });
 
-          // if (!confirmBeli) {
-          //     event.preventDefault();
-          // }
-        });
-      </script> -->
     </form>
-    <!-- @foreach ($topup_item as $index => $item)
-      <script>
-        document.querySelector(".topuppay").addEventListener("click", function(event) {
-          event.preventDefault();
-          Swal.fire({
-          title: "Confirmation",
-          imageUrl: "{{ asset($item['foto_item']) }}",
-          text: "{{ $item['item'] }}",
-          text: "Rp.{{ number_format($item['promo']) }}",
-          text: "Rp.{{ number_format($item['harga']) }}",
-          text: "Are you sure with Your Choice?",
-          imageWidth: 500,
-          imageHeight: 250,
-          // imageAlt: "",
-          showConfirmButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          CancelButtonText: "No",
-          confirmButtonColor: "#00ff55",
-          cancelButtonColor: "#999999",
-          reverseButtons: true
-        }).then((result) => {
-          if (!result.isConfirmed) {
-              Swal.fire({
-              title: "Canceled",
-              text: "Your have canceled payment.",
-              icon: "warning"
-            });
-          }
-        });
 
-          // if (!confirmBeli) {
-          //     event.preventDefault();
-          // }
-        });
-    </script>
-  @endforeach -->
-
-  <!-- @foreach ($topup_item as $index => $item)
-    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
-      <script>
-          document.querySelector(".topuppay").addEventListener("click", function(event) {
-            event.preventDefault();
-            Swal.fire({
-            title: "Confirmation",
-            imageUrl: "{{ asset($item['foto_item']) }}",
-            text: "{{ $item['item'] }}",
-            text: "Rp.{{ number_format($item['promo']) }}",
-            text: "Rp.{{ number_format($item['harga']) }}",
-            text: "Are you sure with Your Choice?",
-            imageWidth: 500,
-            imageHeight: 250,
-            // imageAlt: "",
-            showConfirmButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Yes",
-            CancelButtonText: "No",
-            confirmButtonColor: "#00ff55",
-            cancelButtonColor: "#999999",
-            reverseButtons: true
-          }).then((result) => {
-            if (!result.isConfirmed) {
-                Swal.fire({
-                title: "Canceled",
-                text: "Your have canceled payment.",
-                icon: "warning"
-              });
-            }
-          });
-
-            // if (!confirmBeli) {
-            //     event.preventDefault();
-            // }
-          });
-      </script>
-    @endif
-  @endforeach -->
-
-  <!-- @foreach ($topup_item as $item)
-    @if (Str::contains($item['item'], ['Genesis', 'Diamond', 'Shard','Tanium']))
-      <script>
-          document.querySelector(".topuppay").addEventListener("click", function(event) {
-            event.preventDefault();
-            Swal.fire({
-            title: "Confirmation",
-            imageUrl: "{{ asset($item['foto_item']) }}",
-            text: "{{ $item['item'] }}",
-            text: "Rp.{{ number_format($item['promo']) }}",
-            text: "Rp.{{ number_format($item['harga']) }}",
-            text: "Are you sure with Your Choice?",
-            imageWidth: 500,
-            imageHeight: 250,
-            // imageAlt: "",
-            showConfirmButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Yes",
-            CancelButtonText: "No",
-            confirmButtonColor: "#00ff55",
-            cancelButtonColor: "#999999",
-            reverseButtons: true
-          }).then((result) => {
-            if (!result.isConfirmed) {
-                Swal.fire({
-                title: "Canceled",
-                text: "Your have canceled payment.",
-                icon: "warning"
-              });
-            }
-          });
-
-            // if (!confirmBeli) {
-            //     event.preventDefault();
-            // }
-          });
-      </script>
-    @endif
-  @endforeach -->
-
-  <!-- @foreach ($topup_item as $item)
-    <script>
-        document.querySelector(".topuppay").addEventListener("click", function(event) {
-          event.preventDefault();
-          Swal.fire({
-          title: "Confirmation",
-          imageUrl: "{{ asset($item['foto_item']) }}",
-          text: "{{ $item['item'] }}",
-          text: "Rp.{{ number_format($item['promo']) }}",
-          text: "Rp.{{ number_format($item['harga']) }}",
-          text: "Are you sure with Your Choice?",
-          imageWidth: 500,
-          imageHeight: 250,
-          // imageAlt: "",
-          showConfirmButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          CancelButtonText: "No",
-          confirmButtonColor: "#00ff55",
-          cancelButtonColor: "#999999",
-          reverseButtons: true
-        }).then((result) => {
-          if (!result.isConfirmed) {
-              Swal.fire({
-              title: "Canceled",
-              text: "Your have canceled payment.",
-              icon: "warning"
-            });
-          }
-        });
-
-          // if (!confirmBeli) {
-          //     event.preventDefault();
-          // }
-        });
-    </script>
-  @endforeach -->
 <!-- Product End -->
 
   <!-- Footer Start -->
@@ -890,6 +462,33 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+      function showConfirmation(index) {
+          var itemName = document.getElementsByName('item[' + index + ']')[0].value;
+          var promoAmount = document.getElementsByName('promo[' + index + ']')[0].value;
+          var itemPhoto = document.getElementById('itemPhoto_' + index).src;
+
+          Swal.fire({
+              title: 'Konfirmasi Pembelian',
+              text: 'Apakah Anda yakin ingin membeli ' + itemName + ' dengan harga Rp.'  + promoAmount + ' ?',
+              imageUrl: itemPhoto,
+              imageAlt: itemName,
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ya, Beli!',
+              cancelButtonText: 'Batal'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  // If confirmed, submit the form
+                  document.getElementsByName('submit_topup')[index].click();
+              }
+          });
+      }
+  </script>
+
+
   </body>
 
 
