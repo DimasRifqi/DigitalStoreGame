@@ -598,6 +598,7 @@
             <div class="section-title text-center">
                 <h1 class="display-5 mb-5">Testimonial</h1>
             </div>
+
             <div class="owl-carousel testimonial-carousel">
                 @foreach ($testimonials as $testimonial)
                 <div class="testimonial-item text-center">
