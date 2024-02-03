@@ -30,10 +30,12 @@ use App\Http\Controllers\SearchGameController;
 use App\Http\Controllers\Topup_Controller;
 use App\Http\Controllers\Topup1_Controller;
 use App\Http\Controllers\Auth_Controller;
+use App\Http\Controllers\DataTeamController;
 use App\Http\Controllers\User_Controller;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PamfletController;
 use App\Http\Controllers\testimoniController;
 use App\Http\Controllers\WAController;
 
@@ -62,13 +64,6 @@ Route::get('/contacts/delete/{id}', [ContactController::class, 'delete'])->name(
 //admin page
 Route::get('/dashboardadmin', [AdminController::class, 'dashminctrl'])->name('dashboardadmin');
 Route::get('/datatablepaymentall', [AdminController::class, 'paymentallctrl'])->name('datatablepaymentall');
-
-// Route::get('/signupadmin', [AdminController::class, 'signadmctrl'])->name('signupadmin');
-// Route::get('/datatablemember', [AdminController::class, 'datamembctrl'])->name('datatablemember');
-// Route::get('/datatablepaymenmobile', [AdminController::class, 'paymentmblctrl'])->name('datatablepaymentmobile');
-// Route::get('/datatablepaymentpc', [AdminController::class, 'paymentpcctrl'])->name('datatablepaymentpc');
-// Route::get('/datatabletestimonial', [AdminController::class, 'testictrl'])->name('datatabletestimonial');
-
 
 //register
 Route::get('/signup', [RegisterController::class, 'loginctrl'])->name('signup');
@@ -116,5 +111,9 @@ Route::post('/contact', [ContactController::class, 'contactform'])->name('contac
 
 //invoice
 Route::get('/invoice', [invoiceController::class, 'invoicectrl'])->name('invoice');
+
+//data team
+Route::get('/about', [DataTeamController::class, 'ViewTeamctrl']);
+Route::get('/aboutlogged', [DataTeamController::class, 'ViewTeamLoggedctrl']);
 
 

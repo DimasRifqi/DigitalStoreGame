@@ -140,24 +140,14 @@
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="img/pamflet 1 1.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- Your caption content for Slide 1 -->
+                    @foreach ($DataPamflet as $key => $Pamflet)
+                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}" data-bs-interval="10000">
+                            <img src="{{ asset($Pamflet->foto) }}" class="d-block w-100" >
+                            <div class="carousel-caption d-none d-md-block">
+                                <!-- Your caption content for each slide -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="img/Pamflet 2 1.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- Your caption content for Slide 2 -->
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Pamflet 3 1.png" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <!-- Your caption content for Slide 3 -->
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

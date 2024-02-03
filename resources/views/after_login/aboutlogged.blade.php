@@ -185,87 +185,41 @@
 
     <!-- Team Start -->
     <div class="container-xxl py-5">
-      <div class="container">
-        <div class="section-title text-center">
-          <h1 class="display-5 mb-5">Team Members</h1>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="team-item">
-              <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/dimas.jpg" alt="" />
-                <div class="team-social">
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div
-                class="text-center border border-5 border-light border-top-0 p-4"
-              >
-                <h5 class="mb-0">Dimas Rifqi Ramadhani</h5>
-                <small>Font-End & Back-End</small>
-              </div>
-            </div>
+        <div class="container">
+          <div class="section-title text-center">
+            <h1 class="display-5 mb-5">Team Members</h1>
           </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="team-item">
-              <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/ryan.jpg" alt="" />
-                <div class="team-social">
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div
-                class="text-center border border-5 border-light border-top-0 p-4"
-              >
-                <h5 class="mb-0">Ryan Gading Abdullah</h5>
-                <small>Front-End</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="team-item">
-              <div class="overflow-hidden position-relative">
-                <img class="img-fluid" src="img/nanda1.jpg" alt="" />
-                <div class="team-social">
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-square" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div
-                class="text-center border border-5 border-light border-top-0 p-4"
-              >
-                <h5 class="mb-0">Handi Firstyanda Resi Wibowo</h5>
-                <small>Back-End</small>
-              </div>
-            </div>
+          <div class="row g-4">
+              @foreach ($DataTeam as $Data)
+                  <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                      <div class="team-item">
+                      <div class="overflow-hidden position-relative">
+                          <img class="img-fluid" src="{{ asset($Data->foto_team) }}" alt="{{ $Data->nama_team }}" />
+                          <div class="team-social">
+                          <a class="btn btn-square" href="{{ $Data->fb_team }}"
+                              ><i class="fab fa-facebook-f"></i
+                          ></a>
+                          <a class="btn btn-square" href="{{ $Data->tw_team }}"
+                              ><i class="fab fa-twitter"></i
+                          ></a>
+                          <a class="btn btn-square" href="{{ $Data->ig_team }}"
+                              ><i class="fab fa-instagram"></i
+                          ></a>
+                          </div>
+                      </div>
+                      <div
+                          class="text-center border border-5 border-light border-top-0 p-4"
+                      >
+                          <h5 class="mb-0">{{ $Data->nama_team }}</h5>
+                          <small>{{ $Data->profesi_team }}</small>
+                      </div>
+                      </div>
+                  </div>
+              @endforeach
           </div>
         </div>
       </div>
-    </div>
-    <!-- Team End -->
+      <!-- Team End -->
 
     <!-- Footer Start -->
     <div

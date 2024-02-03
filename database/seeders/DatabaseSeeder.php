@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(kritik_saran::class);
         $this->call(Type::class);
         $this->call(Item::class);
+        $this->call(DataTeam::class);
+        $this->call(PamfletSeeder::class);
 
     }
 }
