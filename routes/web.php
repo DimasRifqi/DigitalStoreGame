@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\invoiceController;
+use App\Models\User;
+use App\Models\Pamflet;
 use App\Models\testimoni;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,25 +19,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $testimonials = testimoni::all();
-    return view('/before_login/index', compact('testimonials'));
+    $DataPamflet = Pamflet::all();
+    return view('/before_login/index', compact('testimonials', 'DataPamflet'));
 });
 
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SearchGameController;
-use App\Http\Controllers\Topup_Controller;
-use App\Http\Controllers\Topup1_Controller;
-use App\Http\Controllers\Auth_Controller;
-use App\Http\Controllers\DataTeamController;
-use App\Http\Controllers\User_Controller;
-use App\Http\Controllers\UserController;
-use App\Models\User;
-use App\Http\Controllers\ItemController;
-use App\Http\Controllers\PamfletController;
-use App\Http\Controllers\testimoniController;
 use App\Http\Controllers\WAController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth_Controller;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\User_Controller;
+use App\Http\Controllers\Topup_Controller;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\invoiceController;
+use App\Http\Controllers\PamfletController;
+use App\Http\Controllers\Topup1_Controller;
+use App\Http\Controllers\DataTeamController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\testimoniController;
+use App\Http\Controllers\SearchGameController;
 
 //Route::get('/api/items', [ItemController::class, 'items']);
 Route::get('/about', [Controller::class, 'aboutctrl'])->name('about');
