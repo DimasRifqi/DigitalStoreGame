@@ -22,17 +22,23 @@ class testimoniController extends Controller
 
         ]);
 
+        $imageName = time() . '.' . $request->foto_testimoni->getClientOriginalExtension();
+        $request->foto_testimoni->move(public_path('img/Testimoni'), $imageName);
 
-        $imagePath = $request->file('foto_testimoni')->store('testimonials', 'public');
-
-        $testimonial = new testimoni;
+        $testimonial = new Testimoni;
         $testimonial->nama_testimoni = $validatedData['nama_testimoni'];
         $testimonial->pekerjaan_testimoni = $validatedData['pekerjaan_testimoni'];
         $testimonial->komentar_testimoni = $validatedData['komentar_testimoni'];
-        $testimonial->foto_testimoni = $imagePath;
-
-
+        $testimonial->foto_testimoni = 'img/testimoni/' . $imageName;
         $testimonial->save();
+
+        // $imagePath = $request->file('foto_testimoni')->store('testimonials', 'public');
+        // $testimonial = new testimoni;
+        // $testimonial->nama_testimoni = $validatedData['nama_testimoni'];
+        // $testimonial->pekerjaan_testimoni = $validatedData['pekerjaan_testimoni'];
+        // $testimonial->komentar_testimoni = $validatedData['komentar_testimoni'];
+        // $testimonial->foto_testimoni = $imagePath;
+        // $testimonial->save();
 
         return redirect()->route('widget')->with('success', 'Testimonial created successfully');
     }

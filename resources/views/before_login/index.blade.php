@@ -592,8 +592,9 @@
             <div class="owl-carousel testimonial-carousel">
                 @foreach ($testimonials as $testimonial)
                 <div class="testimonial-item text-center">
-                    {{-- <img src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" alt="{{ $testimonial->nama_testimoni }}" class="img-fluid" style="width: 150px; height: 100px" /> --}}
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;">
+
+                    {{-- <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;"> --}}
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset($testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;">
                     <div class="testimonial-text text-center p-4">
                         <p>{{ $testimonial->komentar_testimoni }}</p>
                         <h5 class="mb-1">{{ $testimonial->nama_testimoni }}</h5>

@@ -215,7 +215,7 @@
                         <tr>
                             <td>{{ $testimonial->id_testimoni }}</td>
                             <td>
-                                <img src="{{ asset('storage/' . $testimonial->foto_testimoni) }}" alt="{{ $testimonial->nama_testimoni }}" class="img-fluid" style="width: 150px; height: 100px" />
+                                <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset($testimonial->foto_testimoni) }}" style="width: 150px; height: 150px;">
 
                             </td>
                             <td>{{ $testimonial->nama_testimoni }}</td>
